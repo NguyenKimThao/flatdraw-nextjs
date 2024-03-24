@@ -7,6 +7,10 @@ const colorBoxs = {
     "color": "hotpink",
     "wireframe": "yellow"
   },
+  "black": {
+    "color": "black",
+    "wireframe": "yellow"
+  },
   "white": {
     "color": "white",
     "wireframe": "yellow"
@@ -243,9 +247,9 @@ interface BoxCubeProps {
   style?: CSSProperties;
 }
 
-function BoxCube({ type, position, boxes, show, count, color, doc }: BoxCubeProps) {
+function BoxCube({ type, position, boxGroup, show, count, color, doc }: BoxCubeProps) {
 
-  if (type != 'group') {
+  if (type == 'boxCube') {
     switch (count) {
       case 1:
         return BoxOne({ color, position });
@@ -261,12 +265,12 @@ function BoxCube({ type, position, boxes, show, count, color, doc }: BoxCubeProp
         return BoxThree({ color, position });
     }
   }
-  if (show === false) {
+  if (show === false || !boxGroup) {
     return (<></>)
   }
   return (
     <group>
-      {boxes.map((box, idx) => {
+      {boxGroup.map((box, idx) => {
 
         let positionNew = [0, 0, 0];
         if (box.position) {

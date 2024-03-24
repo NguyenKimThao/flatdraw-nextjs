@@ -61,7 +61,7 @@ export default function MenuTabBoxGroups() {
   const deleteCanvasBoxLayer = useCanvasObjects((state) => state.deleteCanvasBoxLayer);
   const deleteCanvasBoxGroup = useCanvasObjects((state) => state.deleteCanvasBoxGroup);
   const setActiveBoxGroupId = useActiveBoxGroupId((state) => state.setActiveBoxGroupId);
-  const activeObjectLayer = boxLayerObjects.find((object) => object.id === activeBoxLayerId);
+  const activeObjectLayer = boxLayerObjects?.find((object) => object.id === activeBoxLayerId);
   const activeObject = activeObjectLayer?.boxGroup?.find((object) => object.id === activeBoxGroupId);
 
   return (

@@ -9,39 +9,39 @@ export const menuTabsDefinition: {
   label: string;
   icon: ReactNode;
 }[] = [
-  {
-    id: 'canvas',
-    label: 'Canvas',
-    icon: <BsImageFill />,
-  },
-  {
-    id: 'download',
-    label: 'Download',
-    icon: <FaCloudDownloadAlt />,
-  },
-  {
-    id: 'layers',
-    label: 'Layers',
-    icon: <BsLayersFill />,
-  },
-  {
-    id: 'boxGroups',
-    label: 'Box Groups',
-    icon: <BsLayersFill />,
-  },
-  {
-    id: 'boxLayers',
-    label: 'Box Layers',
-    icon: <BsLayersFill />,
-  },
-  {
-    id: 'settings',
-    label: 'Settings',
-    icon: <FaCog />,
-  },
-  {
-    id: 'about',
-    label: 'About',
-    icon: <FaInfoCircle />,
-  },
-];
+    {
+      id: 'canvas',
+      label: 'Canvas',
+      icon: <BsImageFill />,
+    },
+    {
+      id: 'download',
+      label: 'Download',
+      icon: <FaCloudDownloadAlt />,
+    },
+    {
+      id: 'layers',
+      label: 'Layers',
+      icon: <BsLayersFill />,
+    },
+    {
+      id: 'boxGroups',
+      label: 'Box Groups',
+      icon: <BsLayersFill />,
+    },
+    {
+      id: 'boxLayers',
+      label: 'Box Layers',
+      icon: <BsLayersFill />,
+    },
+    {
+      id: 'settings',
+      label: 'Settings',
+      icon: <FaCog />,
+    },
+    {
+      id: 'about',
+      label: 'About',
+      icon: <FaInfoCircle />,
+    },
+  ];

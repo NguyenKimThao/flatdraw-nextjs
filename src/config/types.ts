@@ -23,7 +23,7 @@ type CanvasObjectType =
   | 'text'
   | 'icon'
   | 'image'
-  | 'cube'
+  | 'boxCube'
   | 'boxGroup'
   | 'boxLayer';
 
@@ -77,19 +77,19 @@ export type FreeDrawObject = ObjectCommonProperties & {
 export type TextObject = ObjectCommonProperties & {
   type: 'text';
 } & Pick<
-    CanvasObject,
-    | 'text'
-    | 'textJustify'
-    | 'textAlignHorizontal'
-    | 'textAlignVertical'
-    | 'fontColorHex'
-    | 'fontSize'
-    | 'fontFamily'
-    | 'fontStyle'
-    | 'fontVariant'
-    | 'fontWeight'
-    | 'fontLineHeightRatio'
-  >;
+  CanvasObject,
+  | 'text'
+  | 'textJustify'
+  | 'textAlignHorizontal'
+  | 'textAlignVertical'
+  | 'fontColorHex'
+  | 'fontSize'
+  | 'fontFamily'
+  | 'fontStyle'
+  | 'fontVariant'
+  | 'fontWeight'
+  | 'fontLineHeightRatio'
+>;
 
 export type IconObject = ObjectCommonProperties & {
   type: 'icon';
@@ -99,12 +99,24 @@ export type ImageObject = ObjectCommonProperties & {
   type: 'image';
 } & Pick<CanvasObject, 'imageUrl' | 'imageElement'>;
 
+export interface BoxCubeObject {
+  id: string;
+  name: string;
+  type: CanvasObjectType;
+  position: number[];
+  boxGroupId: string;
+  color: string;
+  count: number;
+  doc: number;
+}
+
+
 export interface BoxGroupObject {
   id: string;
   name: string;
   type: CanvasObjectType;
   position: number[];
-  boxGroup?: BoxGroupObject[];
+  boxGroup?: BoxCubeObject[];
 }
 
 export interface BoxLayerObject {

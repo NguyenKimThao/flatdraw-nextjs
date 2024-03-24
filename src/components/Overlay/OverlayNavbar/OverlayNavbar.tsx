@@ -101,8 +101,8 @@ const userModeButtonsSecondary: UserModeButton[] = [
     icon: <BsImageFill />,
   },
   {
-    mode: 'cube',
-    label: 'Cube',
+    mode: 'boxCube',
+    label: 'BoxCube',
     icon: <BsImageFill />,
   },
 ];

@@ -24,6 +24,7 @@ import getCursorFromModes from '~/utils/getCursorFromModes';
 import getDimensionsFromFreeDraw from '~/utils/getDimensionsFromFreeDraw';
 import getRelativeMousePositionOnCanvas from '~/utils/getRelativeMousePositionOnCanvas';
 import isCursorWithinRectangle from '~/utils/isCursorWithinRectangle';
+import BoxCube from './BoxCube';
 
 const FixedMain = styled('main')`
   position: fixed;
@@ -51,6 +52,7 @@ export default function Canvas() {
   const setActiveObjectId = useActiveObjectId((state) => state.setActiveObjectId);
 
   const canvasObjects = useCanvasObjects((state) => state.canvasObjects);
+  const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
   const appendRectangleObject = useCanvasObjects((state) => state.appendRectangleObject);
   const appendEllipseObject = useCanvasObjects((state) => state.appendEllipseObject);
   const appendFreeDrawObject = useCanvasObjects((state) => state.appendFreeDrawObject);
@@ -439,7 +441,7 @@ export default function Canvas() {
       onTouchMove={onPointerMove}
       onTouchEnd={onPointerUp}
     >
-      <canvas
+      {/* <canvas
         id={CANVAS_CONTROLS_OVERLAY}
         style={{
           position: 'absolute',
@@ -451,7 +453,7 @@ export default function Canvas() {
         }}
         width={windowSize.width}
         height={windowSize.height}
-      />
+      /> */}
 
       {/* <div
         style={{
@@ -484,11 +486,13 @@ export default function Canvas() {
         <OrbitControls minDistance={zoom / 10} maxDistance={zoom / 10} />
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 15, 10]} angle={0.3} />
-        <mesh position={[0, 0, 0]}>
-          <boxGeometry attach="geometry" />
-          <meshLambertMaterial attach="material" color={"white"} />
-        </mesh>
+        {boxLayerObjects.map((box, idx) => {
+          return (
+            <BoxCube key={box.id} {...box} />
+          )
+        })}
+
       </CanvasThree>
-    </FixedMain>
+    </FixedMain >
   );
 }

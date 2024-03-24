@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { MdOutlineCreateNewFolder } from 'react-icons/md';
+import { MdOutlineCreateNewFolder, MdControlPointDuplicate } from 'react-icons/md';
 import theme from '~/theme';
 
 import { Input, Button, ActionIcon, Tooltip } from '@mantine/core';
@@ -33,19 +33,32 @@ export default function BoxGroupControl() {
   const setActiveBoxGroupId = useActiveBoxGroupId((state) => state.setActiveBoxGroupId);
   const setUserMode = useUserMode((state) => state.setUserMode);
   const appendBoxGroupObject = useCanvasObjects((state) => state.appendBoxGroupObject);
+  const updateBoxGroupObject = useCanvasObjects((state) => state.updateBoxGroupObject);
+
 
   const activeBoxLayerId = useActiveBoxLayerId((state) => state.activeBoxLayerId);
+  const activeBoxGroupId = useActiveBoxGroupId((state) => state.activeBoxGroupId);
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
 
-  const activeObject = boxLayerObjects.find((object) => object.id === activeBoxLayerId);
+  const activeObjectLayer = boxLayerObjects?.find((object) => object.id === activeBoxLayerId);
+  const activeObject = activeObjectLayer?.boxGroup?.find((object) => object.id === activeBoxGroupId);
 
-  if (!activeObject) {
+  if (!activeObjectLayer) {
     return null;
   }
 
+  useEffect(() => {
+    if (activeObject) {
+      setDefaultParams({
+        nameBoxGroup: activeObject.name,
+        positionBoxGroup: activeObject.position,
+      });
+    }
+  }, [activeObject]);
+
   return (
     <>
-      <ControlHeader title="Box Group" />
+      <ControlHeader title={activeObject ? 'Edit Box Group' : 'Create Box Group'} />
       <ControlHeader title="Name" />
       <Input
         size="xs"
@@ -98,41 +111,84 @@ export default function BoxGroupControl() {
         />
       </FrameGridDiv>
       <ControlHeader title="Actions" />
-      <ActionsUl>
-        <li>
-          <Button
-            leftIcon={<MdOutlineCreateNewFolder />}
-            variant="default"
-            size="xs"
-            onClick={() => {
-              const createdBoxGroupId = generateUniqueId();
-              appendBoxGroupObject(activeObject.id, {
-                id: createdBoxGroupId,
-                position: defaultParams.positionBoxGroup,
-                name: defaultParams.nameBoxGroup,
-                type: 'boxGroup',
-              });
-              setActiveBoxGroupId(createdBoxGroupId);
-              setDefaultParams({ positionBoxGroup: [0, 0, 0], nameBoxGroup: '' });
-              setUserMode('select');
-            }}
-          >
-            Create
-          </Button>
-        </li>
-        <li>
-          <Button
-            leftIcon={<MdOutlineCreateNewFolder />}
-            variant="default"
-            size="xs"
-            onClick={() => {
-              setActiveBoxGroupId(null);
-            }}
-          >
-            No Active
-          </Button>
-        </li>
-      </ActionsUl>
+      {!activeObject &&
+        <ActionsUl>
+          <li>
+            <Button
+              leftIcon={<MdOutlineCreateNewFolder />}
+              variant="default"
+              size="xs"
+              onClick={() => {
+                const createdBoxGroupId = generateUniqueId();
+                appendBoxGroupObject(activeObjectLayer?.id, {
+                  id: createdBoxGroupId,
+                  position: defaultParams.positionBoxGroup,
+                  name: defaultParams.nameBoxGroup,
+                  type: 'boxGroup',
+                });
+                setActiveBoxGroupId(createdBoxGroupId);
+                setDefaultParams({ positionBoxGroup: [0, 0, 0], nameBoxGroup: '' });
+                setUserMode('select');
+              }}
+            >
+              Create
+            </Button>
+          </li>
+        </ActionsUl>
+      }
+      {activeObject &&
+        <ActionsUl>
+          <li>
+            <Button
+              leftIcon={<MdOutlineCreateNewFolder />}
+              variant="default"
+              size="xs"
+              onClick={() => {
+                updateBoxGroupObject(activeObjectLayer?.id, {
+                  id: activeObject.id,
+                  position: defaultParams.positionBoxGroup,
+                  name: defaultParams.nameBoxGroup,
+                  type: 'boxGroup',
+                });
+              }}
+            >
+              Update
+            </Button>
+          </li>
+          <li>
+            <Button
+              leftIcon={<MdControlPointDuplicate />}
+              variant="default"
+              size="xs"
+              onClick={() => {
+                const createdBoxGroupId = generateUniqueId();
+                appendBoxGroupObject(activeObjectLayer?.id, {
+                  id: createdBoxGroupId,
+                  position: [activeObject.position[0] + 5, activeObject.position[1] + 5, activeObject.position[2]],
+                  name: activeObject.name,
+                  type: 'boxGroup',
+                });
+                setActiveBoxGroupId(createdBoxGroupId);
+                setUserMode('select');
+              }}
+            >
+              Duplicate
+            </Button>
+          </li>
+          <li>
+            <Button
+              leftIcon={<MdOutlineCreateNewFolder />}
+              variant="default"
+              size="xs"
+              onClick={() => {
+                setActiveBoxGroupId(null);
+              }}
+            >
+              No Active
+            </Button>
+          </li>
+        </ActionsUl>
+      }
     </>
   );
 }

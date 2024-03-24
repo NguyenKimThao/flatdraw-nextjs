@@ -2,9 +2,11 @@ import styled from '@emotion/styled';
 import { ActionIcon, Tooltip } from '@mantine/core';
 import React from 'react';
 import { FaPlus, FaMinus } from 'react-icons/fa';
-import { IoLocateSharp } from 'react-icons/io5';
+import { IoLocateSharp, IoSaveSharp, IoAddSharp } from 'react-icons/io5';
 
 import useCanvasContext from '~/context/useCanvasContext';
+import useLocalstogare from '~/hooks/useLocalstogare';
+import useCanvasObjects from '~/store/useCanvasObjects';
 import useZoom from '~/store/useZoom';
 import theme from '~/theme';
 
@@ -14,7 +16,7 @@ const Ul = styled('ul')`
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, auto));
+  grid-template-columns: repeat(6, minmax(0, auto));
   align-items: center;
   grid-gap: ${theme.variables.overlayItemsGutter};
 
@@ -32,9 +34,43 @@ export default function OverlayZoom() {
   const zoom = useZoom((state) => state.zoom);
   const incrementZoom = useZoom((state) => state.incrementZoom);
   const decrementZoom = useZoom((state) => state.decrementZoom);
+  const { getBoxLayerObject, setBoxLayerObject } = useLocalstogare();
+  const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
+  const setBoxLayerObjects = useCanvasObjects((state) => state.setBoxLayerObjects);
 
   return (
     <Ul>
+      <li>
+        <Tooltip position="top" label="Save" offset={8}>
+          <ActionIcon
+            size="xl"
+            variant="default"
+            onClick={() => {
+              setBoxLayerObject(boxLayerObjects);
+            }}
+          >
+            <IoSaveSharp />
+          </ActionIcon>
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip position="top" label="Load" offset={8}>
+          <ActionIcon
+            size="xl"
+            variant="default"
+            onClick={() => {
+              if (boxLayerObjects.length == 0) {
+                let obj = getBoxLayerObject();
+                console.log('obj', obj)
+                setBoxLayerObjects(obj)
+              }
+
+            }}
+          >
+            <IoAddSharp />
+          </ActionIcon>
+        </Tooltip>
+      </li>
       <li>
         <Tooltip position="top" label="Reset position" offset={8}>
           <ActionIcon

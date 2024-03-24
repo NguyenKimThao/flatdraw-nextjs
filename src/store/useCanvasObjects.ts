@@ -12,6 +12,7 @@ import type {
   BoxGroupObject,
   ActionModeOption,
   CanvasWorkingSize,
+  BoxCubeObject,
 } from '~/config/types';
 import generateUniqueId from '~/utils/generateUniqueId';
 import getPositionFromDrawingPoints from '~/utils/getPositionFromDrawingPoints';
@@ -67,7 +68,12 @@ const useCanvasObjects = create<{
   appendTextObject: (text: Omit<TextObject, 'type'>) => void;
   appendIconObject: (icon: Omit<IconObject, 'type'>) => void;
   appendBoxLayerObject: (icon: Omit<BoxLayerObject, 'type'>) => void;
-  appendBoxGroupObject: (id: string, icon: BoxGroupObject) => void;
+  appendBoxGroupObject: (id: string, box: BoxGroupObject) => void;
+  updateBoxGroupObject: (id: string, box: BoxGroupObject) => void;
+  appendBoxCubeObject: (boxLayerId: string, boxGroupId: string, cube: BoxCubeObject) => void;
+  updateBoxCubeObject: (boxLayerId: string, boxGroupId: string, cube: BoxCubeObject) => void;
+  removeBoxCubeObject: (boxLayerId: string, boxGroupId: string, cubeId: string) => void;
+  setBoxLayerObjects: (boxs: BoxLayerObject[]) => void;
   appendImageObject: (icon: Omit<ImageObject, 'type'>) => void;
   updateCanvasObject: (id: string, object: Partial<CanvasObject>) => void;
   appendFreeDrawPointToCanvasObject: (id: string, point: { x: number; y: number }) => void;
@@ -90,7 +96,6 @@ const useCanvasObjects = create<{
 }>((set) => ({
   canvasObjects: [],
   boxLayerObjects: [],
-  boxGroupObjects: [],
   appendRectangleObject: (rectangle) =>
     set((state) => ({
       ...state,
@@ -179,6 +184,87 @@ const useCanvasObjects = create<{
         ...state,
       };
     }),
+  updateBoxGroupObject: (id, boxGroup) =>
+    set((state) => {
+      let boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
+      if (!boxLayer || !boxLayer.boxGroup) {
+        return state;
+      }
+      for (let i = 0; i < boxLayer.boxGroup.length; i++) {
+        if (boxLayer.boxGroup[i].id == boxGroup.id) {
+          boxLayer.boxGroup[i] = boxGroup;
+        }
+      }
+      return {
+        ...state,
+        boxLayerObjects: [...state.boxLayerObjects]
+      };
+    }),
+  appendBoxCubeObject: (boxLayerId, boxGroupId, cubeLayer) =>
+    set((state) => {
+      let boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
+      if (!boxLayer) {
+        return state;
+      }
+      let boxGroup = boxLayer.boxGroup?.find((boxGroup) => boxGroup.id === boxGroupId);
+      if (!boxGroup) {
+        return state;
+      }
+
+      if (!boxGroup.boxGroup) {
+        boxGroup.boxGroup = [cubeLayer]
+      } else {
+        boxGroup?.boxGroup.push(cubeLayer);
+      }
+      return {
+        ...state,
+        boxLayerObjects: [...state.boxLayerObjects]
+      };
+    }),
+  updateBoxCubeObject: (boxLayerId, boxGroupId, cubeLayer) =>
+    set((state) => {
+      let boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
+      if (!boxLayer) {
+        return state;
+      }
+      let boxGroup = boxLayer.boxGroup?.find((boxGroup) => boxGroup.id === boxGroupId);
+      if (!boxGroup) {
+        return state;
+      }
+      if (!boxGroup.boxGroup) {
+        return state;
+      }
+      for (let i = 0; i < boxGroup.boxGroup.length; i++) {
+        if (boxGroup.boxGroup[i].id == cubeLayer.id) {
+          boxGroup.boxGroup[i] = cubeLayer;
+          break;
+        }
+      }
+      return {
+        ...state,
+        boxLayerObjects: [...state.boxLayerObjects]
+      };
+    }),
+  removeBoxCubeObject: (boxLayerId, boxGroupId, cubeId) =>
+    set((state) => {
+      let boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
+      if (!boxLayer) {
+        return state;
+      }
+      let boxGroup = boxLayer.boxGroup?.find((boxGroup) => boxGroup.id === boxGroupId);
+      if (!boxGroup) {
+        return state;
+      }
+      if (!boxGroup.boxGroup) {
+        return state;
+      }
+      boxGroup.boxGroup = boxGroup.boxGroup.filter((cube) => cube.id !== cubeId);
+      return {
+        ...state,
+        boxLayerObjects: [...state.boxLayerObjects]
+      };
+    }),
+  setBoxLayerObjects: (boxs) => set((state) => ({ ...state, boxLayerObjects: [...boxs] })),
   appendImageObject: (icon) =>
     set((state) => ({
       ...state,

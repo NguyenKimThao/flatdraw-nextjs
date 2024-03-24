@@ -14,7 +14,7 @@ const useCookies = (): {
   setDeviceHash: () => void;
   getSavedColoScheme: () => ColorScheme;
   getBoxLayerObject: () => any;
-  setBoxLayerObject: (data: any) => unknown;
+  setBoxLayerObject: (data: string) => unknown;
   setSavedColoScheme: (colorScheme: ColorScheme) => void;
 } => ({
   getUserAcceptsCookies: (): boolean => parseCookies()[CookieTypes.UserAcceptsCookies] === 'true',

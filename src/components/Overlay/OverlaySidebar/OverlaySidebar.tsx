@@ -21,6 +21,7 @@ import StrokeWidthControl from './controls/StrokeWidthControl';
 import TextControl from './controls/TextControl';
 import BoxLayerControl from './controls/BoxLayerControl';
 import BoxGroupControl from './controls/BoxGroupControl';
+import BoxCubeControl from './controls/BoxCubeControl';
 
 const Aside = styled('aside')`
   pointer-events: auto;
@@ -52,6 +53,7 @@ export default function OverlaySidebar() {
     images: userMode === 'image',
     boxLayer: userMode === 'boxLayer',
     boxGroup: userMode === 'boxGroup',
+    boxCube: userMode === 'boxCube',
     frame: !!activeObject,
     align: !!activeObject,
     backgroundColor: activeObject?.type === 'rectangle' || activeObject?.type === 'ellipse' || activeObject?.type === 'icon',
@@ -83,6 +85,7 @@ export default function OverlaySidebar() {
         {activeNodes.icons && <IconControl />}
         {activeNodes.boxLayer && <BoxLayerControl />}
         {activeNodes.boxGroup && <BoxGroupControl />}
+        {activeNodes.boxCube && <BoxCubeControl />}
         {activeNodes.backgroundColor && <BackgroundControl />}
         {activeNodes.strokeWidth && <StrokeWidthControl />}
         {activeNodes.strokeColor && <StrokeColorControl />}

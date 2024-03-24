@@ -11,6 +11,8 @@ import useDefaultParams from '~/store/useDefaultParams';
 import generateUniqueId from '~/utils/generateUniqueId';
 
 import { H4 } from '../commonTabComponents';
+import useLocalstogare from '~/hooks/useLocalstogare';
+import useCanvasObjects from '~/store/useCanvasObjects';
 
 const DownloadButtonsGridDiv = styled('div')`
   display: inline-grid;
@@ -21,6 +23,9 @@ const DownloadButtonsGridDiv = styled('div')`
 
 export default function MenuTabDownload() {
   const defaultParams = useDefaultParams((state) => state.defaultParams);
+
+  const { setBoxLayerObject } = useLocalstogare();
+  const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
 
   const canvasWorkingSize = useCanvasWorkingSize((state) => state.canvasWorkingSize);
 
@@ -36,6 +41,10 @@ export default function MenuTabDownload() {
     a.click();
     a.remove();
   };
+
+  const saveStorage = () => {
+
+  }
 
   return (
     <>
@@ -61,6 +70,16 @@ export default function MenuTabDownload() {
           leftIcon={<FaDownload />}
         >
           JPG
+        </Button>
+        <Button
+          size="xs"
+          variant="default"
+          onClick={() => {
+            saveStorage();
+          }}
+          leftIcon={<FaDownload />}
+        >
+          Save Stogare
         </Button>
       </DownloadButtonsGridDiv>
       <H4>
