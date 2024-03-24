@@ -235,36 +235,72 @@ function BoxThreeDoc({ color, position }: BoxProps) {
   )
 }
 
-interface BoxCubeProps {
-  children: ReactNode;
-  type?: string;
-  boxes: any[];
+interface BoxDrawProps {
   position: number[];
   show?: boolean;
-  count?: number;
-  doc?: number;
+  count: number;
   color: string;
-  style?: CSSProperties;
+  doc: number;
 }
 
-function BoxCube({ type, position, boxGroup, show, count, color, doc }: BoxCubeProps) {
+interface BoxGroupProps {
+  boxGroup: any[];
+  position: number[];
+  show?: boolean;
+}
 
-  if (type == 'boxCube') {
-    switch (count) {
-      case 1:
-        return BoxOne({ color, position });
-      case 2:
-        if (doc) {
-          return BoxTwoDoc({ color, position });
-        }
-        return BoxTwo({ color, position });
-      case 3:
-        if (doc) {
-          return BoxThreeDoc({ color, position });
-        }
-        return BoxThree({ color, position });
-    }
+
+interface BoxCubeProps {
+  boxGroup: any[];
+  position: number[];
+  show?: boolean;
+}
+
+
+function BoxDraw({ position, show, count, color, doc }: BoxDrawProps) {
+  if (show === false) {
+    return (<></>)
   }
+  switch (count) {
+    case 1:
+      return BoxOne({ color, position });
+    case 2:
+      if (doc) {
+        return BoxTwoDoc({ color, position });
+      }
+      return BoxTwo({ color, position });
+    case 3:
+      if (doc) {
+        return BoxThreeDoc({ color, position });
+      }
+      return BoxThree({ color, position });
+  }
+}
+
+function BoxGroup({ position, boxGroup, show }: BoxGroupProps) {
+
+  if (show === false || !boxGroup) {
+    return (<></>)
+  }
+
+  return (
+    <group>
+      {boxGroup.map((box, idx) => {
+
+        let positionNew = [0, 0, 0];
+        if (box.position) {
+          positionNew = [...box.position];
+        }
+        positionNew[0] = positionNew[0] + position[0]
+        positionNew[1] = positionNew[1] + position[1]
+        positionNew[2] = positionNew[2] + position[2]
+        return <BoxDraw {...box} position={positionNew} key={idx} />
+      })}
+    </group>
+  )
+}
+
+function BoxCube({ position, boxGroup, show }: BoxCubeProps) {
   if (show === false || !boxGroup) {
     return (<></>)
   }
@@ -279,7 +315,7 @@ function BoxCube({ type, position, boxGroup, show, count, color, doc }: BoxCubeP
         positionNew[0] = positionNew[0] + position[0]
         positionNew[1] = positionNew[1] + position[1]
         positionNew[2] = positionNew[2] + position[2]
-        return <BoxCube {...box} position={positionNew} key={idx} />
+        return <BoxGroup {...box} position={positionNew} key={idx} />
       })}
     </group>
   )
