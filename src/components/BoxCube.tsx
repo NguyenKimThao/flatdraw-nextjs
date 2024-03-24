@@ -1,4 +1,4 @@
-import React, { type ReactNode, type CSSProperties } from "react";
+import React, { type ReactNode, type CSSProperties, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
@@ -257,7 +257,7 @@ interface BoxCubeProps {
 }
 
 
-function BoxDraw({ position, show, count, color, doc }: BoxDrawProps) {
+const BoxDraw = ({ position, show, count, color, doc }: BoxDrawProps) => {
   if (show === false) {
     return (<></>)
   }
@@ -277,11 +277,56 @@ function BoxDraw({ position, show, count, color, doc }: BoxDrawProps) {
   }
 }
 
-function BoxGroup({ position, boxGroup, show }: BoxGroupProps) {
+const BoxGroup = ({ position, boxGroup, show }: BoxGroupProps) => {
+
+  const [scaleBox, setScaleBox] = useState([0, 0, 0])
+
+  useEffect(() => {
+    let s = [0, 0, 0]
+    boxGroup.forEach((box) => {
+      console.log('box', box)
+      switch (box.count) {
+        case 1:
+          if (s[0] <= position[0]) s[0] = position[0] + 1;
+          if (s[1] <= position[1]) s[1] = position[1] + 1;
+          if (s[2] <= position[2]) s[2] = position[2] + 1;
+          break;
+        case 2:
+          if (box.doc) {
+            if (s[0] <= position[0]) s[0] = position[0] + 1;
+            if (s[1] <= position[1]) s[1] = position[1] + 2;
+            if (s[2] <= position[2]) s[2] = position[2] + 1;
+          } else {
+            if (s[0] <= position[0]) s[0] = position[0] + 2;
+            if (s[1] <= position[1]) s[1] = position[1] + 1;
+            if (s[2] <= position[2]) s[2] = position[2] + 1;
+          }
+          break;
+        case 3:
+          if (box.doc) {
+            if (s[0] <= position[0]) s[0] = position[0] + 1;
+            if (s[1] <= position[1]) s[1] = position[1] + 3;
+            if (s[2] <= position[2]) s[2] = position[2] + 1;
+          } else {
+            if (s[0] <= position[0]) s[0] = position[0] + 3;
+            if (s[1] <= position[1]) s[1] = position[1] + 1;
+            if (s[2] <= position[2]) s[2] = position[2] + 1;
+          }
+          break;
+      }
+      // console.log('s', s)
+      // s[0] = s[0] + 0.2;
+      // s[2] = s[2] + 0.2;
+      setScaleBox(s);
+    })
+  }, [boxGroup])
+
 
   if (show === false || !boxGroup) {
     return (<></>)
   }
+
+
 
   return (
     <group>

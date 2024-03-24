@@ -130,12 +130,12 @@ export default function BoxCubeControl() {
       />
       <ControlHeader title="Count" />
       <NativeSelect
-        key={`count-select-${defaultParams.countBoxCube}`}
+        key={`count-cube-select-${defaultParams.countBoxCube}`}
         size="xs"
         data={[
           { value: '1', label: '1' },
           { value: '2', label: '2' },
-          { value: '2', label: '3' },
+          { value: '3', label: '3' },
         ]}
         value={defaultParams.countBoxCube}
         onChange={(event) => {
