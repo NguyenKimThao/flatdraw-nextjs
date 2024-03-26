@@ -257,7 +257,7 @@ interface BoxCubeProps {
 }
 
 
-const BoxDraw = ({ position, show, count, color, doc }: BoxDrawProps) => {
+export const BoxDraw = ({ position, show, count, color, doc }: BoxDrawProps) => {
   if (show === false) {
     return (<></>)
   }

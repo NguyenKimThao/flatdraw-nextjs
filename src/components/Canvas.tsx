@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import React, { useRef, type PointerEvent, type Touch, type TouchEvent, useEffect } from 'react';
-import { Canvas as CanvasThree, useFrame } from "@react-three/fiber";
+import React, { useRef, type PointerEvent, type Touch, type TouchEvent, useEffect, useState } from 'react';
+import { Canvas as CanvasThree, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
 import { TRANSPARENT_BACKGROUND_IMAGE } from '~/config/constants';
@@ -24,7 +24,10 @@ import getCursorFromModes from '~/utils/getCursorFromModes';
 import getDimensionsFromFreeDraw from '~/utils/getDimensionsFromFreeDraw';
 import getRelativeMousePositionOnCanvas from '~/utils/getRelativeMousePositionOnCanvas';
 import isCursorWithinRectangle from '~/utils/isCursorWithinRectangle';
-import BoxCube from './BoxCube';
+import BoxCube, { BoxDraw } from './BoxCube';
+import useActiveBoxLayerId from '~/store/useBoxLayerId';
+import useActiveBoxGroupId from '~/store/useBoxGroupId';
+import useActiveBoxCubeId from '~/store/useBoxCubeId';
 
 const FixedMain = styled('main')`
   position: fixed;
@@ -39,6 +42,63 @@ const FixedMain = styled('main')`
 `;
 
 type PointerOrTouchEvent = PointerEvent<HTMLElement> | TouchEvent<HTMLElement>;
+
+const CanvasBox = () => {
+  const zoom = useZoom((state) => state.zoom);
+  const { camera } = useThree();
+  const [position, setPostion] = useState([0, 0, 0]);
+  const [positionIndex, setPostionIndex] = useState([0, 0, 0]);
+  const defaultParams = useDefaultParams((state) => state.defaultParams);
+  const setDefaultParams = useDefaultParams((state) => state.setDefaultParams);
+
+  const activeBoxLayerId = useActiveBoxLayerId((state) => state.activeBoxLayerId);
+  const activeBoxGroupId = useActiveBoxGroupId((state) => state.activeBoxGroupId);
+  const activeBoxCubeId = useActiveBoxCubeId((state) => state.activeBoxCubeId);
+  const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
+
+  const activeObjectLayer = boxLayerObjects?.find((object) => object.id === activeBoxLayerId);
+  const activeObjectGroup = activeObjectLayer?.boxGroup?.find((object) => object.id === activeBoxGroupId);
+  const activeObject = activeObjectGroup?.boxGroup?.find(object => object.id == activeBoxCubeId);
+  const userMode = useUserMode((state) => state.userMode);
+
+  const show = userMode == "boxCube"
+  let distance = zoom / 10;
+
+  useFrame(({ mouse, viewport }) => {
+    if (!show || !activeObjectLayer || !activeObjectLayer.position || !activeObjectGroup || activeObject) {
+      return;
+    }
+    let viewportNew = viewport.getCurrentViewport(camera)
+    const x = (mouse.x * viewportNew.width / 2);
+    const y = (mouse.y * viewportNew.height / 2);
+    const sc = activeObjectLayer.position[2] / distance;
+
+    const newPos = [x - x * sc, y - y * sc, activeObjectLayer.position[2]];
+    if ((position[0] != newPos[0]) || (position[1] != newPos[1]) || (position[2] != newPos[2])) {
+      setPostion(newPos);
+      const pos = [Math.round(position[0]), Math.round(position[1]), Math.round(position[2])]
+      setPostionIndex(pos)
+      setDefaultParams({
+        positionBoxCube: pos
+      })
+    }
+  });
+
+  return (
+    <group>
+      {boxLayerObjects.map((box, idx) => {
+        return (
+          <BoxCube key={box.id} {...box} />
+        )
+      })}
+      <group>
+        <BoxDraw position={position} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
+        <BoxDraw position={positionIndex} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
+      </group>
+    </group>
+  )
+}
+
 
 export default function Canvas() {
   const { canvasRef, contextRef, drawEverything } = useCanvasContext();
@@ -61,10 +121,14 @@ export default function Canvas() {
   const appendFreeDrawPointToCanvasObject = useCanvasObjects((state) => state.appendFreeDrawPointToCanvasObject);
   const moveCanvasObject = useCanvasObjects((state) => state.moveCanvasObject);
   const resizeCanvasObject = useCanvasObjects((state) => state.resizeCanvasObject);
+  const appendBoxCubeObject = useCanvasObjects((state) => state.appendBoxCubeObject);
+  const updateBoxCubeObject = useCanvasObjects((state) => state.updateBoxCubeObject);
+  const removeBoxCubeObject = useCanvasObjects((state) => state.removeBoxCubeObject);
 
   const canvasWorkingSize = useCanvasWorkingSize((state) => state.canvasWorkingSize);
 
   const defaultParams = useDefaultParams((state) => state.defaultParams);
+  const setDefaultParams = useDefaultParams((state) => state.setDefaultParams);
 
   const incrementZoom = useZoom((state) => state.incrementZoom);
   const decrementZoom = useZoom((state) => state.decrementZoom);
@@ -83,6 +147,14 @@ export default function Canvas() {
   const initialDrawingPositionRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
   const activeObject = canvasObjects.find((canvasObject) => canvasObject.id === activeObjectId);
+
+  const activeBoxLayerId = useActiveBoxLayerId((state) => state.activeBoxLayerId);
+  const activeBoxGroupId = useActiveBoxGroupId((state) => state.activeBoxGroupId);
+  const activeBoxCubeId = useActiveBoxCubeId((state) => state.activeBoxCubeId);
+
+  const activeObjectLayer = boxLayerObjects?.find((object) => object.id === activeBoxLayerId);
+  const activeObjectGroup = activeObjectLayer?.boxGroup?.find((object) => object.id === activeBoxGroupId);
+  const activeObjectCube = activeObjectGroup?.boxGroup?.find(object => object.id == activeBoxCubeId);
 
   // On pointer down
 
@@ -382,51 +454,95 @@ export default function Canvas() {
 
   const onPointerUp = (event: PointerOrTouchEvent) => {
     event.preventDefault();
-    setActionMode(null);
-    const canvas = canvasRef.current;
-    const context = contextRef.current;
-    if (!canvas || !context) return;
-
-    previousTouchRef.current = null;
-    if ('touches' in event) {
-      distanceBetweenTouchesRef.current = 0;
+    if (userMode != "boxCube") {
+      return;
     }
 
-    switch (userMode) {
-      case 'select': {
-        break;
-      }
-      case 'text': {
-        break;
-      }
-      case 'free-draw': {
-        context.closePath();
-        if (activeObject) {
-          const dimensions = getDimensionsFromFreeDraw({
-            freeDrawObject: activeObject,
-          });
-          updateCanvasObject(activeObject.id, {
-            width: dimensions.width,
-            height: dimensions.height,
-          });
-        }
-        setUserMode('select');
-        drawEverything();
-        break;
-      }
-      case 'rectangle':
-      case 'ellipse': {
-        setUserMode('select');
-        drawEverything();
-        break;
-      }
-      default: {
-        break;
-      }
+    if (!activeObjectLayer || !activeObjectGroup) {
+      return;
     }
+    if (!activeObjectCube) {
+      const createdBoxCubeId = generateUniqueId();
+      appendBoxCubeObject(activeObjectLayer.id, activeObjectGroup.id, {
+        id: createdBoxCubeId,
+        position: defaultParams.positionBoxCube,
+        name: defaultParams.nameBoxCube,
+        boxGroupId: activeObjectGroup.id,
+        color: defaultParams.colorBoxCube,
+        count: parseInt(defaultParams.countBoxCube) || 0,
+        doc: parseInt(defaultParams.docBoxCube) || 0,
+        type: 'boxCube',
+      });
+      return;
+    }
+    // const canvas = canvasRef.current;
+    // const context = contextRef.current;
+    // if (!canvas || !context) return;
+
+    // previousTouchRef.current = null;
+    // if ('touches' in event) {
+    //   distanceBetweenTouchesRef.current = 0;
+    // }
+
+    // switch (userMode) {
+    //   case 'select': {
+    //     break;
+    //   }
+    //   case 'text': {
+    //     break;
+    //   }
+    //   case 'free-draw': {
+    //     context.closePath();
+    //     if (activeObject) {
+    //       const dimensions = getDimensionsFromFreeDraw({
+    //         freeDrawObject: activeObject,
+    //       });
+    //       updateCanvasObject(activeObject.id, {
+    //         width: dimensions.width,
+    //         height: dimensions.height,
+    //       });
+    //     }
+    //     setUserMode('select');
+    //     drawEverything();
+    //     break;
+    //   }
+    //   case 'rectangle':
+    //   case 'ellipse': {
+    //     setUserMode('select');
+    //     drawEverything();
+    //     break;
+    //   }
+    //   default: {
+    //     break;
+    //   }
+    // }
   };
+  const onKeyUp = (event: any) => {
+    event.preventDefault();
+    console.log('en', userMode)
+    if (userMode != "boxCube") {
+      return;
+    }
+    if (event.key == "1" || event.key == "2" || event.key == "3") {
+      setDefaultParams({
+        ...defaultParams,
+        countBoxCube: event.key
+      })
+    } else if (event.key == "d") {
+      setDefaultParams({
+        ...defaultParams,
+        docBoxCube: defaultParams.docBoxCube == "1" ? "0" : "1"
+      })
+    }
 
-  console.log('zoom1', zoom)
+  }
+
+  useEffect(() => {
+    document.addEventListener("keyup", onKeyUp);
+    return () => {
+      document.removeEventListener("keyup", onKeyUp);
+    }
+  })
 
   return (
     <FixedMain
@@ -434,6 +550,7 @@ export default function Canvas() {
       style={{
         cursor: getCursorFromModes({ userMode, actionMode }),
       }}
+
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
@@ -482,15 +599,12 @@ export default function Canvas() {
         </h1>
         <canvas ref={canvasRef} width={canvasWorkingSize.width} height={canvasWorkingSize.height} />
       </div> */}
-      <CanvasThree style={{ width: "100%", height: "100vh" }}>
+
+      <CanvasThree onKeyUp={onKeyUp} style={{ width: "100%", height: "100vh" }}>
         <OrbitControls minDistance={zoom / 10} maxDistance={zoom / 10} />
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 15, 10]} angle={0.3} />
-        {boxLayerObjects.map((box, idx) => {
-          return (
-            <BoxCube key={box.id} {...box} />
-          )
-        })}
+        <CanvasBox></CanvasBox>
 
       </CanvasThree>
     </FixedMain >

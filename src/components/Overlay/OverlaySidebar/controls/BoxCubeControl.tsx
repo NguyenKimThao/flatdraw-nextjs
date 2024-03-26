@@ -50,7 +50,6 @@ export default function BoxCubeControl() {
   const activeBoxGroupId = useActiveBoxGroupId((state) => state.activeBoxGroupId);
   const activeBoxCubeId = useActiveBoxCubeId((state) => state.activeBoxCubeId);
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
-  console.log('activeObjectGroup', activeBoxGroupId, boxLayerObjects)
 
   const activeObjectLayer = boxLayerObjects?.find((object) => object.id === activeBoxLayerId);
   const activeObjectGroup = activeObjectLayer?.boxGroup?.find((object) => object.id === activeBoxGroupId);
