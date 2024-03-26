@@ -13,6 +13,8 @@ import useUserMode from '~/store/useUserMode';
 import useCanvasObjects from '~/store/useCanvasObjects';
 import useActiveBoxLayerId from '~/store/useBoxLayerId';
 import useActiveBoxCubeId from '~/store/useBoxCubeId';
+import getAvailableColor from '~/utils/getAvailableColor';
+import useAvailableColors from '~/store/useAvailableColors';
 
 
 const FrameGridDiv = styled('div')`
@@ -42,7 +44,7 @@ export default function BoxCubeControl() {
   const appendBoxCubeObject = useCanvasObjects((state) => state.appendBoxCubeObject);
   const updateBoxCubeObject = useCanvasObjects((state) => state.updateBoxCubeObject);
   const removeBoxCubeObject = useCanvasObjects((state) => state.removeBoxCubeObject);
-
+  const availableColors = useAvailableColors((state) => state.availableColors);
 
   const setActiveBoxCubeId = useActiveBoxCubeId((state) => state.setActiveBoxCubeId);
 
@@ -113,12 +115,14 @@ export default function BoxCubeControl() {
       />
       <ControlHeader title="Color" />
       <NativeSelect
-        key={`idboxcube-selec`}
+        key={`color-cube-select`}
         size="xs"
-        data={[
-          { value: 'white', label: 'Trang' },
-          { value: 'black', label: 'Den' },
-        ]}
+        data={Object.keys(availableColors).map(e => {
+          return {
+            'value': e,
+            'label': availableColors[e].label,
+          }
+        })}
         value={defaultParams?.colorBoxCube}
         onChange={(event) => {
           setDefaultParams({

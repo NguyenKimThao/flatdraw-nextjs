@@ -115,6 +115,7 @@ export interface BoxGroupObject {
   id: string;
   name: string;
   type: CanvasObjectType;
+  show?: boolean;
   position: number[];
   boxGroup?: BoxCubeObject[];
 }
@@ -122,6 +123,7 @@ export interface BoxGroupObject {
 export interface BoxLayerObject {
   id: string;
   name: string;
+  show?: boolean;
   type: CanvasObjectType;
   position: number[];
   boxGroup?: BoxGroupObject[];
@@ -177,3 +179,13 @@ export type ColorPickerType =
   | 'SliderPicker'
   | 'SwatchesPicker'
   | 'TwitterPicker';
+
+export interface ColorBoxType {
+  color: string;
+  wireframe: string;
+  label: string;
+}
+
+export interface MapColorBoxType {
+  [key: string]: ColorBoxType;
+}

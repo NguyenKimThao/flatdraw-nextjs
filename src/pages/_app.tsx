@@ -22,6 +22,8 @@ import theme from '~/theme';
 import colors from '~/theme/colors';
 import globalStyles from '~/theme/styles/global';
 import getAvailableFonts from '~/utils/getAvailableFonts';
+import getAvailableColor from '~/utils/getAvailableColor';
+import useAvailableColors from '~/store/useAvailableColors';
 
 function RouterTransition() {
   const router = useRouter();
@@ -49,6 +51,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   const { getDeviceHash, setDeviceHash, getSavedColoScheme, setSavedColoScheme } = useCookies();
 
   const setAvailableFonts = useAvailableFonts((state) => state.setAvailableFonts);
+  const setAvailableColor = useAvailableColors((state) => state.setAvailableColors);
 
   const [hasAppLoaded, setHasAppLoaded] = useState<boolean>(false);
   const [colorScheme, setColorScheme] = useState<ColorScheme>(DEFAULT_COLOR_SCHEME);
@@ -82,6 +85,10 @@ export default function App({ Component, pageProps, router }: AppProps) {
     (async () => {
       const result = await getAvailableFonts();
       setAvailableFonts(result);
+    })();
+    (async () => {
+      const result = await getAvailableColor();
+      setAvailableColor(result);
     })();
     // Set app ready
     setHasAppLoaded(true);

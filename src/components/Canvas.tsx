@@ -28,6 +28,7 @@ import BoxCube, { BoxDraw } from './BoxCube';
 import useActiveBoxLayerId from '~/store/useBoxLayerId';
 import useActiveBoxGroupId from '~/store/useBoxGroupId';
 import useActiveBoxCubeId from '~/store/useBoxCubeId';
+import useAvailableColors from '~/store/useAvailableColors';
 
 const FixedMain = styled('main')`
   position: fixed;
@@ -155,6 +156,7 @@ export default function Canvas() {
   const activeObjectLayer = boxLayerObjects?.find((object) => object.id === activeBoxLayerId);
   const activeObjectGroup = activeObjectLayer?.boxGroup?.find((object) => object.id === activeBoxGroupId);
   const activeObjectCube = activeObjectGroup?.boxGroup?.find(object => object.id == activeBoxCubeId);
+  const availableColors = useAvailableColors((state) => state.availableColors);
 
   // On pointer down
 
@@ -519,7 +521,6 @@ export default function Canvas() {
   };
   const onKeyUp = (event: any) => {
     event.preventDefault();
-    console.log('en', userMode)
     if (userMode != "boxCube") {
       return;
     }
@@ -534,7 +535,29 @@ export default function Canvas() {
         docBoxCube: defaultParams.docBoxCube == "1" ? "0" : "1"
       })
     }
-
+    else if (event.key == "f") {
+      const ob = Object.keys(availableColors);
+      let idx = ob.indexOf(defaultParams.colorBoxCube);
+      if (idx < 0 || idx == ob.length - 1) {
+        idx = -1
+      }
+      idx = idx + 1
+      setDefaultParams({
+        ...defaultParams,
+        colorBoxCube: ob[idx]
+      })
+    } else if (event.key == "g") {
+      const ob = Object.keys(availableColors);
+      let idx = ob.indexOf(defaultParams.colorBoxCube);
+      if (idx < 0 || idx == 0) {
+        idx = ob.length - 1
+      }
+      idx = idx - 1
+      setDefaultParams({
+        ...defaultParams,
+        colorBoxCube: ob[idx]
+      })
+    }
   }
 
   useEffect(() => {
