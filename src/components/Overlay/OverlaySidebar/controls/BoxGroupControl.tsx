@@ -145,7 +145,7 @@ export default function BoxGroupControl() {
               size="xs"
               onClick={() => {
                 updateBoxGroupObject(activeObjectLayer?.id, {
-                  id: activeObject.id,
+                  ...activeObject,
                   position: defaultParams.positionBoxGroup,
                   name: defaultParams.nameBoxGroup,
                   type: 'boxGroup',

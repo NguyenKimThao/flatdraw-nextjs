@@ -4,6 +4,7 @@
   "author": "Diogo Capela",
   "license": "MIT",
   "scripts": {
+    "start": "npm run dev",
     "clean": "rm -rf dist && rm -rf out && rm -rf node_modules",
     "postinstall": "node -r esm scripts/postinstall.ts",
     "next:dev": "next dev",

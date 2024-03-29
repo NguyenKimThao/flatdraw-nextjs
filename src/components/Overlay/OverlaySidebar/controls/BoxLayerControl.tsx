@@ -33,6 +33,7 @@ export default function BoxLayerControl() {
   const setActiveBoxLayerId = useActiveBoxLayerId((state) => state.setActiveBoxLayerId);
   const setUserMode = useUserMode((state) => state.setUserMode);
   const appendBoxLayerObject = useCanvasObjects((state) => state.appendBoxLayerObject);
+  const updateBoxLayerObject = useCanvasObjects((state) => state.updateBoxLayerObject);
   const setActiveBoxGroupId = useActiveBoxGroupId((state) => state.setActiveBoxGroupId);
 
   const activeBoxLayerId = useActiveBoxLayerId((state) => state.activeBoxLayerId);
@@ -135,8 +136,11 @@ export default function BoxLayerControl() {
                 variant="default"
                 size="xs"
                 onClick={() => {
-                  setActiveBoxGroupId(null);
-                  setActiveBoxLayerId(null);
+                  updateBoxLayerObject(activeObject.id, {
+                    ...activeObject,
+                    position: defaultParams.positionBoxLayer,
+                    name: defaultParams.nameBoxLayer,
+                  });
                   setUserMode('select');
                 }}
               >

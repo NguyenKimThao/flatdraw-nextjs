@@ -68,6 +68,7 @@ const useCanvasObjects = create<{
   appendTextObject: (text: Omit<TextObject, 'type'>) => void;
   appendIconObject: (icon: Omit<IconObject, 'type'>) => void;
   appendBoxLayerObject: (icon: Omit<BoxLayerObject, 'type'>) => void;
+  updateBoxLayerObject: (id: string, box: BoxLayerObject) => void;
   appendBoxGroupObject: (id: string, box: BoxGroupObject) => void;
   updateBoxGroupObject: (id: string, box: BoxGroupObject) => void;
   appendBoxCubeObject: (boxLayerId: string, boxGroupId: string, cube: BoxCubeObject) => void;
@@ -78,6 +79,7 @@ const useCanvasObjects = create<{
   updateCanvasObject: (id: string, object: Partial<CanvasObject>) => void;
   appendFreeDrawPointToCanvasObject: (id: string, point: { x: number; y: number }) => void;
   deleteCanvasObject: (id: string) => void;
+  toggleShowCanvasBoxLayer: (id: string) => void;
   deleteCanvasBoxLayer: (id: string) => void;
   deleteCanvasBoxGroup: (id: string, boxLayerId: string) => void;
   moveCanvasObject: (params: {
@@ -173,6 +175,29 @@ const useCanvasObjects = create<{
         },
       ],
     })),
+  updateBoxLayerObject: (id, box) => set((state) => {
+    let boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
+    if (!boxLayer) {
+      return state;
+    }
+    boxLayer.name = box.name;
+    boxLayer.position = box.position;
+    return {
+      ...state,
+      boxLayerObjects: [...state.boxLayerObjects]
+    };
+  }),
+  toggleShowCanvasBoxLayer: (id) => set((state) => {
+    let boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
+    if (!boxLayer) {
+      return state;
+    }
+    boxLayer.show = boxLayer.show ? false : true;
+    return {
+      ...state,
+      boxLayerObjects: [...state.boxLayerObjects]
+    };
+  }),
   appendBoxGroupObject: (id, boxGroup) =>
     set((state) => {
       let boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
@@ -211,6 +236,10 @@ const useCanvasObjects = create<{
         return state;
       }
 
+      if (!cubeLayer.name) {
+        cubeLayer.name = cubeLayer.id;
+      }
+
       if (!boxGroup.boxGroup) {
         boxGroup.boxGroup = [cubeLayer]
       } else {
@@ -233,6 +262,9 @@ const useCanvasObjects = create<{
       }
       if (!boxGroup.boxGroup) {
         return state;
+      }
+      if (!cubeLayer.name) {
+        cubeLayer.name = cubeLayer.id;
       }
       for (let i = 0; i < boxGroup.boxGroup.length; i++) {
         if (boxGroup.boxGroup[i].id == cubeLayer.id) {

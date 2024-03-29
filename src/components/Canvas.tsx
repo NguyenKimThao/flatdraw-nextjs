@@ -62,8 +62,9 @@ const CanvasBox = () => {
   const activeObject = activeObjectGroup?.boxGroup?.find(object => object.id == activeBoxCubeId);
   const userMode = useUserMode((state) => state.userMode);
 
-  const show = userMode == "boxCube"
-  let distance = zoom / 10;
+  const posZIndex = activeObjectLayer?.position[2] || 0;
+  const show = userMode == "boxCube" && !activeObject;
+  let distance = zoom / 4;
 
   useFrame(({ mouse, viewport }) => {
     if (!show || !activeObjectLayer || !activeObjectLayer.position || !activeObjectGroup || activeObject) {
@@ -74,28 +75,27 @@ const CanvasBox = () => {
     const y = (mouse.y * viewportNew.height / 2);
     const sc = activeObjectLayer.position[2] / distance;
 
-    const newPos = [x - x * sc, y - y * sc, activeObjectLayer.position[2]];
+
+
+    const newPos = [x - x * sc, y - y * sc, 0];
+    // console.log('mouse', position, newPos)
     if ((position[0] != newPos[0]) || (position[1] != newPos[1]) || (position[2] != newPos[2])) {
       setPostion(newPos);
-      const pos = [Math.round(position[0]), Math.round(position[1]), Math.round(position[2])]
+      const pos = [Math.round(newPos[0]), Math.round(newPos[1]), Math.round(newPos[2])]
       setPostionIndex(pos)
       setDefaultParams({
+        ...defaultParams,
         positionBoxCube: pos
       })
     }
   });
 
+
+
   return (
     <group>
-      {boxLayerObjects.map((box, idx) => {
-        return (
-          <BoxCube key={box.id} {...box} />
-        )
-      })}
-      <group>
-        <BoxDraw position={position} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
-        <BoxDraw position={positionIndex} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
-      </group>
+      <BoxDraw position={[position[0], position[1], position[2] + posZIndex]} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
+      <BoxDraw position={[positionIndex[0], positionIndex[1], positionIndex[2] + posZIndex]} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
     </group>
   )
 }
@@ -624,10 +624,15 @@ export default function Canvas() {
       </div> */}
 
       <CanvasThree onKeyUp={onKeyUp} style={{ width: "100%", height: "100vh" }}>
-        <OrbitControls minDistance={zoom / 10} maxDistance={zoom / 10} />
+        <OrbitControls minDistance={zoom / 4} maxDistance={zoom / 4} />
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 15, 10]} angle={0.3} />
         <CanvasBox></CanvasBox>
+        {boxLayerObjects.map((box, idx) => {
+          return (
+            <BoxCube key={box.id || idx} {...box} />
+          )
+        })}
 
       </CanvasThree>
     </FixedMain >

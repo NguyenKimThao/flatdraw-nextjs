@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { ActionIcon, Tooltip } from '@mantine/core';
 import startCase from 'lodash/startCase';
 import React from 'react';
-import { BiTrash, BiArchiveIn, BiArchiveOut } from 'react-icons/bi';
+import { BiTrash, BiArchiveIn, BiArchiveOut, BiHide, BiShow } from 'react-icons/bi';
 
 import useCanvasObjects from '~/store/useCanvasObjects';
 import theme from '~/theme';
@@ -23,7 +23,7 @@ const LayerLi = styled('li')`
   overflow: hidden;
   padding: 0.6rem 0.2rem 0.6rem 0.6rem;
   display: grid;
-  grid-template-columns: 14px minmax(0, auto) minmax(0, 1fr) minmax(0, 30px);
+  grid-template-columns: 14px minmax(0, auto) minmax(0, 30px) minmax(0, 60px);
   grid-gap: 0.5rem;
   align-items: center;
   cursor: help;
@@ -57,6 +57,7 @@ export default function MenuTabBoxLayers() {
   const activeBoxLayerId = useActiveBoxLayerId((state) => state.activeBoxLayerId);
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
   const deleteCanvasBoxLayer = useCanvasObjects((state) => state.deleteCanvasBoxLayer);
+  const toggleShowCanvasBoxLayer = useCanvasObjects((state) => state.toggleShowCanvasBoxLayer);
   const activeObject = boxLayerObjects.find((object) => object.id === activeBoxLayerId);
   const setActiveBoxLayerId = useActiveBoxLayerId((state) => state.setActiveBoxLayerId);
 
@@ -91,8 +92,8 @@ export default function MenuTabBoxLayers() {
                   }}
                 />
                 <b>{startCase(object.name)}</b>
-                {!activeObject || activeObject.id != object.id ? (
-                  <>
+                {(!activeObject || activeObject.id != object.id) ? (
+                  <div style={{ display: 'flex' }}>
                     <Tooltip label="Delete Box Layer">
                       <ActionIcon
                         onClick={() => {
@@ -102,6 +103,12 @@ export default function MenuTabBoxLayers() {
                         <BiTrash />
                       </ActionIcon>
                     </Tooltip>
+                  </div>
+                ) : (
+                  <div style={{ display: 'flex' }}></div>
+                )}
+                <div style={{ display: "flex" }}>
+                  {!activeObject || activeObject.id != object.id ? (
                     <Tooltip label="Active Box Layer">
                       <ActionIcon
                         onClick={() => {
@@ -111,10 +118,8 @@ export default function MenuTabBoxLayers() {
                         <BiArchiveIn />
                       </ActionIcon>
                     </Tooltip>
-                  </>
-                ) : (
-                  <>
-                    <Tooltip label="Active Box Layer">
+                  ) : (
+                    <Tooltip label="Deactive Box Layer">
                       <ActionIcon
                         onClick={() => {
                           setActiveBoxLayerId(null);
@@ -123,8 +128,17 @@ export default function MenuTabBoxLayers() {
                         <BiArchiveOut />
                       </ActionIcon>
                     </Tooltip>
-                  </>
-                )}
+                  )}
+                  <Tooltip label={object.show ? "Hidden Box Layer" : "Show Box Layer"}>
+                    <ActionIcon
+                      onClick={() => {
+                        toggleShowCanvasBoxLayer(object.id)
+                      }}
+                    >
+                      {object.show ? <BiShow /> : <BiHide />}
+                    </ActionIcon>
+                  </Tooltip>
+                </div>
               </LayerLi>
             </Tooltip>
           ))}
