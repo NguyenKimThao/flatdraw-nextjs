@@ -46,7 +46,8 @@ export default function OverlayZoom() {
             size="xl"
             variant="default"
             onClick={() => {
-              setBoxLayerObject(boxLayerObjects);
+              if (boxLayerObjects.length != 0)
+                setBoxLayerObject(boxLayerObjects);
             }}
           >
             <IoSaveSharp />

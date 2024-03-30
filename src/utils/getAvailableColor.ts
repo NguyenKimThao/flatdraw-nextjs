@@ -15,13 +15,13 @@ const colors: MapColorBoxType =
     "label": "BLack"
   },
   "grey": {
-    "color": "grey",
+    "color": "rgb(104,106,97)",
     "wireframe": "yellow",
     "choose": "red",
     "label": "Grey"
   },
   "white": {
-    "color": "white",
+    "color": "rgb(255,255,255)",
     "wireframe": "yellow",
     "choose": "red",
     "label": "White"

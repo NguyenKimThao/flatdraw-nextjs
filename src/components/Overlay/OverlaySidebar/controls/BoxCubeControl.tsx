@@ -65,18 +65,17 @@ export default function BoxCubeControl() {
 
   useEffect(() => {
     if (activeObjectGroup) {
-      let activeObjectCurrent = activeObjectGroup.boxGroup?.find(object => object.id == activeBoxCubeId);
-      if (activeObjectCurrent) {
+      if (activeObject) {
         setDefaultParams({
-          positionBoxCube: activeObjectCurrent.position,
-          nameBoxCube: activeObjectCurrent.name,
-          countBoxCube: activeObjectCurrent.count + "",
-          docBoxCube: activeObjectCurrent.doc + "",
-          colorBoxCube: activeObjectCurrent.color,
+          positionBoxCube: activeObject.position,
+          nameBoxCube: activeObject.name,
+          countBoxCube: activeObject.count + "",
+          docBoxCube: activeObject.doc + "",
+          colorBoxCube: activeObject.color,
         });
       }
     }
-  }, [activeObjectGroup]);
+  }, [activeObjectGroup, activeObject]);
 
   return (
     <>

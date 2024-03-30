@@ -623,7 +623,7 @@ export default function Canvas() {
         <canvas ref={canvasRef} width={canvasWorkingSize.width} height={canvasWorkingSize.height} />
       </div> */}
 
-      <CanvasThree onKeyUp={onKeyUp} style={{ width: "100%", height: "100vh" }}>
+      <CanvasThree onKeyUp={onKeyUp} style={{ width: "100%", height: "100vh", background: "rgb(172,173,165)" }}>
         <OrbitControls minDistance={zoom / 4} maxDistance={zoom / 4} />
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 15, 10]} angle={0.3} />

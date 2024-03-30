@@ -19,6 +19,10 @@ const useLocalstogare = (): {
     return JSON.parse(store);
   },
   setBoxLayerObject: (data: any): any => {
+    let store = localStorage.getItem(CookieTypes.BoxLayerObject)
+    if (store) {
+      localStorage.setItem(CookieTypes.BoxLayerObject + "_" + new Date().getTime(), JSON.stringify(data))
+    }
     localStorage.setItem(CookieTypes.BoxLayerObject, JSON.stringify(data))
   },
 
