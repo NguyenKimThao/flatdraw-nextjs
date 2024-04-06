@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 import { Loader } from '@mantine/core';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import metadata from '~/config/metadata';
+import useUserStore from '~/hooks/useUserStore';
 import theme from '~/theme';
 
 const Div = styled('div')`
@@ -25,6 +26,11 @@ const LogoImg = styled('img')`
 `;
 
 export default function LoadingOverlay() {
+  const loading = useUserStore((state) => state.loading);
+
+  useEffect(() => {
+    loading()
+  }, []);
   return (
     <Div>
       <LogoImg src="/images/logo/logo-dark.png" alt={`${metadata.website.name} logo`} />

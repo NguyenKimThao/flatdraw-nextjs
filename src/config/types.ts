@@ -190,3 +190,19 @@ export interface ColorBoxType {
 export interface MapColorBoxType {
   [key: string]: ColorBoxType;
 }
+
+export interface UserInfoResponse {
+  username: string;
+  email: string;
+  name: string;
+}
+
+export interface LoginResponse {
+  username: string;
+}
+
+export interface DataResponse<T> {
+  error: number;
+  message: string;
+  data: T | null;
+}

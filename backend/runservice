@@ -1,0 +1,73 @@
+#!/bin/bash
+TAG_APP="1.0.0"
+NAME_APP="server_draw_3d"
+
+printUsage() {
+	echo " start: launch the program"
+	echo " build: launch the program with build"
+	echo " remove: remove docker container"
+	echo " stop: kill the program"
+	echo " restart: kill the program first, then launch again the program"
+	echo " status: show the program is running or stopped"
+}
+
+build_image() {
+	docker build . -t $NAME_APP:$TAG_APP
+}
+
+startApp() {
+    docker run --name $NAME_APP -p 8010:8010 -d $NAME_APP:$TAG_APP
+	echo "Start app $NAME_APP" 
+}
+
+stopApp() {
+	echo "Stoping app $NAME_APP" 
+	docker stop $NAME_APP
+}
+
+logsApp() {
+	docker logs $NAME_APP
+}
+
+removeApp() {
+    docker rm $NAME_APP
+}
+
+statusApp() {
+	docker ps -a | grep $NAME_APP
+}
+
+case "$1" in
+	build)
+		build_image
+		;;
+	push)
+		push_image
+		;;
+	pull)
+		pull_image
+		;;
+	start)
+		removeApp	
+		startApp
+		;;
+	stop)
+		stopApp
+		;;
+	status)
+		statusApp
+		;;
+	restart)
+		stopApp
+		startApp
+	logs)
+		logsApp
+		;;
+	remove)
+		removeApp
+		;;
+	*)
+		printUsage
+		echo
+		exit 1
+esac

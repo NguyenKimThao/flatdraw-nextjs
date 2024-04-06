@@ -24,9 +24,11 @@ import globalStyles from '~/theme/styles/global';
 import getAvailableFonts from '~/utils/getAvailableFonts';
 import getAvailableColor from '~/utils/getAvailableColor';
 import useAvailableColors from '~/store/useAvailableColors';
+import useUserStore, { StatusAuthen } from '~/hooks/useUserStore';
 
 function RouterTransition() {
   const router = useRouter();
+
 
   useEffect(() => {
     const handleStart = (url: string) => url !== router.asPath && nprogress.start();
@@ -52,8 +54,8 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
   const setAvailableFonts = useAvailableFonts((state) => state.setAvailableFonts);
   const setAvailableColor = useAvailableColors((state) => state.setAvailableColors);
+  const statusAuthen = useUserStore((state) => state.statusAuthen);
 
-  const [hasAppLoaded, setHasAppLoaded] = useState<boolean>(false);
   const [colorScheme, setColorScheme] = useState<ColorScheme>(DEFAULT_COLOR_SCHEME);
 
   const toggleColorScheme = (value?: ColorScheme) => {
@@ -91,11 +93,12 @@ export default function App({ Component, pageProps, router }: AppProps) {
       setAvailableColor(result);
     })();
     // Set app ready
-    setHasAppLoaded(true);
+    // setHasAppLoaded(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const pageUrl = `${metadata.website.url}${router.asPath}`;
+  const isLoading = statusAuthen == StatusAuthen.LOADING;
 
   return (
     <>
@@ -150,21 +153,21 @@ export default function App({ Component, pageProps, router }: AppProps) {
             <MantineProvider theme={{ colorScheme }} withNormalizeCSS withGlobalStyles>
               <ModalsProvider>
                 <ModalContextProvider>
-                  {!hasAppLoaded && <LoadingOverlay />}
+                  {isLoading && <LoadingOverlay />}
                   <RouterTransition />
                   <Notifications position="top-right" zIndex={theme.layers.notifications} />
-                  <Component {...pageProps} />
+                  {!isLoading && <Component {...pageProps} />}
                 </ModalContextProvider>
               </ModalsProvider>
             </MantineProvider>
           </CanvasContextProvider>
         </ColorSchemeContextProvider>
       </ColorSchemeProvider>
-      <GoogleAnalytics
+      {/* <GoogleAnalytics
         gaMeasurementId={metadata.services.googleAnalyticsMeasurementId}
         strategy="afterInteractive"
         trackPageViews
-      />
+      /> */}
     </>
   );
 }
