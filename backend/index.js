@@ -41,6 +41,31 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
         }
       }
     );
+
+    db.run(
+      `CREATE TABLE Collections (
+          Id INTEGER PRIMARY KEY AUTOINCREMENT,
+          Name text,
+          UserId INTEGER, 
+          Info text,
+          DateCreated DATE,
+          DateUpdated DATE
+          )`,
+      (err) => {}
+    );
+    db.run(
+      `CREATE TABLE Layers (
+          Id INTEGER PRIMARY KEY AUTOINCREMENT,
+          Name text,
+          Info text,
+          Boxes text,
+          CollectionId INTEGER,
+          UserId INTEGER, 
+          DateCreated DATE,
+          DateUpdated DATE
+          )`,
+      (err) => {}
+    );
   }
 });
 function log(...msg) {
@@ -150,6 +175,15 @@ app.post('/api/login', async (req, res) => {
       res.cookie('x-access-token', token, { maxAge: 86400000, httpOnly: true, secure: true, sameSite: 'none' });
       return res.send_success(user);
     });
+  } catch (err) {
+    return res.send_exec(-100, err);
+  }
+});
+
+app.post('/api/logout', async (req, res) => {
+  try {
+    res.cookie('x-access-token', token, { expires: 0, httpOnly: true, secure: true, sameSite: 'none' });
+    return res.send_success(user);
   } catch (err) {
     return res.send_exec(-100, err);
   }

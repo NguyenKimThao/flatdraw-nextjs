@@ -10,6 +10,9 @@ const ApiService = {
 
   login: (username: string, password: string): Promise<DataResponse<UserInfoResponse>> => {
     return postData(`${API_URL}/api/login`, {}, { username, password });
+  },
+  logout: (): Promise<DataResponse<any>> => {
+    return postData(`${API_URL}/api/logout`, {}, {});
   }
 }
 export default ApiService;

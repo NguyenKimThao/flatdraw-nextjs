@@ -14,6 +14,7 @@ import MenuTabLayers from './tabs/MenuTabLayers';
 import MenuTabSettings from './tabs/MenuTabSettings';
 import MenuTabBoxLayers from './tabs/MenuTabBoxLayers';
 import MenuTabBoxGroups from './tabs/MenuTabBoxGroups';
+import MenuTabMyAccount from './tabs/MenuTabMyAccount';
 
 const WrapperDiv = styled('div')`
   width: 100%;
@@ -65,6 +66,11 @@ export default function MenuTabs({ closeModal, initialTab = menuTabsDefinition[0
             </Tabs.Tab>
           ))}
         </Tabs.List>
+        <Tabs.Panel value="myaccount">
+          <PanelContentDiv>
+            <MenuTabMyAccount />
+          </PanelContentDiv>
+        </Tabs.Panel>
         <Tabs.Panel value="canvas">
           <PanelContentDiv>
             <MenuTabCanvas closeModal={closeModal} />

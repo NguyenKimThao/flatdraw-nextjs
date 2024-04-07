@@ -9,7 +9,6 @@ export enum StatusAuthen {
     LOGOUT = "LOGOUT",
 }
 
-let API_URL = "http://localhost:8010"
 
 const useUserStore = create<{
     statusAuthen: StatusAuthen;
@@ -21,6 +20,7 @@ const useUserStore = create<{
     setStatus: (statusAuthen: StatusAuthen) => void;
     loading: () => void;
     login: (username: string, password: string) => void;
+    logout: () => void;
 }>((set) => ({
     statusAuthen: StatusAuthen.LOADING,
     errorAuthen: '',
@@ -61,12 +61,13 @@ const useUserStore = create<{
             });
         }
     },
-    logout: () => {
+    logout: (): void => {
         set({
             statusAuthen: StatusAuthen.LOGOUT,
             name: '',
             email: '',
         });
+        ApiService.logout()
     }
 }));
 
