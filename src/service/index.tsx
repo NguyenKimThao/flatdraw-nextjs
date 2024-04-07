@@ -1,4 +1,4 @@
-import { DataResponse, UserInfoResponse } from '~/config/types';
+import { CollectionItem, DataResponse, ListCollectionResponse, UserInfoResponse } from '~/config/types';
 import { fetchData, postData } from '~/service/http';
 
 const API_URL = "http://localhost:8010"
@@ -7,12 +7,23 @@ const ApiService = {
   getUserInfo: (): Promise<DataResponse<UserInfoResponse>> => {
     return fetchData(`${API_URL}/api/get_info`)
   },
-
   login: (username: string, password: string): Promise<DataResponse<UserInfoResponse>> => {
     return postData(`${API_URL}/api/login`, {}, { username, password });
   },
   logout: (): Promise<DataResponse<any>> => {
     return postData(`${API_URL}/api/logout`, {}, {});
-  }
+  },
+  getCollections: (): Promise<DataResponse<ListCollectionResponse>> => {
+    return fetchData(`${API_URL}/api/get_collections`);
+  },
+  getCollection: (id: number): Promise<DataResponse<CollectionItem>> => {
+    return fetchData(`${API_URL}/api/get_collection`, { id });
+  },
+  createCollection: (name: string, info: string, desc: string): Promise<DataResponse<CollectionItem>> => {
+    return postData(`${API_URL}/api/create_collection`, {}, { name, info, desc });
+  },
+  deleteCollection: (id: number): Promise<DataResponse<CollectionItem>> => {
+    return postData(`${API_URL}/api/delete_collection`, {}, { id });
+  },
 }
 export default ApiService;

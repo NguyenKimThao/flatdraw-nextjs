@@ -191,6 +191,16 @@ export interface MapColorBoxType {
   [key: string]: ColorBoxType;
 }
 
+export enum StatusFetch {
+  LOADING = "LOADING",
+  SUCCESS = "SUCCESS",
+  FAIL = "FAIL",
+}
+
+export interface SuccessResponse {
+
+}
+
 export interface UserInfoResponse {
   username: string;
   email: string;
@@ -199,6 +209,18 @@ export interface UserInfoResponse {
 
 export interface LoginResponse {
   username: string;
+}
+
+export interface CollectionItem {
+  id: number;
+  name: string;
+  info?: string;
+  desc?: string;
+}
+
+export interface ListCollectionResponse {
+  collections?: CollectionItem[];
+  length?: number;
 }
 
 export interface DataResponse<T> {

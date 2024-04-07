@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 
-import Canvas from '~/components/Canvas';
-import CanvasEventListeners from '~/components/CanvasEventListeners';
 import Overlay from '~/components/Overlay';
 import useUserStore, { StatusAuthen } from '~/hooks/useUserStore';
 import LoginLayout from './LoginLayout';
 import LogoutLayout from './LogoutLayout';
+import PageLayout from './PageLayout';
+import useCollectionApi from '~/hooks/useCollectionApi';
 
 export default function AppLayout() {
   const statusAuthen = useUserStore((state) => state.statusAuthen);
+  useCollectionApi((state) => state.status);
 
   useEffect(() => {
     const html = document.querySelector('html');
@@ -36,10 +37,6 @@ export default function AppLayout() {
 
 
   return (
-    <>
-      <Overlay />
-      <Canvas />
-      <CanvasEventListeners />
-    </>
+    <PageLayout />
   );
 }

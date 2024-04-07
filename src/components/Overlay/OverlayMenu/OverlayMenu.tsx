@@ -7,6 +7,7 @@ import useModalContext from '~/context/useModalContext';
 import useActiveObjectId from '~/store/useActiveObjectId';
 
 import { menuTabsDefinition } from './menuTabsDefinition';
+import useCollectionApi from '~/hooks/useCollectionApi';
 
 const WrapperDiv = styled('div')`
   pointer-events: auto;
@@ -14,6 +15,7 @@ const WrapperDiv = styled('div')`
 
 export default function OverlayMenu() {
   const { openMenuModal } = useModalContext();
+  const collectionId = useCollectionApi((state) => state.collectionId);
 
   const setActiveObjectId = useActiveObjectId((state) => state.setActiveObjectId);
 
@@ -28,7 +30,7 @@ export default function OverlayMenu() {
           </Tooltip>
         </Menu.Target>
         <Menu.Dropdown>
-          {menuTabsDefinition.map((tab) => (
+          {menuTabsDefinition.filter(e => collectionId ? e.id != "createcollection" : (e.id == "createcollection" || e.id == "collections")).map((tab) => (
             <Menu.Item
               key={tab.id}
               icon={tab.icon}

@@ -46,8 +46,9 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
       `CREATE TABLE Collections (
           Id INTEGER PRIMARY KEY AUTOINCREMENT,
           Name text,
-          UserId INTEGER, 
           Info text,
+          Desc text,
+          UserId INTEGER, 
           DateCreated DATE,
           DateUpdated DATE
           )`,
@@ -59,6 +60,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           Name text,
           Info text,
           Boxes text,
+          Desc text,
           CollectionId INTEGER,
           UserId INTEGER, 
           DateCreated DATE,
@@ -75,7 +77,6 @@ function log(...msg) {
 const auth = (req, res, next) => {
   const token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies['x-access-token'];
 
-  console.log('token', token, req.cookies['x-access-token'], req.cookies);
   if (!token) {
     return res.send_error(-401, 'A token is required for authentication');
   }
@@ -197,7 +198,6 @@ app.post('/api/register', async (req, res) => {
       res.send_error(-101, 'Miss field');
       return;
     }
-    let userExists = false;
 
     const sql = 'SELECT * FROM Users WHERE Email = ?';
     await db.all(sql, username, (err, result) => {
@@ -238,6 +238,150 @@ app.post('/api/register', async (req, res) => {
 app.get('/api/get_info', auth, (req, res) => {
   console.log('req', req.user);
   res.send_success(req.user);
+});
+
+////////// collection
+function convert_collection(row) {
+  try {
+    return {
+      id: row.Id,
+      name: row.Name,
+      info: row.Info,
+      desc: row.Desc,
+      dateCreated: row.DateCreated,
+      dateUpdated: row.DateUpdated,
+    };
+  } catch (ex) {
+    return null;
+  }
+}
+async function send_collection(req, res, id) {
+  try {
+    const sql = 'SELECT * FROM Collections WHERE Id = ? and UserId = ?';
+    const params = [id, req.user.userId];
+    db.all(sql, params, (err, result) => {
+      if (err) {
+        return res.send_exec(-102, err);
+      }
+      console.log('result', result);
+      if (result.length != 1) {
+        return res.send_error(-103, 'Has error in sql');
+      }
+      const collection = convert_collection(result[0]);
+      if (!collection) {
+        return res.send_error(-103, 'Has error in convert data');
+      }
+      res.send_success(collection);
+    });
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+}
+
+app.get('/api/get_collections', auth, (req, res) => {
+  try {
+    const sql = 'SELECT * FROM Collections WHERE UserId = ?';
+    db.all(sql, req.user.userId, (err, result) => {
+      if (err) {
+        return res.send_exec(-102, err);
+      }
+      let collections = [];
+      result.forEach(function (row) {
+        const collection = convert_collection(row);
+        if (!collection) {
+          return res.send_error(-103, 'Has error in convert data');
+        }
+        collections.push(collection);
+      });
+      res.send_success({
+        collections: collections,
+        length: result.length,
+      });
+    });
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+});
+
+app.get('/api/get_collection', auth, (req, res) => {
+  try {
+    let id = req.query.id;
+    if (!id) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+    send_collection(req, res, id);
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+});
+
+app.post('/api/create_collection', auth, (req, res) => {
+  try {
+    const { name, info, desc } = req.body;
+
+    if (!name) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+
+    const dateNow = Date('now');
+    const sql = 'INSERT INTO Collections (Name, Info, Desc, UserId, DateCreated, DateUpdated) VALUES (?,?,?,?,?,?)';
+    const params = [name, info, desc, req.user.userId, dateNow, dateNow];
+    const user = db.run(sql, params, function (err, innerResult) {
+      if (err || this.lastId <= 0) {
+        return res.send_exec(-105, err);
+      }
+      send_collection(req, res, this.lastID);
+    });
+    console.log('user', user);
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+});
+
+app.post('/api/update_collection', auth, (req, res) => {
+  try {
+    const { id, name, info, desc } = req.body;
+
+    if (!id || !name) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+    const sql = 'UPDATE Collections Set Name = ?, Info = ? , Desc = ?, DateUpdated = ? WHERE Id = ? and UserId = ?';
+    const params = [name, info, desc, Date('now'), id, req.user.userId];
+    const res = db.run(sql, params, function (err, innerResult) {
+      if (err) {
+        return res.send_exec(-105, err);
+      }
+      send_collection(req, res, id);
+    });
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+});
+
+app.post('/api/delete_collection', auth, async (req, res) => {
+  try {
+    const { id } = req.body;
+
+    if (!id) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+    const sql = 'DELETE FROM Collections WHERE Id = ? and UserId = ?';
+    const params = [id, req.user.userId];
+    db.run(sql, params, function (err, innerResult) {
+      if (err) {
+        return res.send_exec(-105, err);
+      }
+      res.send_success({
+        id: id,
+      });
+    });
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
 });
 
 app.use(function (req, res) {

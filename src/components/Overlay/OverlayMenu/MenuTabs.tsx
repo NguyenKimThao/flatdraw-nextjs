@@ -15,6 +15,9 @@ import MenuTabSettings from './tabs/MenuTabSettings';
 import MenuTabBoxLayers from './tabs/MenuTabBoxLayers';
 import MenuTabBoxGroups from './tabs/MenuTabBoxGroups';
 import MenuTabMyAccount from './tabs/MenuTabMyAccount';
+import useCollectionApi from '~/hooks/useCollectionApi';
+import MenuTabCollections from './tabs/MenuTabCollections';
+import MenuTabCreateCollection from './tabs/MenuTabCreateCollection';
 
 const WrapperDiv = styled('div')`
   width: 100%;
@@ -46,6 +49,8 @@ interface Props {
 
 export default function MenuTabs({ closeModal, initialTab = menuTabsDefinition[0].id }: Props) {
   const setActiveObjectId = useActiveObjectId((state) => state.setActiveObjectId);
+  const collectionId = useCollectionApi((state) => state.collectionId);
+
 
   const gteMedium = useMediaQuery(theme.medias.gteMedium.replace('@media ', ''));
 
@@ -57,7 +62,7 @@ export default function MenuTabs({ closeModal, initialTab = menuTabsDefinition[0
     <WrapperDiv>
       <Tabs defaultValue={initialTab} orientation="vertical">
         <Tabs.List>
-          {menuTabsDefinition.map((tab) => (
+          {menuTabsDefinition.filter(e => collectionId ? e.id != "createcollection" : (e.id == "createcollection" || e.id == "collections")).map((tab) => (
             <Tabs.Tab key={tab.id} value={tab.id}>
               <TabDiv>
                 {tab.icon}
@@ -69,6 +74,16 @@ export default function MenuTabs({ closeModal, initialTab = menuTabsDefinition[0
         <Tabs.Panel value="myaccount">
           <PanelContentDiv>
             <MenuTabMyAccount />
+          </PanelContentDiv>
+        </Tabs.Panel>
+        <Tabs.Panel value="collections">
+          <PanelContentDiv>
+            <MenuTabCollections />
+          </PanelContentDiv>
+        </Tabs.Panel>
+        <Tabs.Panel value="createcollection">
+          <PanelContentDiv>
+            <MenuTabCreateCollection />
           </PanelContentDiv>
         </Tabs.Panel>
         <Tabs.Panel value="canvas">

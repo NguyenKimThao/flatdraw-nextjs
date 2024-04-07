@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 import { BsImageFill, BsLayersFill } from 'react-icons/bs';
-import { FaInfoCircle, FaCloudDownloadAlt, FaUser, FaCog } from 'react-icons/fa';
+import { FaInfoCircle, FaCloudDownloadAlt, FaUser, FaCog, FaFolderOpen, FaFolderPlus } from 'react-icons/fa';
 
-export type MenuTabId = 'myaccount' | 'canvas' | 'layers' | 'download' | 'settings' | 'about' | 'boxLayers' | 'boxGroups';
+export type MenuTabId = 'myaccount' | 'collections' | 'createcollection' | 'canvas' | 'layers' | 'download' | 'settings' | 'about' | 'boxLayers' | 'boxGroups';
 
 export const menuTabsDefinition: {
   id: MenuTabId;
@@ -13,6 +13,16 @@ export const menuTabsDefinition: {
       id: 'myaccount',
       label: 'My Account',
       icon: <FaUser />,
+    },
+    {
+      id: 'collections',
+      label: 'My Collections',
+      icon: <FaFolderOpen />,
+    },
+    {
+      id: 'createcollection',
+      label: 'Create Collection',
+      icon: <FaFolderPlus />,
     },
     {
       id: 'canvas',
