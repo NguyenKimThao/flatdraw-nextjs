@@ -60,6 +60,9 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           Name text,
           Info text,
           Boxes text,
+          Position text,
+          Show INTEGER,
+          Type text,
           Desc text,
           CollectionId INTEGER,
           UserId INTEGER, 
@@ -93,6 +96,25 @@ function converJson(val) {
     return JSON.parse(val);
   } catch (ex) {
     return {};
+  }
+}
+
+function convertIntToBool(val) {
+  try {
+    if (val == null) {
+      return false;
+    }
+    return Boolean(val);
+  } catch (ex) {
+    return false;
+  }
+}
+
+function convertBoolToInt(val) {
+  try {
+    return val ? 1 : 0;
+  } catch (ex) {
+    return 0;
   }
 }
 
@@ -414,6 +436,9 @@ function convert_layer(row) {
       name: row.Name,
       info: converJson(row.Info),
       boxes: converJson(row.Boxes),
+      position: converJson(row.Position),
+      show: convertIntToBool(row.Show),
+      type: row.Type,
       desc: row.Desc,
       dateCreated: row.DateCreated,
       dateUpdated: row.DateUpdated,
@@ -486,7 +511,7 @@ app.post('/api/create_layer', auth, (req, res) => {
       return;
     }
 
-    const { id, name, info, boxes, desc } = req.body;
+    const { id, name, info, boxes, position, show, type, desc } = req.body;
 
     if (!name) {
       res.send_error(-101, 'Miss field');
@@ -496,12 +521,15 @@ app.post('/api/create_layer', auth, (req, res) => {
     const dateNow = Date('now');
 
     const sql =
-      'INSERT INTO Layers (Id, Name, Info, Boxes, Desc, CollectionId, UserId, DateCreated, DateUpdated) VALUES (?,?,?,?,?,?,?,?,?)';
+      'INSERT INTO Layers (Id, Name, Info, Boxes, Position, Show ,Type, Desc, CollectionId, UserId, DateCreated, DateUpdated) VALUES (?,?,?, ?,?,?,?,?,?,?,?,?)';
     const params = [
       id,
       name,
       convertJsonString(info),
       convertJsonString(boxes),
+      convertJsonString(position),
+      convertBoolToInt(show),
+      type,
       desc,
       collectionId,
       req.user.userId,
@@ -529,18 +557,21 @@ app.post('/api/update_layer', auth, (req, res) => {
       return;
     }
 
-    const { id, name, info, boxes, desc } = req.body;
+    const { id, name, info, boxes, position, show, type, desc } = req.body;
 
     if (!id || !name) {
       res.send_error(-101, 'Miss field');
       return;
     }
     const sql =
-      'UPDATE Layers Set Name = ?, Info = ?, Boxes = ? , Desc = ?, DateUpdated = ? WHERE Id = ? and CollectionId = ? and UserId = ?';
+      'UPDATE Layers Set Name = ?, Info = ?, Boxes = ? , Position = ?, Show = ? , Type = ? , Desc = ?, DateUpdated = ? WHERE Id = ? and CollectionId = ? and UserId = ?';
     const params = [
       name,
       convertJsonString(info),
       convertJsonString(boxes),
+      convertJsonString(position),
+      convertBoolToInt(show),
+      type,
       desc,
       Date('now'),
       id,
