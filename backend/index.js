@@ -56,7 +56,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
     );
     db.run(
       `CREATE TABLE Layers (
-          Id INTEGER PRIMARY KEY AUTOINCREMENT,
+          Id TEXT PRIMARY KEY,
           Name text,
           Info text,
           Boxes text,
@@ -72,6 +72,28 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
 });
 function log(...msg) {
   console.log(new Date(), msg);
+}
+
+function convertJsonString(val) {
+  try {
+    if (val == null) {
+      return '{}';
+    }
+    return JSON.stringify(val);
+  } catch (ex) {
+    return '{}';
+  }
+}
+
+function converJson(val) {
+  try {
+    if (val == null) {
+      return {};
+    }
+    return JSON.parse(val);
+  } catch (ex) {
+    return {};
+  }
 }
 
 const auth = (req, res, next) => {
@@ -371,6 +393,188 @@ app.post('/api/delete_collection', auth, async (req, res) => {
     }
     const sql = 'DELETE FROM Collections WHERE Id = ? and UserId = ?';
     const params = [id, req.user.userId];
+    db.run(sql, params, function (err, innerResult) {
+      if (err) {
+        return res.send_exec(-105, err);
+      }
+      res.send_success({
+        id: id,
+      });
+    });
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+});
+
+//////////////////////
+function convert_layer(row) {
+  try {
+    return {
+      id: row.Id,
+      name: row.Name,
+      info: converJson(row.Info),
+      boxes: converJson(row.Boxes),
+      desc: row.Desc,
+      dateCreated: row.DateCreated,
+      dateUpdated: row.DateUpdated,
+    };
+  } catch (ex) {
+    return null;
+  }
+}
+async function send_layer(req, res, id, collectionId) {
+  try {
+    const sql = 'SELECT * FROM Layers WHERE Id = ? and collectionId = ? and UserId = ?';
+    const params = [id, collectionId, req.user.userId];
+    db.all(sql, params, (err, result) => {
+      if (err) {
+        return res.send_exec(-102, err);
+      }
+      console.log('result', result);
+      if (result.length != 1) {
+        return res.send_error(-103, 'Has error in sql');
+      }
+      const collection = convert_layer(result[0]);
+      if (!collection) {
+        return res.send_error(-103, 'Has error in convert data');
+      }
+      res.send_success(collection);
+    });
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+}
+app.get('/api/get_layers', auth, (req, res) => {
+  try {
+    const collectionId = req.query.collectionId;
+
+    if (!collectionId) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+
+    const sql = 'SELECT * FROM Layers WHERE CollectionId = ? and UserId = ?';
+    const params = [collectionId, req.user.userId];
+    db.all(sql, params, (err, result) => {
+      if (err) {
+        return res.send_exec(-102, err);
+      }
+      let collections = [];
+      result.forEach(function (row) {
+        const collection = convert_layer(row);
+        if (!collection) {
+          return res.send_error(-103, 'Has error in convert data');
+        }
+        collections.push(collection);
+      });
+      res.send_success({
+        collections: collections,
+        length: result.length,
+      });
+    });
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+});
+
+app.post('/api/create_layer', auth, (req, res) => {
+  try {
+    const collectionId = req.query.collectionId;
+
+    if (!collectionId) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+
+    const { id, name, info, boxes, desc } = req.body;
+
+    if (!name) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+
+    const dateNow = Date('now');
+
+    const sql =
+      'INSERT INTO Layers (Id, Name, Info, Boxes, Desc, CollectionId, UserId, DateCreated, DateUpdated) VALUES (?,?,?,?,?,?,?,?,?)';
+    const params = [
+      id,
+      name,
+      convertJsonString(info),
+      convertJsonString(boxes),
+      desc,
+      collectionId,
+      req.user.userId,
+      dateNow,
+      dateNow,
+    ];
+    const user = db.run(sql, params, function (err, innerResult) {
+      if (err || this.lastId <= 0) {
+        return res.send_exec(-105, err);
+      }
+      send_layer(req, res, id, collectionId);
+    });
+    console.log('user', user);
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+});
+
+app.post('/api/update_layer', auth, (req, res) => {
+  try {
+    const collectionId = req.query.collectionId;
+
+    if (!collectionId) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+
+    const { id, name, info, boxes, desc } = req.body;
+
+    if (!id || !name) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+    const sql =
+      'UPDATE Layers Set Name = ?, Info = ?, Boxes = ? , Desc = ?, DateUpdated = ? WHERE Id = ? and CollectionId = ? and UserId = ?';
+    const params = [
+      name,
+      convertJsonString(info),
+      convertJsonString(boxes),
+      desc,
+      Date('now'),
+      id,
+      collectionId,
+      req.user.userId,
+    ];
+    const res = db.run(sql, params, function (err, innerResult) {
+      if (err) {
+        return res.send_exec(-105, err);
+      }
+      send_layer(req, res, id);
+    });
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+});
+
+app.post('/api/delete_layer', auth, async (req, res) => {
+  try {
+    const collectionId = req.query.collectionId;
+
+    if (!collectionId) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+
+    const { id } = req.body;
+
+    if (!id) {
+      res.send_error(-101, 'Miss field');
+      return;
+    }
+    const sql = 'DELETE FROM Layers WHERE Id = ? and CollectionId = ? and UserId = ?';
+    const params = [id, collectionId, req.user.userId];
     db.run(sql, params, function (err, innerResult) {
       if (err) {
         return res.send_exec(-105, err);
