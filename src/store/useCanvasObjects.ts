@@ -115,6 +115,15 @@ const useCanvasObjects = create<{
     })),
   loadingBoxLayerObject: async (collectionId: number) => {
     let data = await ApiService.getLayers(collectionId);
+    if (data == null || data.error != 0 || !data.data) {
+
+    } else {
+      set((state) => ({
+        ...state,
+        boxLayerObjects: data.data?.layers || []
+      }));
+    }
+
     console.log('data', data);
   },
   appendEllipseObject: (ellipse) =>
