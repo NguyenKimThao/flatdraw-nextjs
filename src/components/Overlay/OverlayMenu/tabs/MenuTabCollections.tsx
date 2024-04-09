@@ -55,10 +55,17 @@ const LayerLi = styled('li')`
   }
 `;
 
-export default function MenuTabCollections() {
+interface Props {
+  closeModal: () => void;
+}
+
+export default function MenuTabCollections({ closeModal }: Props) {
   const collectionId = useCollectionApi((state) => state.collectionId);
   const collections = useCollectionApi((state) => state.collections);
+  const setCollectionId = useCollectionApi((state) => state.setCollectionId);
   const deleteCollection = useCollectionApi((state) => state.deleteCollection);
+  const loadingBoxLayerObject = useCanvasObjects((state) => state.loadingBoxLayerObject);
+  const [loading, setLoading] = useState<boolean>(false);
 
 
   const activeObject = collections?.find(e => e.id == collectionId);
@@ -110,6 +117,7 @@ export default function MenuTabCollections() {
                   <div style={{ display: 'flex' }}>
                     <Tooltip label="Delete Collections">
                       <ActionIcon
+                        loading={loading}
                         onClick={() => {
                           openDeleteModal(object.id);
                         }}
@@ -123,11 +131,15 @@ export default function MenuTabCollections() {
                 )}
                 <div style={{ display: "flex" }}>
                   {(!activeObject || activeObject.id != object.id) && (
-                    <Tooltip label="Open Box Layer">
+                    <Tooltip label="Open Collection">
                       <ActionIcon
+                        loading={loading}
                         onClick={() => {
-                          // setActiveBoxLayerId(object.id);
-
+                          setLoading(true);
+                          setCollectionId(object.id);
+                          loadingBoxLayerObject(object.id);
+                          closeModal();
+                          setLoading(false);
                         }}
                       >
                         <BiArchiveIn />

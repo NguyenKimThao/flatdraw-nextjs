@@ -7,6 +7,7 @@ const useCollectionApi = create<{
     error: string,
     collectionId: number | null,
     collections: CollectionItem[],
+    setCollectionId: (collectionId: number | null) => void;
     setStatus: (status: StatusFetch) => void;
     loading: () => void;
     createCollection: (name: string, desc: string) => void;
@@ -17,6 +18,7 @@ const useCollectionApi = create<{
     error: '',
     collectionId: null,
     collections: [],
+    setCollectionId: (collectionId: number | null) => set((state) => ({ ...state, collectionId: collectionId })),
     setStatus: (status: StatusFetch) => set((state) => ({ ...state, status })),
     loading: async () => {
         let data = await ApiService.getCollections();

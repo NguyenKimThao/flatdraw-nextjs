@@ -78,7 +78,7 @@ export default function MenuTabs({ closeModal, initialTab = menuTabsDefinition[0
         </Tabs.Panel>
         <Tabs.Panel value="collections">
           <PanelContentDiv>
-            <MenuTabCollections />
+            <MenuTabCollections closeModal={closeModal} />
           </PanelContentDiv>
         </Tabs.Panel>
         <Tabs.Panel value="createcollection">

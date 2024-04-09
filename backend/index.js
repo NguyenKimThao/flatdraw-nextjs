@@ -459,16 +459,16 @@ app.get('/api/get_layers', auth, (req, res) => {
       if (err) {
         return res.send_exec(-102, err);
       }
-      let collections = [];
+      let layers = [];
       result.forEach(function (row) {
-        const collection = convert_layer(row);
-        if (!collection) {
+        const layer = convert_layer(row);
+        if (!layer) {
           return res.send_error(-103, 'Has error in convert data');
         }
-        collections.push(collection);
+        layers.push(layer);
       });
       res.send_success({
-        collections: collections,
+        layers: layers,
         length: result.length,
       });
     });

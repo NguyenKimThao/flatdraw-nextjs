@@ -223,6 +223,11 @@ export interface ListCollectionResponse {
   length?: number;
 }
 
+export interface ListLayerResponse {
+  layers?: BoxLayerObject[];
+  length?: number;
+}
+
 export interface DataResponse<T> {
   error: number;
   message: string;

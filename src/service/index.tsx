@@ -1,4 +1,4 @@
-import { CollectionItem, DataResponse, ListCollectionResponse, UserInfoResponse } from '~/config/types';
+import { CollectionItem, DataResponse, ListCollectionResponse, ListLayerResponse, UserInfoResponse } from '~/config/types';
 import { fetchData, postData } from '~/service/http';
 
 const API_URL = "http://localhost:8010"
@@ -24,6 +24,9 @@ const ApiService = {
   },
   deleteCollection: (id: number): Promise<DataResponse<CollectionItem>> => {
     return postData(`${API_URL}/api/delete_collection`, {}, { id });
+  },
+  getLayers: (collectionId: number): Promise<DataResponse<ListLayerResponse>> => {
+    return fetchData(`${API_URL}/api/get_layers`, { collectionId });
   },
 }
 export default ApiService;

@@ -14,6 +14,7 @@ import type {
   CanvasWorkingSize,
   BoxCubeObject,
 } from '~/config/types';
+import ApiService from '~/service';
 import generateUniqueId from '~/utils/generateUniqueId';
 import getPositionFromDrawingPoints from '~/utils/getPositionFromDrawingPoints';
 
@@ -62,6 +63,7 @@ const DEFAULT_BOX_LAYER_OBJECT: Omit<BoxLayerObject, 'id' | 'type'> = {
 const useCanvasObjects = create<{
   canvasObjects: CanvasObject[];
   boxLayerObjects: BoxLayerObject[];
+  loadingBoxLayerObject: (collectionId: number) => void;
   appendRectangleObject: (rectangle: Omit<RectangleObject, 'type'>) => void;
   appendEllipseObject: (ellipse: Omit<EllipseObject, 'type'>) => void;
   appendFreeDrawObject: (freeDraw: Omit<FreeDrawObject, 'type'>) => void;
@@ -111,6 +113,10 @@ const useCanvasObjects = create<{
         },
       ],
     })),
+  loadingBoxLayerObject: async (collectionId: number) => {
+    let data = await ApiService.getLayers(collectionId);
+    console.log('data', data);
+  },
   appendEllipseObject: (ellipse) =>
     set((state) => ({
       ...state,
