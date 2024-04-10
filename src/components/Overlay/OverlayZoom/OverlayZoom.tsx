@@ -49,8 +49,10 @@ export default function OverlayZoom() {
             size="xl"
             variant="default"
             onClick={() => {
-              if (collectionId && boxLayerObjects.length != 0)
+              if (collectionId && boxLayerObjects.length != 0) {
                 ApiService.updatVersionLayers(collectionId, boxLayerObjects);
+                setBoxLayerObject(collectionId, JSON.stringify(boxLayerObjects))
+              }
             }}
           >
             <IoSaveSharp />

@@ -9,7 +9,7 @@ const randomDeviceHash = generateUniqueId();
 
 const useLocalstogare = (): {
   getBoxLayerObject: () => any;
-  setBoxLayerObject: (data: string) => any;
+  setBoxLayerObject: (collectionId: number, data: string) => any;
 } => ({
   getBoxLayerObject: (): any => {
     let store = localStorage.getItem(CookieTypes.BoxLayerObject)
@@ -18,12 +18,18 @@ const useLocalstogare = (): {
     }
     return JSON.parse(store);
   },
-  setBoxLayerObject: (data: any): any => {
-    let store = localStorage.getItem(CookieTypes.BoxLayerObject)
-    if (store) {
-      localStorage.setItem(CookieTypes.BoxLayerObject + "_" + new Date().getTime(), JSON.stringify(data))
+  setBoxLayerObject: (collectionId: number, data: string): any => {
+    try {
+      for (let i = 0; i < 3; i++) {
+        let store = localStorage.getItem(collectionId + "_" + CookieTypes.BoxLayerObject + "_" + i)
+        if (store) {
+          localStorage.setItem(collectionId + "_" + CookieTypes.BoxLayerObject + "_" + (i + 1), store)
+        }
+      }
+    } catch (ex) {
+
     }
-    localStorage.setItem(CookieTypes.BoxLayerObject, JSON.stringify(data))
+    localStorage.setItem(collectionId + "_" + CookieTypes.BoxLayerObject + "_" + 0, data)
   },
 
 });
