@@ -1,9 +1,9 @@
-module.exports = {
-  log: function (...msg) {
+module.exports = class Utils {
+  static log(...msg) {
     console.log(new Date(), msg);
-  },
+  }
 
-  convertJsonString: function (val) {
+  static convertJsonString(val) {
     try {
       if (val == null) {
         return '{}';
@@ -12,9 +12,9 @@ module.exports = {
     } catch (ex) {
       return '{}';
     }
-  },
+  }
 
-  converJson: function (val) {
+  static converJson(val) {
     try {
       if (val == null) {
         return {};
@@ -23,9 +23,9 @@ module.exports = {
     } catch (ex) {
       return {};
     }
-  },
+  }
 
-  convertIntToBool: function (val) {
+  static convertIntToBool(val) {
     try {
       if (val == null) {
         return false;
@@ -34,13 +34,13 @@ module.exports = {
     } catch (ex) {
       return false;
     }
-  },
+  }
 
-  convertBoolToInt: function (val) {
+  static convertBoolToInt(val) {
     try {
       return val ? 1 : 0;
     } catch (ex) {
       return 0;
     }
-  },
+  }
 };
