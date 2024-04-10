@@ -10,72 +10,11 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const server = http.createServer(app);
 const TOKEN_KEY = 'TokenCheckAll';
-const DBSOURCE = 'usersdb.sqlite';
-let db = new sqlite3.Database(DBSOURCE, (err) => {
-  if (err) {
-    // Cannot open database
-    console.error(err.message);
-    throw err;
-  } else {
-    const salt = bcrypt.genSaltSync(10);
-
-    db.run(
-      `CREATE TABLE Users (
-          Id INTEGER PRIMARY KEY AUTOINCREMENT,
-          Name text,
-          Username text, 
-          Email text, 
-          Password text,             
-          Salt text,    
-          Token text,
-          DateLoggedIn DATE,
-          DateCreated DATE
-          )`,
-      (err) => {
-        if (err) {
-          // Table already created
-        } else {
-          // Table just created, creating some rows
-          const insert = 'INSERT INTO Users (Name, Username, Email, Password, Salt, DateCreated) VALUES (?,?,?,?,?,?)';
-          db.run(insert, ['Thaonk', 'taonuaa004', 'taonuaa004@gmail.com', bcrypt.hashSync('123456', salt), salt, Date('now')]);
-        }
-      }
-    );
-
-    db.run(
-      `CREATE TABLE Collections (
-          Id INTEGER PRIMARY KEY AUTOINCREMENT,
-          Name text,
-          Info text,
-          Desc text,
-          UserId INTEGER, 
-          DateCreated DATE,
-          DateUpdated DATE
-          )`,
-      (err) => {}
-    );
-    db.run(
-      `CREATE TABLE Layers (
-          Id TEXT PRIMARY KEY,
-          Name text,
-          Info text,
-          BoxGroup text,
-          Position text,
-          Show INTEGER,
-          Type text,
-          Desc text,
-          CollectionId INTEGER,
-          UserId INTEGER, 
-          DateCreated DATE,
-          DateUpdated DATE
-          )`,
-      (err) => {}
-    );
-  }
-});
-function log(...msg) {
-  console.log(new Date(), msg);
-}
+let db = require('./lib/db');
+let utils = require('./lib/utils');
+let boxLayer = require('./models/BoxLayer');
+let Collections = require('./models/Collections');
+const BoxLayer = require('./models/BoxLayer');
 
 function convertJsonString(val) {
   try {
@@ -152,20 +91,20 @@ app.use(function (req, res, next) {
 
 app.use(function (req, res, next) {
   res.fullUrl = req.method + ' ' + req.protocol + '://' + req.get('host') + req.originalUrl;
-  log('recv', res.fullUrl, req.query, req.body);
+  utils.log('recv', res.fullUrl, req.query, req.body);
 
   res.send_success = (data) => {
-    log('send_success', res.fullUrl);
+    utils.log('send_success', res.fullUrl);
     res.status(200).json({ error: 0, data: data, message: 'Success' });
   };
 
   res.send_error = (error = -100, message = 'Unknow') => {
-    log('send_error', res.fullUrl, error, message);
+    utils.log('send_error', res.fullUrl, error, message);
     res.status(200).json({ error: error, data: {}, message: message });
   };
 
   res.send_exec = (error = -100, ex = null) => {
-    log('send_exec', res.fullUrl, error, ex);
+    utils.log('send_exec', res.fullUrl, error, ex);
     try {
       let msg = 'Unknow';
       try {
@@ -370,8 +309,8 @@ app.post('/api/create_collection', auth, (req, res) => {
     }
 
     const dateNow = Date('now');
-    const sql = 'INSERT INTO Collections (Name, Info, Desc, UserId, DateCreated, DateUpdated) VALUES (?,?,?,?,?,?)';
-    const params = [name, info, desc, req.user.userId, dateNow, dateNow];
+    const sql = 'INSERT INTO Collections (Name, Info, Desc, VersionId, UserId, DateCreated, DateUpdated) VALUES (?,?,?,?,?,?,?)';
+    const params = [name, info, desc, 0, req.user.userId, dateNow, dateNow];
     const user = db.run(sql, params, function (err, innerResult) {
       if (err || this.lastId <= 0) {
         return res.send_exec(-105, err);
@@ -447,10 +386,10 @@ function convert_layer(row) {
     return null;
   }
 }
-async function send_layer(req, res, id, collectionId) {
+async function send_layer(req, res, id, versionId, collectionId) {
   try {
-    const sql = 'SELECT * FROM Layers WHERE Id = ? and collectionId = ? and UserId = ?';
-    const params = [id, collectionId, req.user.userId];
+    const sql = 'SELECT * FROM Layers WHERE Id = ? and collectionId = ? and VerisonId = ? and UserId = ?';
+    const params = [id, collectionId, versionId, req.user.userId];
     db.all(sql, params, (err, result) => {
       if (err) {
         return res.send_exec(-102, err);
@@ -469,7 +408,8 @@ async function send_layer(req, res, id, collectionId) {
     res.send_exec(-100, err);
   }
 }
-app.get('/api/get_layers', auth, (req, res) => {
+
+app.get('/api/get_layers', auth, async (req, res) => {
   try {
     const collectionId = req.query.collectionId;
 
@@ -478,31 +418,26 @@ app.get('/api/get_layers', auth, (req, res) => {
       return;
     }
 
-    const sql = 'SELECT * FROM Layers WHERE CollectionId = ? and UserId = ?';
-    const params = [collectionId, req.user.userId];
-    db.all(sql, params, (err, result) => {
-      if (err) {
-        return res.send_exec(-102, err);
-      }
-      let layers = [];
-      result.forEach(function (row) {
-        const layer = convert_layer(row);
-        if (!layer) {
-          return res.send_error(-103, 'Has error in convert data');
-        }
-        layers.push(layer);
-      });
-      res.send_success({
-        layers: layers,
-        length: result.length,
-      });
+    let collection = await Collections.getCollection(collectionId, req.user.userId);
+
+    if (!collection) {
+      res.send_error(-110, 'Not found collection Id');
+      return;
+    }
+    console.log('has colection', collection.Id, collection.VersionId);
+
+    const layers = await BoxLayer.getBoxLayer(collectionId, collection.VersionId, req.user.userId);
+    res.send_success({
+      layers: layers,
+      length: layers.length,
+      versionLayer: collection.VersionId,
     });
   } catch (err) {
     res.send_exec(-100, err);
   }
 });
 
-app.post('/api/create_layer', auth, (req, res) => {
+app.post('/api/update_version_layer', auth, async (req, res) => {
   try {
     const collectionId = req.query.collectionId;
 
@@ -511,108 +446,63 @@ app.post('/api/create_layer', auth, (req, res) => {
       return;
     }
 
-    const { id, name, info, boxGroup, position, show, type, desc } = req.body;
-
-    if (!name) {
+    const { layers } = req.body;
+    if (!layers) {
       res.send_error(-101, 'Miss field');
       return;
     }
+
+    let collection = await Collections.getCollection(collectionId, req.user.userId);
+
+    if (!collection) {
+      res.send_error(-110, 'Not found collection Id');
+      return;
+    }
+    console.log('has colection', collection.Id, collection.VersionId);
+
+    collection.VersionId = collection.VersionId + 1;
 
     const dateNow = Date('now');
+    const playerParams = [];
 
-    const sql =
-      'INSERT INTO Layers (Id, Name, Info, BoxGroup, Position, Show ,Type, Desc, CollectionId, UserId, DateCreated, DateUpdated) VALUES (?,?,?, ?,?,?,?,?,?,?,?,?)';
-    const params = [
-      id,
-      name,
-      convertJsonString(info),
-      convertJsonString(boxGroup),
-      convertJsonString(position),
-      convertBoolToInt(show),
-      type,
-      desc,
-      collectionId,
-      req.user.userId,
-      dateNow,
-      dateNow,
-    ];
-    const user = db.run(sql, params, function (err, innerResult) {
-      if (err || this.lastId <= 0) {
-        return res.send_exec(-105, err);
+    for (let i in layers) {
+      const layer = layers[i];
+      const { id, name, info, boxGroup, position, show, type, desc } = layer;
+
+      if (!name) {
+        res.send_error(-101, 'Miss field');
+        return;
       }
-      send_layer(req, res, id, collectionId);
-    });
-    console.log('user', user);
-  } catch (err) {
-    res.send_exec(-100, err);
-  }
-});
 
-app.post('/api/update_layer', auth, (req, res) => {
-  try {
-    const collectionId = req.query.collectionId;
-
-    if (!collectionId) {
-      res.send_error(-101, 'Miss field');
-      return;
+      const params = [
+        id,
+        name,
+        convertJsonString(info),
+        convertJsonString(boxGroup),
+        convertJsonString(position),
+        convertBoolToInt(show),
+        type,
+        desc,
+        collectionId,
+        collection.VersionId,
+        req.user.userId,
+        dateNow,
+        dateNow,
+      ];
+      playerParams.push(params);
     }
 
-    const { id, name, info, boxGroup, position, show, type, desc } = req.body;
-
-    if (!id || !name) {
-      res.send_error(-101, 'Miss field');
-      return;
-    }
-    const sql =
-      'UPDATE Layers Set Name = ?, Info = ?, BoxGroup = ? , Position = ?, Show = ? , Type = ? , Desc = ?, DateUpdated = ? WHERE Id = ? and CollectionId = ? and UserId = ?';
-    const params = [
-      name,
-      convertJsonString(info),
-      convertJsonString(boxGroup),
-      convertJsonString(position),
-      convertBoolToInt(show),
-      type || '',
-      desc || '',
-      Date('now'),
-      id,
-      collectionId,
-      req.user.userId,
-    ];
-    const res = db.run(sql, params, function (err, innerResult) {
-      if (err) {
-        return res.send_exec(-105, err);
-      }
-      send_layer(req, res, id);
-    });
-  } catch (err) {
-    res.send_exec(-100, err);
-  }
-});
-
-app.post('/api/delete_layer', auth, async (req, res) => {
-  try {
-    const collectionId = req.query.collectionId;
-
-    if (!collectionId) {
-      res.send_error(-101, 'Miss field');
-      return;
+    for (let i in playerParams) {
+      const params = playerParams[i];
+      await BoxLayer.updateBoxLayer(params);
     }
 
-    const { id } = req.body;
+    await Collections.updateVersionCollection(collectionId, req.user.userId, collection.VersionId);
 
-    if (!id) {
-      res.send_error(-101, 'Miss field');
-      return;
-    }
-    const sql = 'DELETE FROM Layers WHERE Id = ? and CollectionId = ? and UserId = ?';
-    const params = [id, collectionId, req.user.userId];
-    db.run(sql, params, function (err, innerResult) {
-      if (err) {
-        return res.send_exec(-105, err);
-      }
-      res.send_success({
-        id: id,
-      });
+    await BoxLayer.deleteBoxLayer(collectionId, req.user.userId, collection.VersionId);
+
+    return res.send_success({
+      versionLayer: collection.VersionId,
     });
   } catch (err) {
     res.send_exec(-100, err);

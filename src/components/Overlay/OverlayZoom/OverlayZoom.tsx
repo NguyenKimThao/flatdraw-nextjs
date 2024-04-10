@@ -5,7 +5,9 @@ import { FaPlus, FaMinus } from 'react-icons/fa';
 import { IoLocateSharp, IoSaveSharp, IoAddSharp } from 'react-icons/io5';
 
 import useCanvasContext from '~/context/useCanvasContext';
+import useCollectionApi from '~/hooks/useCollectionApi';
 import useLocalstogare from '~/hooks/useLocalstogare';
+import ApiService from '~/service';
 import useCanvasObjects from '~/store/useCanvasObjects';
 import useZoom from '~/store/useZoom';
 import theme from '~/theme';
@@ -37,6 +39,7 @@ export default function OverlayZoom() {
   const { getBoxLayerObject, setBoxLayerObject } = useLocalstogare();
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
   const setBoxLayerObjects = useCanvasObjects((state) => state.setBoxLayerObjects);
+  const collectionId = useCollectionApi((state) => state.collectionId);
 
   return (
     <Ul>
@@ -46,15 +49,15 @@ export default function OverlayZoom() {
             size="xl"
             variant="default"
             onClick={() => {
-              if (boxLayerObjects.length != 0)
-                setBoxLayerObject(boxLayerObjects);
+              if (collectionId && boxLayerObjects.length != 0)
+                ApiService.updatVersionLayers(collectionId, boxLayerObjects);
             }}
           >
             <IoSaveSharp />
           </ActionIcon>
         </Tooltip>
       </li>
-      <li>
+      {/* <li>
         <Tooltip position="top" label="Load" offset={8}>
           <ActionIcon
             size="xl"
@@ -71,7 +74,7 @@ export default function OverlayZoom() {
             <IoAddSharp />
           </ActionIcon>
         </Tooltip>
-      </li>
+      </li> */}
       <li>
         <Tooltip position="top" label="Reset position" offset={8}>
           <ActionIcon

@@ -1,4 +1,4 @@
-import { CollectionItem, DataResponse, ListCollectionResponse, ListLayerResponse, UserInfoResponse } from '~/config/types';
+import { CollectionItem, DataResponse, ListCollectionResponse, ListLayerResponse, UserInfoResponse, BoxLayerObject } from '~/config/types';
 import { fetchData, postData } from '~/service/http';
 
 const API_URL = "http://localhost:8010"
@@ -27,6 +27,9 @@ const ApiService = {
   },
   getLayers: (collectionId: number): Promise<DataResponse<ListLayerResponse>> => {
     return fetchData(`${API_URL}/api/get_layers`, { collectionId });
+  },
+  updatVersionLayers: (collectionId: number, layers: BoxLayerObject[]): Promise<DataResponse<ListLayerResponse>> => {
+    return postData(`${API_URL}/api/update_version_layer`, { collectionId }, { layers });
   },
 }
 export default ApiService;
