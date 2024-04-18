@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 
 import Overlay from '~/components/Overlay';
+import useCollectionApi from '~/hooks/useCollectionApi';
 import useUserStore, { StatusAuthen } from '~/hooks/useUserStore';
+
 import LoginLayout from './LoginLayout';
 import LogoutLayout from './LogoutLayout';
 import PageLayout from './PageLayout';
-import useCollectionApi from '~/hooks/useCollectionApi';
 
 export default function AppLayout() {
   const statusAuthen = useUserStore((state) => state.statusAuthen);

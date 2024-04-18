@@ -4,11 +4,12 @@ import startCase from 'lodash/startCase';
 import React from 'react';
 import { BiTrash, BiArchiveIn, BiArchiveOut, BiHide, BiShow } from 'react-icons/bi';
 
+import useActiveBoxLayerId from '~/store/useBoxLayerId';
 import useCanvasObjects from '~/store/useCanvasObjects';
 import theme from '~/theme';
 
 import { H4, TextP } from '../commonTabComponents';
-import useActiveBoxLayerId from '~/store/useBoxLayerId';
+
 
 const LayersUl = styled('ul')`
   list-style: none;

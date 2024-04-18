@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
-import { H4, TextP } from '../commonTabComponents';
-import useUserStore from '~/hooks/useUserStore';
 import { Button, TextInput, Textarea } from '@mantine/core';
+import React, { useState } from 'react';
 import { TbLogout } from 'react-icons/tb';
-import useCollectionApi from '~/hooks/useCollectionApi';
+
 import { StatusFetch } from '~/config/types';
+import useCollectionApi from '~/hooks/useCollectionApi';
+import useUserStore from '~/hooks/useUserStore';
+
+import { H4, TextP } from '../commonTabComponents';
 
 const PresetDiv = styled('div')`
   margin-bottom: 1rem;

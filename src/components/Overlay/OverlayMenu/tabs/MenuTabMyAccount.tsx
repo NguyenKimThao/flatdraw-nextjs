@@ -1,9 +1,12 @@
 import styled from '@emotion/styled';
-import React from 'react';
-import { H4, TextP } from '../commonTabComponents';
-import useUserStore from '~/hooks/useUserStore';
 import { Button, TextInput } from '@mantine/core';
+import React from 'react';
 import { TbLogout } from 'react-icons/tb';
+
+import useUserStore from '~/hooks/useUserStore';
+
+import { H4, TextP } from '../commonTabComponents';
+
 
 const PresetDiv = styled('div')`
   margin-bottom: 1rem;

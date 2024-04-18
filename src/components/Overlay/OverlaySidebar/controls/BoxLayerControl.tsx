@@ -1,17 +1,20 @@
 import styled from '@emotion/styled';
-import { MdOutlineCreateNewFolder } from 'react-icons/md';
-import theme from '~/theme';
-
 import { Input, Button, ActionIcon, Tooltip } from '@mantine/core';
-import React, { useEffect, useState } from 'react';
-import useDefaultParams from '~/store/useDefaultParams';
-import ControlHeader from '../components/ControlHeader';
 import { NumberInput } from '@mantine/core';
-import generateUniqueId from '~/utils/generateUniqueId';
-import useActiveBoxLayerId from '~/store/useBoxLayerId';
-import useUserMode from '~/store/useUserMode';
-import useCanvasObjects from '~/store/useCanvasObjects';
+import React, { useEffect, useState } from 'react';
+import { MdOutlineCreateNewFolder } from 'react-icons/md';
+
 import useActiveBoxGroupId from '~/store/useBoxGroupId';
+import useActiveBoxLayerId from '~/store/useBoxLayerId';
+import useCanvasObjects from '~/store/useCanvasObjects';
+import useDefaultParams from '~/store/useDefaultParams';
+import useUserMode from '~/store/useUserMode';
+import theme from '~/theme';
+import generateUniqueId from '~/utils/generateUniqueId';
+
+import ControlHeader from '../components/ControlHeader';
+
+
 
 const FrameGridDiv = styled('div')`
   display: grid;

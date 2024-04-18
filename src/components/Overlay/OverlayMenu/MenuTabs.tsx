@@ -3,21 +3,21 @@ import { Tabs } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import React, { useEffect } from 'react';
 
+import useCollectionApi from '~/hooks/useCollectionApi';
 import useActiveObjectId from '~/store/useActiveObjectId';
 import theme from '~/theme';
 
 import { menuTabsDefinition, type MenuTabId } from './menuTabsDefinition';
 import MenuTabAbout from './tabs/MenuTabAbout';
-import MenuTabCanvas from './tabs/MenuTabCanvas';
-import MenuTabDownload from './tabs/MenuTabDownload';
-import MenuTabLayers from './tabs/MenuTabLayers';
-import MenuTabSettings from './tabs/MenuTabSettings';
-import MenuTabBoxLayers from './tabs/MenuTabBoxLayers';
 import MenuTabBoxGroups from './tabs/MenuTabBoxGroups';
-import MenuTabMyAccount from './tabs/MenuTabMyAccount';
-import useCollectionApi from '~/hooks/useCollectionApi';
+import MenuTabBoxLayers from './tabs/MenuTabBoxLayers';
+import MenuTabCanvas from './tabs/MenuTabCanvas';
 import MenuTabCollections from './tabs/MenuTabCollections';
 import MenuTabCreateCollection from './tabs/MenuTabCreateCollection';
+import MenuTabDownload from './tabs/MenuTabDownload';
+import MenuTabLayers from './tabs/MenuTabLayers';
+import MenuTabMyAccount from './tabs/MenuTabMyAccount';
+import MenuTabSettings from './tabs/MenuTabSettings';
 
 const WrapperDiv = styled('div')`
   width: 100%;

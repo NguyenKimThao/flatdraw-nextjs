@@ -1,16 +1,17 @@
 import styled from '@emotion/styled';
 import { ActionIcon, Tooltip, Text } from '@mantine/core';
+import { modals } from '@mantine/modals';
 import startCase from 'lodash/startCase';
 import React, { useState } from 'react';
 import { BiTrash, BiArchiveIn, BiArchiveOut, BiHide, BiShow } from 'react-icons/bi';
-import { modals } from '@mantine/modals';
 
+import useCollectionApi from '~/hooks/useCollectionApi';
+import useActiveBoxLayerId from '~/store/useBoxLayerId';
 import useCanvasObjects from '~/store/useCanvasObjects';
 import theme from '~/theme';
 
 import { H4, TextP } from '../commonTabComponents';
-import useActiveBoxLayerId from '~/store/useBoxLayerId';
-import useCollectionApi from '~/hooks/useCollectionApi';
+
 
 const LayersUl = styled('ul')`
   list-style: none;

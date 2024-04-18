@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
-import React, { useRef, type PointerEvent, type Touch, type TouchEvent, useEffect, useState } from 'react';
-import { Canvas as CanvasThree, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { Canvas as CanvasThree, useFrame, useThree } from "@react-three/fiber";
+import React, { useRef, type PointerEvent, type Touch, type TouchEvent, useEffect, useState } from 'react';
 
+import BoxCube, { BoxDraw } from '~/components/BoxCube';
 import { TRANSPARENT_BACKGROUND_IMAGE } from '~/config/constants';
 import { APP_FIXED_MAIN_UNIQUE_ID } from '~/config/globalElementIds';
 import { CANVAS_CONTROLS_OVERLAY } from '~/config/globalElementIds';
@@ -10,6 +11,10 @@ import type { ActionModeOption } from '~/config/types';
 import useCanvasContext from '~/context/useCanvasContext';
 import useActionMode from '~/store/useActionMode';
 import useActiveObjectId from '~/store/useActiveObjectId';
+import useAvailableColors from '~/store/useAvailableColors';
+import useActiveBoxCubeId from '~/store/useBoxCubeId';
+import useActiveBoxGroupId from '~/store/useBoxGroupId';
+import useActiveBoxLayerId from '~/store/useBoxLayerId';
 import useCanvasObjects from '~/store/useCanvasObjects';
 import useCanvasWorkingSize from '~/store/useCanvasWorkingSize';
 import useDefaultParams from '~/store/useDefaultParams';
@@ -24,11 +29,8 @@ import getCursorFromModes from '~/utils/getCursorFromModes';
 import getDimensionsFromFreeDraw from '~/utils/getDimensionsFromFreeDraw';
 import getRelativeMousePositionOnCanvas from '~/utils/getRelativeMousePositionOnCanvas';
 import isCursorWithinRectangle from '~/utils/isCursorWithinRectangle';
-import BoxCube, { BoxDraw } from './BoxCube';
-import useActiveBoxLayerId from '~/store/useBoxLayerId';
-import useActiveBoxGroupId from '~/store/useBoxGroupId';
-import useActiveBoxCubeId from '~/store/useBoxCubeId';
-import useAvailableColors from '~/store/useAvailableColors';
+
+
 
 const FixedMain = styled('main')`
   position: fixed;

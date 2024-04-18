@@ -1,12 +1,13 @@
 import React from 'react';
-import CanvasEventListeners from '~/components/CanvasEventListeners';
+
 import Canvas from '~/components/Canvas';
+import CanvasEventListeners from '~/components/CanvasEventListeners';
 
 export default function CanvasLayout() {
-    return (
-        <>
-            <Canvas />
-            <CanvasEventListeners />
-        </>
-    );
+  return (
+    <>
+      <Canvas />
+      <CanvasEventListeners />
+    </>
+  );
 }

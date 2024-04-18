@@ -4,10 +4,11 @@ import React from 'react';
 import { FaBars } from 'react-icons/fa';
 
 import useModalContext from '~/context/useModalContext';
+import useCollectionApi from '~/hooks/useCollectionApi';
 import useActiveObjectId from '~/store/useActiveObjectId';
 
 import { menuTabsDefinition } from './menuTabsDefinition';
-import useCollectionApi from '~/hooks/useCollectionApi';
+
 
 const WrapperDiv = styled('div')`
   pointer-events: auto;

@@ -1,11 +1,12 @@
 import styled from '@emotion/styled';
 import { ActionIcon, Tooltip } from '@mantine/core';
 import React, { type ReactNode } from 'react';
-import { BsSquare, BsCircle, BsImageFill } from 'react-icons/bs';
+import { BsImageFill } from 'react-icons/bs';
 import { FaMousePointer } from 'react-icons/fa';
-import { HiPencil } from 'react-icons/hi';
-import { RiImageLine } from 'react-icons/ri';
-import { RxText } from 'react-icons/rx';
+// import { BsSquare, BsCircle, BsImageFill } from 'react-icons/bs';
+// import { HiPencil } from 'react-icons/hi';
+// import { RiImageLine } from 'react-icons/ri';
+// import { RxText } from 'react-icons/rx';
 
 import type { UserMode } from '~/config/types';
 import useActiveObjectId from '~/store/useActiveObjectId';
@@ -60,36 +61,36 @@ const userModeButtonsPrimary: UserModeButton[] = [
 ];
 
 const userModeButtonsSecondary: UserModeButton[] = [
-  {
-    mode: 'free-draw',
-    label: 'Draw',
-    icon: <HiPencil />,
-  },
-  {
-    mode: 'rectangle',
-    label: 'Rectangle',
-    icon: <BsSquare />,
-  },
-  {
-    mode: 'ellipse',
-    label: 'Ellipse',
-    icon: <BsCircle />,
-  },
-  {
-    mode: 'text',
-    label: 'Text',
-    icon: <RxText />,
-  },
-  {
-    mode: 'icon',
-    label: 'Icon',
-    icon: <RiImageLine />,
-  },
-  {
-    mode: 'image',
-    label: 'Image',
-    icon: <BsImageFill />,
-  },
+  // {
+  //   mode: 'free-draw',
+  //   label: 'Draw',
+  //   icon: <HiPencil />,
+  // },
+  // {
+  //   mode: 'rectangle',
+  //   label: 'Rectangle',
+  //   icon: <BsSquare />,
+  // },
+  // {
+  //   mode: 'ellipse',
+  //   label: 'Ellipse',
+  //   icon: <BsCircle />,
+  // },
+  // {
+  //   mode: 'text',
+  //   label: 'Text',
+  //   icon: <RxText />,
+  // },
+  // {
+  //   mode: 'icon',
+  //   label: 'Icon',
+  //   icon: <RiImageLine />,
+  // },
+  // {
+  //   mode: 'image',
+  //   label: 'Image',
+  //   icon: <BsImageFill />,
+  // },
   {
     mode: 'boxLayer',
     label: 'BoxLayer',

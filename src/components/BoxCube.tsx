@@ -1,6 +1,7 @@
-import React, { type ReactNode, type CSSProperties, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import React, { type ReactNode, type CSSProperties, useEffect, useState } from "react";
+
 import useAvailableColors from "~/store/useAvailableColors";
 import useActiveBoxCubeId from "~/store/useBoxCubeId";
 import useActiveBoxGroupId from "~/store/useBoxGroupId";
