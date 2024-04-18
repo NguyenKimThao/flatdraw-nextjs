@@ -9,6 +9,7 @@ import { FaMousePointer } from 'react-icons/fa';
 // import { RxText } from 'react-icons/rx';
 
 import type { UserMode } from '~/config/types';
+import useCollectionApi from '~/hooks/useCollectionApi';
 import useActiveObjectId from '~/store/useActiveObjectId';
 import useUserMode from '~/store/useUserMode';
 import theme from '~/theme';

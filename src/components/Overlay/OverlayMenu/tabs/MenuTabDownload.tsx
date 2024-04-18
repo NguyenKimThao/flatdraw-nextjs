@@ -66,7 +66,7 @@ export default function MenuTabDownload() {
       {' '}
       <H4>Download</H4>
       <DownloadButtonsGridDiv>
-        <Button
+        {/* <Button
           size="xs"
           variant="default"
           onClick={() => {
@@ -75,8 +75,8 @@ export default function MenuTabDownload() {
           leftIcon={<FaDownload />}
         >
           PNG
-        </Button>
-        <Button
+        </Button> */}
+        {/* <Button
           size="xs"
           variant="default"
           onClick={() => {
@@ -85,7 +85,7 @@ export default function MenuTabDownload() {
           leftIcon={<FaDownload />}
         >
           JPG
-        </Button>
+        </Button> */}
         <Button
           size="xs"
           variant="default"

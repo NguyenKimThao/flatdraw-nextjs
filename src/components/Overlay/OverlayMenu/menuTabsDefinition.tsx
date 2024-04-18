@@ -24,11 +24,11 @@ export const menuTabsDefinition: {
       label: 'Create Collection',
       icon: <FaFolderPlus />,
     },
-    {
-      id: 'canvas',
-      label: 'Canvas',
-      icon: <BsImageFill />,
-    },
+    // {
+    //   id: 'canvas',
+    //   label: 'Canvas',
+    //   icon: <BsImageFill />,
+    // },
     {
       id: 'download',
       label: 'Download',

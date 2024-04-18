@@ -5,6 +5,7 @@ import OverlayMenu from '~/components/Overlay/OverlayMenu';
 import OverlayNavbar from '~/components/Overlay/OverlayNavbar';
 import OverlaySidebar from '~/components/Overlay/OverlaySidebar';
 import OverlayZoom from '~/components/Overlay/OverlayZoom';
+import useCollectionApi from '~/hooks/useCollectionApi';
 import theme from '~/theme';
 
 const FixedDiv = styled('div')`
@@ -47,14 +48,19 @@ const BottomRightDiv = styled('div')`
 `;
 
 export default function Overlay() {
+  const collectionId = useCollectionApi((state) => state.collectionId);
+
   return (
     <FixedDiv>
       <TopDiv>
-        <OverlayNavbar />
+        {
+          collectionId &&
+          <OverlayNavbar />
+        }
         <OverlayMenu />
       </TopDiv>
       <BottomRightDiv>
-        <OverlayZoom />
+        {collectionId && <OverlayZoom />}
       </BottomRightDiv>
       <LeftDiv>
         <OverlaySidebar />
