@@ -5,6 +5,7 @@ import { FaPlus, FaMinus } from 'react-icons/fa';
 import { IoLocateSharp, IoSaveSharp, IoAddSharp } from 'react-icons/io5';
 
 import useCanvasContext from '~/context/useCanvasContext';
+import useCanvasCubeContext from '~/context/useCanvasContext/useCanvasCubeContext';
 import useCollectionApi from '~/hooks/useCollectionApi';
 import useLocalstogare from '~/hooks/useLocalstogare';
 import ApiService from '~/service';
@@ -36,10 +37,12 @@ export default function OverlayZoom() {
   const zoom = useZoom((state) => state.zoom);
   const incrementZoom = useZoom((state) => state.incrementZoom);
   const decrementZoom = useZoom((state) => state.decrementZoom);
+  const setZoom = useZoom((state) => state.setZoom);
   const { getBoxLayerObject, setBoxLayerObject } = useLocalstogare();
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
   const setBoxLayerObjects = useCanvasObjects((state) => state.setBoxLayerObjects);
   const collectionId = useCollectionApi((state) => state.collectionId);
+  const { canvasCubeRef, orbitControlRef } = useCanvasCubeContext();
 
   return (
     <Ul>
@@ -83,7 +86,10 @@ export default function OverlayZoom() {
             size="xl"
             variant="default"
             onClick={() => {
-              setCenter();
+              console.log('orbitControlRef.current', orbitControlRef.current);
+              if (orbitControlRef.current) {
+                orbitControlRef.current.reset();
+              }
             }}
           >
             <IoLocateSharp />
@@ -110,7 +116,7 @@ export default function OverlayZoom() {
             size="xl"
             variant="default"
             onClick={() => {
-              setCenter();
+              setZoom(100);
             }}
           >
             {`${Math.trunc(Math.abs(zoom))}%`}

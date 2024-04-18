@@ -9,6 +9,7 @@ import { APP_FIXED_MAIN_UNIQUE_ID } from '~/config/globalElementIds';
 import { CANVAS_CONTROLS_OVERLAY } from '~/config/globalElementIds';
 import type { ActionModeOption } from '~/config/types';
 import useCanvasContext from '~/context/useCanvasContext';
+import useCanvasCubeContext from '~/context/useCanvasContext/useCanvasCubeContext';
 import useActionMode from '~/store/useActionMode';
 import useActiveObjectId from '~/store/useActiveObjectId';
 import useAvailableColors from '~/store/useAvailableColors';
@@ -105,6 +106,7 @@ const CanvasBox = () => {
 
 export default function Canvas() {
   const { canvasRef, contextRef, drawEverything } = useCanvasContext();
+  const { canvasCubeRef, orbitControlRef } = useCanvasCubeContext();
 
   const previousTouchRef = useRef<Touch | null>(null);
   const distanceBetweenTouchesRef = useRef<number>(0);
@@ -160,6 +162,14 @@ export default function Canvas() {
   const activeObjectCube = activeObjectGroup?.boxGroup?.find(object => object.id == activeBoxCubeId);
   const availableColors = useAvailableColors((state) => state.availableColors);
 
+
+  useEffect(() => {
+    if (userMode != 'select') {
+      if (orbitControlRef && orbitControlRef.current) {
+        orbitControlRef.current.reset(0);
+      }
+    }
+  }, [userMode]);
   // On pointer down
 
   const onPointerDown = (event: PointerOrTouchEvent) => {
@@ -626,9 +636,9 @@ export default function Canvas() {
       </div> */}
 
       <CanvasThree onKeyUp={onKeyUp} style={{ width: "100%", height: "100vh", background: "rgb(172,173,165)" }}>
-        <OrbitControls minDistance={zoom / 4} maxDistance={zoom / 4} />
+        <OrbitControls minDistance={zoom / 4} maxDistance={zoom / 4} ref={orbitControlRef} enableRotate={userMode == 'select'} />
         <ambientLight intensity={0.5} />
-        <spotLight position={[10, 15, 10]} angle={0.3} />
+        <spotLight position={[0, 0, 0]} angle={0.3} />
         <CanvasBox></CanvasBox>
         {boxLayerObjects.map((box, idx) => {
           return (
