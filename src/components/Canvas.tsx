@@ -67,13 +67,13 @@ const CanvasBox = () => {
 
   const posZIndex = activeObjectLayer?.position[2] || 0;
   const show = userMode == "boxCube" && !activeObject;
-  let distance = zoom / 4;
+  const distance = zoom / 4;
 
   useFrame(({ mouse, viewport }) => {
     if (!show || !activeObjectLayer || !activeObjectLayer.position || !activeObjectGroup || activeObject) {
       return;
     }
-    let viewportNew = viewport.getCurrentViewport(camera)
+    const viewportNew = viewport.getCurrentViewport(camera)
     const x = (mouse.x * viewportNew.width / 2);
     const y = (mouse.y * viewportNew.height / 2);
     const sc = activeObjectLayer.position[2] / distance;
@@ -148,6 +148,7 @@ export default function Canvas() {
   const setActionMode = useActionMode((state) => state.setActionMode);
 
   const zoom = useZoom((state) => state.zoom);
+  const posY = useZoom((state) => state.posY);
 
   const initialDrawingPositionRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
@@ -635,10 +636,12 @@ export default function Canvas() {
         <canvas ref={canvasRef} width={canvasWorkingSize.width} height={canvasWorkingSize.height} />
       </div> */}
 
-      <CanvasThree onKeyUp={onKeyUp} style={{ width: "100%", height: "100vh", background: "rgb(172,173,165)" }}>
-        <OrbitControls minDistance={zoom / 4} maxDistance={zoom / 4} ref={orbitControlRef} enableRotate={userMode == 'select'} />
+      <CanvasThree ref={canvasCubeRef} scene={{ position: [0, posY, 0] }} onKeyUp={onKeyUp} style={{ width: "100%", height: "100vh", background: "rgb(172,173,165)" }}>
+        <OrbitControls minDistance={zoom / 4}
+          maxDistance={zoom / 4} ref={orbitControlRef}
+          enableRotate={userMode == 'select'} />
         <ambientLight intensity={0.5} />
-        <spotLight position={[0, 0, 0]} angle={0.3} />
+        <spotLight position={[0, 20, 0]} angle={0.3} />
         <CanvasBox></CanvasBox>
         {boxLayerObjects.map((box, idx) => {
           return (

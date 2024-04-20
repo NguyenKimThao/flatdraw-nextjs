@@ -19,7 +19,7 @@ const Ul = styled('ul')`
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, auto));
+  grid-template-columns: repeat(8, minmax(0, auto));
   align-items: center;
   grid-gap: ${theme.variables.overlayItemsGutter};
 
@@ -37,6 +37,10 @@ export default function OverlayZoom() {
   const zoom = useZoom((state) => state.zoom);
   const incrementZoom = useZoom((state) => state.incrementZoom);
   const decrementZoom = useZoom((state) => state.decrementZoom);
+  const posY = useZoom((state) => state.posY);
+  const incrementPosY = useZoom((state) => state.incrementPosY);
+  const decrementPosY = useZoom((state) => state.decrementPosY);
+  const setPosY = useZoom((state) => state.setPosY);
   const setZoom = useZoom((state) => state.setZoom);
   const { getBoxLayerObject, setBoxLayerObject } = useLocalstogare();
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
@@ -46,6 +50,46 @@ export default function OverlayZoom() {
 
   return (
     <Ul>
+      <li>
+        <Tooltip position="top" label="Decrement posY" offset={8}>
+          <ActionIcon
+            size="xl"
+            variant="default"
+            onClick={() => {
+              decrementPosY(1);
+            }}
+          >
+            <FaMinus />
+          </ActionIcon>
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip position="top" label="Set default posY" offset={8}>
+          <ActionIcon
+            sx={{ width: '70px' }}
+            size="xl"
+            variant="default"
+            onClick={() => {
+              setPosY(0);
+            }}
+          >
+            {`Y: ${posY}`}
+          </ActionIcon>
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip position="top" label="Increment posY" offset={8}>
+          <ActionIcon
+            size="xl"
+            variant="default"
+            onClick={() => {
+              incrementPosY(1);
+            }}
+          >
+            <FaPlus />
+          </ActionIcon>
+        </Tooltip>
+      </li>
       <li>
         <Tooltip position="top" label="Save" offset={8}>
           <ActionIcon
