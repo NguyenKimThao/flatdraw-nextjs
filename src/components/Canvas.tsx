@@ -537,7 +537,7 @@ export default function Canvas() {
   };
   const onKeyUp = (event: any) => {
     event.preventDefault();
-    if (userMode != "boxCube") {
+    if (userMode != "boxCube" || activeObjectCube) {
       return;
     }
     if (event.key == "1" || event.key == "2" || event.key == "3") {

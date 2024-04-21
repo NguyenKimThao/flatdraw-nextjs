@@ -34,11 +34,11 @@ export const menuTabsDefinition: {
       label: 'Download',
       icon: <FaCloudDownloadAlt />,
     },
-    {
-      id: 'layers',
-      label: 'Layers',
-      icon: <BsLayersFill />,
-    },
+    // {
+    //   id: 'layers',
+    //   label: 'Layers',
+    //   icon: <BsLayersFill />,
+    // },
     {
       id: 'boxGroups',
       label: 'Box Groups',

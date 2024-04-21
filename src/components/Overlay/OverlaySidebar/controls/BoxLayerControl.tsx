@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Input, Button, ActionIcon, Tooltip } from '@mantine/core';
+import { Input, Button, ActionIcon, Tooltip, Textarea } from '@mantine/core';
 import { NumberInput } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 import { MdOutlineCreateNewFolder } from 'react-icons/md';
@@ -47,6 +47,7 @@ export default function BoxLayerControl() {
       setDefaultParams({
         nameBoxLayer: activeObject.name,
         positionBoxLayer: activeObject.position,
+        descriptionBoxLayer: activeObject.description
       });
     }
   }, [activeObject]);
@@ -105,6 +106,16 @@ export default function BoxLayerControl() {
           hideControls
         />
       </FrameGridDiv>
+      <ControlHeader title="Description" />
+      <Textarea
+        size="xs"
+        value={defaultParams.descriptionBoxLayer}
+        onChange={(event) => {
+          setDefaultParams({
+            descriptionBoxLayer: event.target.value,
+          });
+        }}
+      />
       <ControlHeader title="Actions" />
       <ActionsUl>
         {!activeObject && (
@@ -120,9 +131,11 @@ export default function BoxLayerControl() {
                     id: createdBoxLayerId,
                     position: defaultParams.positionBoxLayer,
                     name: defaultParams.nameBoxLayer,
+                    description: defaultParams.descriptionBoxLayer,
+                    show: true
                   });
                   setActiveBoxLayerId(createdBoxLayerId);
-                  setDefaultParams({ positionBoxLayer: [0, 0, 0], nameBoxLayer: '' });
+                  setDefaultParams({ positionBoxLayer: [0, 0, 0], nameBoxLayer: '', descriptionBoxLayer: '' });
                   setUserMode('select');
                 }}
               >
@@ -143,6 +156,7 @@ export default function BoxLayerControl() {
                     ...activeObject,
                     position: defaultParams.positionBoxLayer,
                     name: defaultParams.nameBoxLayer,
+                    description: defaultParams.descriptionBoxLayer,
                   });
                   setUserMode('select');
                 }}

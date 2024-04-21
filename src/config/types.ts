@@ -108,6 +108,7 @@ export interface BoxCubeObject {
   color: string;
   count: number;
   doc: number;
+  description?: string;
 }
 
 
@@ -118,6 +119,7 @@ export interface BoxGroupObject {
   show?: boolean;
   position: number[];
   boxGroup?: BoxCubeObject[];
+  description?: string;
 }
 
 export interface BoxLayerObject {
@@ -127,6 +129,7 @@ export interface BoxLayerObject {
   type: CanvasObjectType;
   position: number[];
   boxGroup?: BoxGroupObject[];
+  description?: string;
 }
 
 export interface UnsplashImage {

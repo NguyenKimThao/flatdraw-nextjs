@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Input, Button, ActionIcon, Tooltip } from '@mantine/core';
+import { Input, Button, ActionIcon, Tooltip, Textarea } from '@mantine/core';
 import { NumberInput } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 import { MdOutlineCreateNewFolder, MdControlPointDuplicate } from 'react-icons/md';
@@ -53,6 +53,7 @@ export default function BoxGroupControl() {
       setDefaultParams({
         nameBoxGroup: activeObject.name,
         positionBoxGroup: activeObject.position,
+        descriptionBoxGroup: activeObject.description,
       });
     }
   }, [activeObject]);
@@ -111,6 +112,16 @@ export default function BoxGroupControl() {
           hideControls
         />
       </FrameGridDiv>
+      <ControlHeader title="Description" />
+      <Textarea
+        size="xs"
+        value={defaultParams.descriptionBoxGroup}
+        onChange={(event) => {
+          setDefaultParams({
+            descriptionBoxGroup: event.target.value,
+          });
+        }}
+      />
       <ControlHeader title="Actions" />
       {!activeObject &&
         <ActionsUl>
@@ -125,10 +136,12 @@ export default function BoxGroupControl() {
                   id: createdBoxGroupId,
                   position: defaultParams.positionBoxGroup,
                   name: defaultParams.nameBoxGroup,
+                  description: defaultParams.descriptionBoxGroup,
+                  show: true,
                   type: 'boxGroup',
                 });
                 setActiveBoxGroupId(createdBoxGroupId);
-                setDefaultParams({ positionBoxGroup: [0, 0, 0], nameBoxGroup: '' });
+                setDefaultParams({ positionBoxGroup: [0, 0, 0], nameBoxGroup: '', descriptionBoxGroup: '' });
                 setUserMode('select');
               }}
             >
@@ -149,6 +162,7 @@ export default function BoxGroupControl() {
                   ...activeObject,
                   position: defaultParams.positionBoxGroup,
                   name: defaultParams.nameBoxGroup,
+                  description: defaultParams.descriptionBoxGroup,
                   type: 'boxGroup',
                 });
               }}
@@ -167,6 +181,8 @@ export default function BoxGroupControl() {
                   id: createdBoxGroupId,
                   position: [activeObject.position[0] + 5, activeObject.position[1] + 5, activeObject.position[2]],
                   name: activeObject.name,
+                  description: defaultParams.descriptionBoxGroup,
+                  show: true,
                   type: 'boxGroup',
                 });
                 setActiveBoxGroupId(createdBoxGroupId);

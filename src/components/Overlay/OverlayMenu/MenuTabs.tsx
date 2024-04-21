@@ -86,16 +86,16 @@ export default function MenuTabs({ closeModal, initialTab = menuTabsDefinition[0
             <MenuTabCreateCollection />
           </PanelContentDiv>
         </Tabs.Panel>
-        <Tabs.Panel value="canvas">
+        {/* <Tabs.Panel value="canvas">
           <PanelContentDiv>
             <MenuTabCanvas closeModal={closeModal} />
           </PanelContentDiv>
-        </Tabs.Panel>
-        <Tabs.Panel value="layers">
+        </Tabs.Panel> */}
+        {/* <Tabs.Panel value="layers">
           <PanelContentDiv>
             <MenuTabLayers />
           </PanelContentDiv>
-        </Tabs.Panel>
+        </Tabs.Panel> */}
         <Tabs.Panel value="boxLayers">
           <PanelContentDiv>
             <MenuTabBoxLayers />

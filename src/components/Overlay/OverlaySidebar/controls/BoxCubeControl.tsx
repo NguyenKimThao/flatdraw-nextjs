@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Input, Button, ActionIcon, Tooltip, NativeSelect } from '@mantine/core';
+import { Input, Button, ActionIcon, Tooltip, NativeSelect, Textarea } from '@mantine/core';
 import { NumberInput } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 import { MdOutlineCreateNewFolder } from 'react-icons/md';
@@ -208,6 +208,16 @@ export default function BoxCubeControl() {
           hideControls
         />
       </FrameGridDiv>
+      <ControlHeader title="Description" />
+      <Textarea
+        size="xs"
+        value={defaultParams.descriptionBoxCube}
+        onChange={(event) => {
+          setDefaultParams({
+            descriptionBoxCube: event.target.value,
+          });
+        }}
+      />
       <ControlHeader title="Actions" />
       <ActionsUl>
         <li>
@@ -225,10 +235,11 @@ export default function BoxCubeControl() {
                 color: defaultParams.colorBoxCube,
                 count: parseInt(defaultParams.countBoxCube) || 0,
                 doc: parseInt(defaultParams.docBoxCube) || 0,
+                description: defaultParams.descriptionBoxCube || '',
                 type: 'boxCube',
               });
               setActiveBoxCubeId(createdBoxCubeId);
-              setDefaultParams({ positionBoxCube: [0, 0, 0], nameBoxCube: '' });
+              setDefaultParams({ positionBoxCube: [0, 0, 0], nameBoxCube: '', descriptionBoxCube: '' });
               setUserMode('select');
             }}
           >
@@ -252,8 +263,9 @@ export default function BoxCubeControl() {
                   name: defaultParams.nameBoxCube,
                   boxGroupId: activeObjectGroup.id,
                   color: defaultParams.colorBoxCube,
-                  count: parseInt(defaultParams.countBoxCube),
-                  doc: parseInt(defaultParams.docBoxCube),
+                  count: parseInt(defaultParams.countBoxCube) || 0,
+                  doc: parseInt(defaultParams.docBoxCube) || 0,
+                  description: defaultParams.descriptionBoxCube || '',
                   type: 'boxCube',
                 });
               }}
@@ -269,9 +281,7 @@ export default function BoxCubeControl() {
               onClick={() => {
                 removeBoxCubeObject(activeObjectLayer.id, activeObjectGroup.id, activeObject.id);
                 setActiveBoxCubeId(null);
-                setDefaultParams({ positionBoxCube: [0, 0, 0], nameBoxCube: '' });
-
-
+                setDefaultParams({ positionBoxCube: [0, 0, 0], nameBoxCube: '', descriptionBoxCube: '' });
               }}
             >
               Remove

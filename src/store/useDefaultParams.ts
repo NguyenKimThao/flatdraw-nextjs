@@ -11,15 +11,18 @@ interface DefaultParams {
   searchQueryIcons: string;
   nameBoxLayer: string;
   positionBoxLayer: number[];
+  descriptionBoxLayer: string;
   searchQueryImages: string;
   nameBoxGroup: string;
   positionBoxGroup: number[];
+  descriptionBoxGroup: string;
   selectIdCube: string;
   nameBoxCube: string;
   colorBoxCube: string;
   countBoxCube: string;
   docBoxCube: string;
   positionBoxCube: number[];
+  descriptionBoxCube: string;
   sizePreset: string | null;
 }
 
@@ -36,14 +39,17 @@ const useDefaultParams = create<{
     searchQueryIcons: '',
     nameBoxLayer: '',
     positionBoxLayer: [0, 0, 0],
+    descriptionBoxLayer: '',
     nameBoxGroup: '',
     positionBoxGroup: [0, 0, 0],
+    descriptionBoxGroup: '',
     selectIdCube: '',
     nameBoxCube: '',
     colorBoxCube: 'white',
     countBoxCube: '1',
     docBoxCube: '0',
     positionBoxCube: [0, 0, 0],
+    descriptionBoxCube: '',
     searchQueryImages: '',
     sizePreset: null,
   },
