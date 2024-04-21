@@ -188,6 +188,7 @@ export interface ColorBoxType {
   wireframe: string;
   label: string;
   choose: string;
+  review: string;
 }
 
 export interface MapColorBoxType {

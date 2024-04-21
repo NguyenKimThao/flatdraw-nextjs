@@ -99,8 +99,8 @@ const CanvasBox = () => {
 
   return (
     <group>
-      <BoxDraw position={position} show={show ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
-      <BoxDraw position={positionIndex} show={show ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
+      <BoxDraw position={position} show={show ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} review={true} />
+      <BoxDraw position={positionIndex} show={show ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} review={true} />
     </group>
   )
 }
@@ -112,6 +112,9 @@ export default function Canvas() {
 
   const activeObjectId = useActiveObjectId((state) => state.activeObjectId);
   const setActiveObjectId = useActiveObjectId((state) => state.setActiveObjectId);
+  const setActiveBoxLayerId = useActiveBoxLayerId((state) => state.setActiveBoxLayerId);
+  const setActiveBoxGroupId = useActiveBoxGroupId((state) => state.setActiveBoxGroupId);
+  const setActiveBoxCubeId = useActiveBoxCubeId((state) => state.setActiveBoxCubeId);
 
   const canvasObjects = useCanvasObjects((state) => state.canvasObjects);
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
@@ -245,7 +248,30 @@ export default function Canvas() {
     }
   }, [userMode, orbitControlRef]);
 
+  const handleBoxClick = (e: any) => {
+    if (!e || !e.object || !e.object.boxid || !activeObjectLayer) {
+      return;
+    }
 
+    let isSet = false;
+    activeObjectLayer?.boxGroup?.forEach((boxGroup) => {
+      if (isSet) {
+        return;
+      }
+      const cubeSelect = boxGroup?.boxGroup?.find(object => object.id == e.object.boxid);
+      if (cubeSelect == null) {
+        return;
+      }
+      if (boxGroup.id != activeBoxGroupId) {
+        setActiveBoxGroupId(boxGroup.id);
+      }
+      setActiveBoxCubeId(cubeSelect.id);
+      setUserMode('boxCube');
+      isSet = true;
+
+    });
+
+  }
   return (
     <FixedMain
       id={APP_FIXED_MAIN_UNIQUE_ID}
@@ -267,12 +293,13 @@ export default function Canvas() {
         <ambientLight intensity={0.5} />
         <spotLight position={[0, 20, 0]} angle={0.3} />
         <CanvasBox></CanvasBox>
-        {boxLayerObjects.map((box, idx) => {
-          return (
-            <BoxCube key={box.id || idx} {...box} />
-          )
-        })}
-
+        <group onClick={(e) => handleBoxClick(e)}>
+          {boxLayerObjects.map((box, idx) => {
+            return (
+              <BoxCube key={box.id || idx} {...box} />
+            )
+          })}
+        </group>
       </CanvasThree>
     </FixedMain >
   );
