@@ -261,7 +261,7 @@ interface BoxGroupProps {
 
 interface BoxCubeProps {
   id?: string;
-  boxGroup: any[];
+  boxGroup?: any[];
   position: number[];
   show?: boolean;
 }
