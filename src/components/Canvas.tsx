@@ -66,15 +66,16 @@ const CanvasBox = () => {
   const activeObjectGroup = activeObjectLayer?.boxGroup?.find((object) => object.id === activeBoxGroupId);
   const activeObject = activeObjectGroup?.boxGroup?.find(object => object.id == activeBoxCubeId);
   const userMode = useUserMode((state) => state.userMode);
+  const actionMode = useActionMode((state) => state.actionMode);
 
   const posXIndex = activeObjectLayer?.position[0] || 0;
   const posYIndex = activeObjectLayer?.position[1] || 0;
   const posZIndex = activeObjectLayer?.position[2] || 0;
-  const show = userMode == "boxCube" && !activeObject && activeObjectLayer && activeObjectGroup;
+  const show = (actionMode?.type == 'isMoving' && activeObjectLayer) || (userMode == "boxCube" && !activeObject && activeObjectLayer && activeObjectGroup);
   const distance = zoom / 4;
 
   useFrame(({ mouse, viewport }) => {
-    if (!show || !activeObjectLayer || !activeObjectLayer.position || !activeObjectGroup || activeObject) {
+    if (!show || !activeObjectLayer || !activeObjectLayer.position) {
       return;
     }
     const viewportNew = viewport.getCurrentViewport(camera)
@@ -119,7 +120,7 @@ export default function Canvas() {
   const canvasObjects = useCanvasObjects((state) => state.canvasObjects);
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
   const appendBoxCubeObject = useCanvasObjects((state) => state.appendBoxCubeObject);
-
+  const updateBoxCubeObject = useCanvasObjects((state) => state.updateBoxCubeObject);
   const canvasWorkingSize = useCanvasWorkingSize((state) => state.canvasWorkingSize);
 
   const defaultParams = useDefaultParams((state) => state.defaultParams);
@@ -169,14 +170,31 @@ export default function Canvas() {
 
   const onPointerUp = (event: PointerOrTouchEvent) => {
     event.preventDefault();
+    console.log('opint up', event);
     if (userMode != "boxCube") {
       return;
     }
 
-    if (!activeObjectLayer || !activeObjectGroup) {
+    if (!activeObjectLayer) {
       return;
     }
-    if (!activeObjectCube) {
+
+    if (actionMode?.type == 'isMoving') {
+      console.log('actionMode:', actionMode)
+      if (!actionMode?.boxGroupId || !actionMode?.boxCubeObject) {
+        setActionMode(null);
+        return;
+      }
+      updateBoxCubeObject(activeObjectLayer.id, actionMode?.boxGroupId, {
+        ...actionMode?.boxCubeObject,
+        position: defaultParams.positionBoxCube
+      });
+
+      setActionMode(null);
+      return;
+    }
+
+    if (activeObjectGroup && !activeObjectCube) {
       const createdBoxCubeId = generateUniqueId();
       appendBoxCubeObject(activeObjectLayer.id, activeObjectGroup.id, {
         id: createdBoxCubeId,
@@ -248,7 +266,11 @@ export default function Canvas() {
     }
   }, [userMode, orbitControlRef]);
 
-  const handleBoxClick = (e: any) => {
+  const handleBoxPointerUp = (e: any) => {
+    setActionMode(null);
+    // console.log('handleBoxPointerUp', e);
+  }
+  const handleBoxPointerDown = (e: any) => {
     if (!e || !e.object || !e.object.boxid || !activeObjectLayer) {
       return;
     }
@@ -267,11 +289,22 @@ export default function Canvas() {
       }
       setActiveBoxCubeId(cubeSelect.id);
       setUserMode('boxCube');
+      setActionMode({ type: 'isMoving', boxGroupId: boxGroup.id, boxCubeObject: cubeSelect });
+      setDefaultParams({
+        ...defaultParams,
+        positionBoxCube: cubeSelect.position,
+        colorBoxCube: cubeSelect.color,
+        countBoxCube: cubeSelect.count + "",
+        docBoxCube: cubeSelect.doc + "",
+      })
       isSet = true;
 
     });
 
+    console.log('handleBoxPointerDown', e);
   }
+
+
   return (
     <FixedMain
       id={APP_FIXED_MAIN_UNIQUE_ID}
@@ -293,7 +326,9 @@ export default function Canvas() {
         <ambientLight intensity={0.5} />
         <spotLight position={[0, 20, 0]} angle={0.3} />
         <CanvasBox></CanvasBox>
-        <group onClick={(e) => handleBoxClick(e)}>
+        <group
+          onPointerDown={handleBoxPointerDown}
+        >
           {boxLayerObjects.map((box, idx) => {
             return (
               <BoxCube key={box.id || idx} {...box} />

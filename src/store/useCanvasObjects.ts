@@ -114,9 +114,9 @@ const useCanvasObjects = create<{
       ],
     })),
   loadingBoxLayerObject: async (collectionId: number) => {
-    let data = await ApiService.getLayers(collectionId);
+    const data = await ApiService.getLayers(collectionId);
     if (data == null || data.error != 0 || !data.data) {
-
+      return;
     } else {
       set((state) => ({
         ...state,
@@ -124,7 +124,6 @@ const useCanvasObjects = create<{
       }));
     }
 
-    console.log('data', data);
   },
   appendEllipseObject: (ellipse) =>
     set((state) => ({
@@ -191,7 +190,7 @@ const useCanvasObjects = create<{
       ],
     })),
   updateBoxLayerObject: (id, box) => set((state) => {
-    let boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
+    const boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
     if (!boxLayer) {
       return state;
     }
@@ -203,7 +202,7 @@ const useCanvasObjects = create<{
     };
   }),
   toggleShowCanvasBoxLayer: (id) => set((state) => {
-    let boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
+    const boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
     if (!boxLayer) {
       return state;
     }
@@ -215,7 +214,7 @@ const useCanvasObjects = create<{
   }),
   appendBoxGroupObject: (id, boxGroup) =>
     set((state) => {
-      let boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
+      const boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
       if (!boxLayer) {
         return state;
       }
@@ -226,7 +225,7 @@ const useCanvasObjects = create<{
     }),
   updateBoxGroupObject: (id, boxGroup) =>
     set((state) => {
-      let boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
+      const boxLayer = state.boxLayerObjects.find((existing) => existing.id === id);
       if (!boxLayer || !boxLayer.boxGroup) {
         return state;
       }
@@ -242,11 +241,11 @@ const useCanvasObjects = create<{
     }),
   appendBoxCubeObject: (boxLayerId, boxGroupId, cubeLayer) =>
     set((state) => {
-      let boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
+      const boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
       if (!boxLayer) {
         return state;
       }
-      let boxGroup = boxLayer.boxGroup?.find((boxGroup) => boxGroup.id === boxGroupId);
+      const boxGroup = boxLayer.boxGroup?.find((boxGroup) => boxGroup.id === boxGroupId);
       if (!boxGroup) {
         return state;
       }
@@ -267,11 +266,11 @@ const useCanvasObjects = create<{
     }),
   updateBoxCubeObject: (boxLayerId, boxGroupId, cubeLayer) =>
     set((state) => {
-      let boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
+      const boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
       if (!boxLayer) {
         return state;
       }
-      let boxGroup = boxLayer.boxGroup?.find((boxGroup) => boxGroup.id === boxGroupId);
+      const boxGroup = boxLayer.boxGroup?.find((boxGroup) => boxGroup.id === boxGroupId);
       if (!boxGroup) {
         return state;
       }
@@ -294,11 +293,11 @@ const useCanvasObjects = create<{
     }),
   removeBoxCubeObject: (boxLayerId, boxGroupId, cubeId) =>
     set((state) => {
-      let boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
+      const boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
       if (!boxLayer) {
         return state;
       }
-      let boxGroup = boxLayer.boxGroup?.find((boxGroup) => boxGroup.id === boxGroupId);
+      const boxGroup = boxLayer.boxGroup?.find((boxGroup) => boxGroup.id === boxGroupId);
       if (!boxGroup) {
         return state;
       }
@@ -359,7 +358,7 @@ const useCanvasObjects = create<{
     set((state) => ({ ...state, boxLayerObjects: state.boxLayerObjects.filter((existing) => existing.id !== id) })),
   deleteCanvasBoxGroup: (id, boxGroup) =>
     set((state) => {
-      let boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxGroup);
+      const boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxGroup);
       if (!boxLayer) {
         return state;
       }

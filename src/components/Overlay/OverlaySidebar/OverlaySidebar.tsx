@@ -11,6 +11,9 @@ import ActionsControl from './controls/ActionsControl';
 import AlignControl from './controls/AlignControl';
 import BackgroundControl from './controls/BackgroundControl';
 import BorderRadiusControl from './controls/BorderRadiusControl';
+import BoxCubeControl from './controls/BoxCubeControl';
+import BoxGroupControl from './controls/BoxGroupControl';
+import BoxLayerControl from './controls/BoxLayerControl';
 import FrameControl from './controls/FrameControl';
 import IconControl from './controls/IconControl';
 import ImageControl from './controls/ImageControl';
@@ -19,9 +22,6 @@ import OpacityControl from './controls/OpacityControl';
 import StrokeColorControl from './controls/StrokeColorControl';
 import StrokeWidthControl from './controls/StrokeWidthControl';
 import TextControl from './controls/TextControl';
-import BoxLayerControl from './controls/BoxLayerControl';
-import BoxGroupControl from './controls/BoxGroupControl';
-import BoxCubeControl from './controls/BoxCubeControl';
 
 const Aside = styled('aside')`
   pointer-events: auto;

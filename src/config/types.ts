@@ -11,6 +11,8 @@ export type ActionModeOption =
 
 export type ActionMode = null | {
   type: ActionModeType;
+  boxGroupId: string | null;
+  boxCubeObject: any | null;
   option: ActionModeOption | null;
 };
 
