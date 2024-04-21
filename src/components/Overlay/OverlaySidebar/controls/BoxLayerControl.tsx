@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
-import { Input, Button, ActionIcon, Tooltip, Textarea } from '@mantine/core';
+import { Input, Button, ActionIcon, Tooltip, Textarea, NativeSelect } from '@mantine/core';
 import { NumberInput } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 import { MdOutlineCreateNewFolder } from 'react-icons/md';
 
+import useActiveBoxCubeId from '~/store/useBoxCubeId';
 import useActiveBoxGroupId from '~/store/useBoxGroupId';
 import useActiveBoxLayerId from '~/store/useBoxLayerId';
 import useCanvasObjects from '~/store/useCanvasObjects';
@@ -13,6 +14,7 @@ import theme from '~/theme';
 import generateUniqueId from '~/utils/generateUniqueId';
 
 import ControlHeader from '../components/ControlHeader';
+
 
 
 
@@ -34,10 +36,12 @@ export default function BoxLayerControl() {
   const defaultParams = useDefaultParams((state) => state.defaultParams);
   const setDefaultParams = useDefaultParams((state) => state.setDefaultParams);
   const setActiveBoxLayerId = useActiveBoxLayerId((state) => state.setActiveBoxLayerId);
+  const setActiveBoxCubeId = useActiveBoxCubeId((state) => state.setActiveBoxCubeId);
   const setUserMode = useUserMode((state) => state.setUserMode);
   const appendBoxLayerObject = useCanvasObjects((state) => state.appendBoxLayerObject);
   const updateBoxLayerObject = useCanvasObjects((state) => state.updateBoxLayerObject);
   const setActiveBoxGroupId = useActiveBoxGroupId((state) => state.setActiveBoxGroupId);
+  const toggleShowCanvasBoxLayer = useCanvasObjects((state) => state.toggleShowCanvasBoxLayer);
 
   const activeBoxLayerId = useActiveBoxLayerId((state) => state.activeBoxLayerId);
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
@@ -47,14 +51,38 @@ export default function BoxLayerControl() {
       setDefaultParams({
         nameBoxLayer: activeObject.name,
         positionBoxLayer: activeObject.position,
+        showBoxLayer: activeObject.show === false ? 'false' : 'true',
         descriptionBoxLayer: activeObject.description
       });
     }
   }, [activeObject, setDefaultParams]);
 
+  const boxLayerSelect = boxLayerObjects?.map((boxLayer) => ({
+    value: boxLayer.id,
+    label: boxLayer.name,
+  })).reverse() || [];
+
   return (
     <>
       <ControlHeader title={activeObject ? 'Edit Box Layer' : 'Create Box Layer'} />
+      <ControlHeader title="Id" />
+      <NativeSelect
+        key={`idboxlayer-select`}
+        size="xs"
+        data={[
+          { value: '', label: '(New)' },
+          ...boxLayerSelect,
+        ]}
+        value={activeObject?.id}
+        onChange={(event) => {
+          if (event.target.value == '') {
+            setActiveBoxLayerId(null)
+            setDefaultParams({ positionBoxLayer: [0, 0, 0], nameBoxLayer: '', descriptionBoxLayer: '', showBoxLayer: 'true' });
+          } else {
+            setActiveBoxLayerId(event.target.value);
+          }
+        }}
+      />
       <ControlHeader title="Name" />
       <Input
         size="xs"
@@ -106,6 +134,24 @@ export default function BoxLayerControl() {
           hideControls
         />
       </FrameGridDiv>
+      <ControlHeader title="Show" />
+      <NativeSelect
+        key={`show-layer-select`}
+        size="xs"
+        data={[
+          { value: 'true', label: 'True' },
+          { value: 'false', label: 'False' },
+        ]}
+        value={defaultParams.showBoxLayer}
+        onChange={(event) => {
+          setDefaultParams({
+            showBoxLayer: event.target.value,
+          })
+          if (activeObject) {
+            toggleShowCanvasBoxLayer(activeObject.id);
+          }
+        }}
+      />
       <ControlHeader title="Description" />
       <Textarea
         size="xs"
@@ -132,10 +178,10 @@ export default function BoxLayerControl() {
                     position: defaultParams.positionBoxLayer,
                     name: defaultParams.nameBoxLayer,
                     description: defaultParams.descriptionBoxLayer,
-                    show: true
+                    show: defaultParams.showBoxLayer != 'false'
                   });
                   setActiveBoxLayerId(createdBoxLayerId);
-                  setDefaultParams({ positionBoxLayer: [0, 0, 0], nameBoxLayer: '', descriptionBoxLayer: '' });
+                  setDefaultParams({ positionBoxLayer: [0, 0, 0], nameBoxLayer: '', descriptionBoxLayer: '', showBoxLayer: 'true' });
                   setUserMode('select');
                 }}
               >
@@ -157,6 +203,7 @@ export default function BoxLayerControl() {
                     position: defaultParams.positionBoxLayer,
                     name: defaultParams.nameBoxLayer,
                     description: defaultParams.descriptionBoxLayer,
+                    show: defaultParams.showBoxLayer != 'false'
                   });
                   setUserMode('select');
                 }}
@@ -170,8 +217,10 @@ export default function BoxLayerControl() {
                 variant="default"
                 size="xs"
                 onClick={() => {
+                  setActiveBoxCubeId(null);
                   setActiveBoxGroupId(null);
                   setActiveBoxLayerId(null);
+                  setDefaultParams({ positionBoxLayer: [0, 0, 0], nameBoxLayer: '', descriptionBoxLayer: '', showBoxLayer: 'true' });
                   setUserMode('select');
                 }}
               >

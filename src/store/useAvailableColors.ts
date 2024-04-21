@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+
 import type { MapColorBoxType } from '~/config/types';
 
 const useAvailableColors = create<{

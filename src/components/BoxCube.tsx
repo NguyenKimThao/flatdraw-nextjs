@@ -2,10 +2,12 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import React, { type ReactNode, type CSSProperties, useEffect, useState } from "react";
 
+import { MapColorBoxType } from "~/config/types";
 import useAvailableColors from "~/store/useAvailableColors";
 import useActiveBoxCubeId from "~/store/useBoxCubeId";
 import useActiveBoxGroupId from "~/store/useBoxGroupId";
 import useUserMode from "~/store/useUserMode";
+
 
 interface BoxProps {
   children?: ReactNode;
@@ -13,13 +15,13 @@ interface BoxProps {
   color: string;
   choose?: boolean;
   style?: CSSProperties;
+  availableColors: MapColorBoxType;
 }
 
-function BoxOne({ color, choose, position }: BoxProps) {
+function BoxOne({ color, choose, position, availableColors }: BoxProps) {
   const x = position[0] || 0;
   const y = position[1] || 0;
   const z = position[2] || 0;
-  const availableColors = useAvailableColors((state) => state.availableColors);
   const colorBox = availableColors[color];
   const wireframe = choose ? colorBox.choose : colorBox.wireframe;
 
@@ -46,11 +48,10 @@ function BoxOne({ color, choose, position }: BoxProps) {
 }
 
 
-function BoxTwo({ color, choose, position }: BoxProps) {
+function BoxTwo({ color, choose, position, availableColors }: BoxProps) {
   const x = position[0] || 0;
   const y = position[1] || 0;
   const z = position[2] || 0;
-  const availableColors = useAvailableColors((state) => state.availableColors);
   const colorBox = availableColors[color];
   const wireframe = choose ? colorBox.choose : colorBox.wireframe;
 
@@ -88,11 +89,10 @@ function BoxTwo({ color, choose, position }: BoxProps) {
   )
 }
 
-function BoxTwoDoc({ color, choose, position }: BoxProps) {
+function BoxTwoDoc({ color, choose, position, availableColors }: BoxProps) {
   const x = position[0] || 0;
   const y = position[1] || 0;
   const z = position[2] || 0;
-  const availableColors = useAvailableColors((state) => state.availableColors);
   const colorBox = availableColors[color];
   const wireframe = choose ? colorBox.choose : colorBox.wireframe;
 
@@ -131,11 +131,10 @@ function BoxTwoDoc({ color, choose, position }: BoxProps) {
 }
 
 
-function BoxThree({ color, choose, position }: BoxProps) {
+function BoxThree({ color, choose, position, availableColors }: BoxProps) {
   const x = position[0] || 0;
   const y = position[1] || 0;
   const z = position[2] || 0;
-  const availableColors = useAvailableColors((state) => state.availableColors);
   const colorBox = availableColors[color];
   const wireframe = choose ? colorBox.choose : colorBox.wireframe;
 
@@ -187,11 +186,10 @@ function BoxThree({ color, choose, position }: BoxProps) {
 
 
 
-function BoxThreeDoc({ color, choose, position }: BoxProps) {
+function BoxThreeDoc({ color, choose, position, availableColors }: BoxProps) {
   const x = position[0] || 0;
   const y = position[1] || 0;
   const z = position[2] || 0;
-  const availableColors = useAvailableColors((state) => state.availableColors);
   const colorBox = availableColors[color];
   const wireframe = choose ? colorBox.choose : colorBox.wireframe;
 
@@ -271,22 +269,25 @@ export const BoxDraw = ({ id, position, show, choose, count, color, doc }: BoxDr
   const userMode = useUserMode((state) => state.userMode);
   const activeBoxCubeId = useActiveBoxCubeId((state) => state.activeBoxCubeId);
   const chooseNew = (choose || (userMode == 'boxCube' && id == activeBoxCubeId)) ? true : false;
+  const availableColors = useAvailableColors((state) => state.availableColors);
+
   if (show === false) {
     return (<></>)
   }
+
   switch (count) {
     case 1:
-      return BoxOne({ color, choose: chooseNew, position });
+      return BoxOne({ color, choose: chooseNew, position, availableColors });
     case 2:
       if (doc) {
-        return BoxTwoDoc({ color, choose: chooseNew, position });
+        return BoxTwoDoc({ color, choose: chooseNew, position, availableColors });
       }
-      return BoxTwo({ color, choose: chooseNew, position });
+      return BoxTwo({ color, choose: chooseNew, position, availableColors });
     case 3:
       if (doc) {
-        return BoxThreeDoc({ color, choose: chooseNew, position });
+        return BoxThreeDoc({ color, choose: chooseNew, position, availableColors });
       }
-      return BoxThree({ color, choose: chooseNew, position });
+      return BoxThree({ color, choose: chooseNew, position, availableColors });
   }
   return (<></>)
 }

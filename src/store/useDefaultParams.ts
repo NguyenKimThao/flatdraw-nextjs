@@ -11,11 +11,13 @@ interface DefaultParams {
   searchQueryIcons: string;
   nameBoxLayer: string;
   positionBoxLayer: number[];
+  showBoxLayer: string;
   descriptionBoxLayer: string;
   searchQueryImages: string;
   nameBoxGroup: string;
   positionBoxGroup: number[];
   descriptionBoxGroup: string;
+  showBoxGroup: string;
   selectIdCube: string;
   nameBoxCube: string;
   colorBoxCube: string;
@@ -39,9 +41,11 @@ const useDefaultParams = create<{
     searchQueryIcons: '',
     nameBoxLayer: '',
     positionBoxLayer: [0, 0, 0],
+    showBoxLayer: 'true',
     descriptionBoxLayer: '',
     nameBoxGroup: '',
     positionBoxGroup: [0, 0, 0],
+    showBoxGroup: 'true',
     descriptionBoxGroup: '',
     selectIdCube: '',
     nameBoxCube: '',

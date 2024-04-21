@@ -79,8 +79,8 @@ export default function BoxCubeControl() {
   }
 
   const fontFamily = boxGroup?.map((fontFamily) => ({
-    value: '',
-    label: '',
+    value: fontFamily.id,
+    label: fontFamily.name,
   })) || [];
 
   return (

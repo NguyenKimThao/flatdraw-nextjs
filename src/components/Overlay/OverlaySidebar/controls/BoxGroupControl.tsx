@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
-import { Input, Button, ActionIcon, Tooltip, Textarea } from '@mantine/core';
+import { Input, Button, ActionIcon, Tooltip, Textarea, NativeSelect } from '@mantine/core';
 import { NumberInput } from '@mantine/core';
 import React, { useEffect, useRef, useState } from 'react';
 import { MdOutlineCreateNewFolder, MdControlPointDuplicate } from 'react-icons/md';
 
+import useActiveBoxCubeId from '~/store/useBoxCubeId';
 import useActiveBoxGroupId from '~/store/useBoxGroupId';
 import useActiveBoxLayerId from '~/store/useBoxLayerId';
 import useCanvasObjects from '~/store/useCanvasObjects';
@@ -34,6 +35,7 @@ export default function BoxGroupControl() {
 
   const setDefaultParams = useDefaultParams((state) => state.setDefaultParams);
   const setActiveBoxGroupId = useActiveBoxGroupId((state) => state.setActiveBoxGroupId);
+  const setActiveBoxCubeId = useActiveBoxCubeId((state) => state.setActiveBoxCubeId);
   const setUserMode = useUserMode((state) => state.setUserMode);
   const appendBoxGroupObject = useCanvasObjects((state) => state.appendBoxGroupObject);
   const updateBoxGroupObject = useCanvasObjects((state) => state.updateBoxGroupObject);
@@ -52,6 +54,7 @@ export default function BoxGroupControl() {
       setDefaultParams({
         nameBoxGroup: activeObject.name,
         positionBoxGroup: activeObject.position,
+        showBoxGroup: activeObject.show === false ? 'false' : 'true',
         descriptionBoxGroup: activeObject.description,
       });
     }
@@ -62,9 +65,33 @@ export default function BoxGroupControl() {
     return null;
   }
 
+  const boxGroupSelect = activeObjectLayer?.boxGroup?.map((boxLayer) => ({
+    value: boxLayer.id,
+    label: boxLayer.name,
+  })).reverse() || [];
+
   return (
     <>
       <ControlHeader title={activeObject ? 'Edit Box Group' : 'Create Box Group'} />
+      <ControlHeader title="Id" />
+      <NativeSelect
+        key={`idboxgroup-select`}
+        size="xs"
+        data={[
+          { value: '', label: '(New)' },
+          ...boxGroupSelect,
+        ]}
+        value={activeObject?.id}
+        onChange={(event) => {
+          if (event.target.value == '') {
+            setActiveBoxGroupId(null)
+            setDefaultParams({ positionBoxGroup: [0, 0, 0], nameBoxGroup: '', descriptionBoxGroup: '', showBoxGroup: 'true' });
+          } else {
+            setActiveBoxGroupId(event.target.value);
+          }
+        }}
+      />
+
       <ControlHeader title="Name" />
       <Input
         size="xs"
@@ -116,6 +143,24 @@ export default function BoxGroupControl() {
           hideControls
         />
       </FrameGridDiv>
+      <ControlHeader title="Show" />
+      <NativeSelect
+        key={`show-layer-select`}
+        size="xs"
+        data={[
+          { value: 'true', label: 'True' },
+          { value: 'false', label: 'False' },
+        ]}
+        value={defaultParams.showBoxLayer}
+        onChange={(event) => {
+          setDefaultParams({
+            showBoxLayer: event.target.value,
+          })
+          if (activeObject) {
+            // toggleShowCanvasBoxLayer(activeObject.id);
+          }
+        }}
+      />
       <ControlHeader title="Description" />
       <Textarea
         size="xs"
@@ -141,11 +186,11 @@ export default function BoxGroupControl() {
                   position: defaultParams.positionBoxGroup,
                   name: defaultParams.nameBoxGroup,
                   description: defaultParams.descriptionBoxGroup,
-                  show: true,
+                  show: defaultParams.showBoxGroup != 'false',
                   type: 'boxGroup',
                 });
                 setActiveBoxGroupId(createdBoxGroupId);
-                setDefaultParams({ positionBoxGroup: [0, 0, 0], nameBoxGroup: '', descriptionBoxGroup: '' });
+                setDefaultParams({ positionBoxGroup: [0, 0, 0], nameBoxGroup: '', descriptionBoxGroup: '', showBoxGroup: 'true' });
                 setUserMode('select');
               }}
             >
@@ -167,6 +212,7 @@ export default function BoxGroupControl() {
                   position: defaultParams.positionBoxGroup,
                   name: defaultParams.nameBoxGroup,
                   description: defaultParams.descriptionBoxGroup,
+                  show: defaultParams.showBoxGroup != 'false',
                   type: 'boxGroup',
                 });
               }}
@@ -186,7 +232,7 @@ export default function BoxGroupControl() {
                   position: [activeObject.position[0] + 5, activeObject.position[1] + 5, activeObject.position[2]],
                   name: activeObject.name,
                   description: defaultParams.descriptionBoxGroup,
-                  show: true,
+                  show: defaultParams.showBoxGroup != 'false',
                   type: 'boxGroup',
                 });
                 setActiveBoxGroupId(createdBoxGroupId);
@@ -202,7 +248,10 @@ export default function BoxGroupControl() {
               variant="default"
               size="xs"
               onClick={() => {
+                setActiveBoxCubeId(null);
                 setActiveBoxGroupId(null);
+                setDefaultParams({ positionBoxLayer: [0, 0, 0], nameBoxLayer: '', descriptionBoxLayer: '', showBoxLayer: 'true' });
+                setUserMode('select');
               }}
             >
               No Active

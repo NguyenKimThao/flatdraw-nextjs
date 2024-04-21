@@ -70,7 +70,7 @@ const CanvasBox = () => {
   const posXIndex = activeObjectLayer?.position[0] || 0;
   const posYIndex = activeObjectLayer?.position[1] || 0;
   const posZIndex = activeObjectLayer?.position[2] || 0;
-  const show = userMode == "boxCube" && !activeObject;
+  const show = userMode == "boxCube" && !activeObject && activeObjectLayer && activeObjectGroup;
   const distance = zoom / 4;
 
   useFrame(({ mouse, viewport }) => {
@@ -97,11 +97,10 @@ const CanvasBox = () => {
   });
 
 
-
   return (
     <group>
-      <BoxDraw position={position} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
-      <BoxDraw position={positionIndex} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
+      <BoxDraw position={position} show={show ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
+      <BoxDraw position={positionIndex} show={show ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
     </group>
   )
 }
