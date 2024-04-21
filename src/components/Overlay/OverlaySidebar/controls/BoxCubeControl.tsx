@@ -97,6 +97,7 @@ export default function BoxCubeControl() {
         onChange={(event) => {
           if (event.target.value == '') {
             setActiveBoxCubeId(null)
+            setDefaultParams({ positionBoxCube: [0, 0, 0], nameBoxCube: '' });
           } else {
             setActiveBoxCubeId(event.target.value)
           }
@@ -227,7 +228,7 @@ export default function BoxCubeControl() {
                 type: 'boxCube',
               });
               setActiveBoxCubeId(createdBoxCubeId);
-              setDefaultParams({ positionBoxCube: [0, 0, 0] });
+              setDefaultParams({ positionBoxCube: [0, 0, 0], nameBoxCube: '' });
               setUserMode('select');
             }}
           >
@@ -268,6 +269,9 @@ export default function BoxCubeControl() {
               onClick={() => {
                 removeBoxCubeObject(activeObjectLayer.id, activeObjectGroup.id, activeObject.id);
                 setActiveBoxCubeId(null);
+                setDefaultParams({ positionBoxCube: [0, 0, 0], nameBoxCube: '' });
+
+
               }}
             >
               Remove

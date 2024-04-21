@@ -5,6 +5,7 @@ const DEFAULT_ZOOM = 100;
 const MIN_ZOOM = 10;
 const MAX_ZOOM = 300;
 
+const DEFAULT_POSY = -8;
 
 const MIN_POSY = -100;
 const MAX_POSY = 100;
@@ -21,7 +22,7 @@ const useZoom = create<{
   decrementPosY: (zoom: number) => void;
 }>((set) => ({
   zoom: DEFAULT_ZOOM,
-  posY: -6,
+  posY: DEFAULT_POSY,
   resetZoom: () => set(() => ({ zoom: DEFAULT_ZOOM })),
   setZoom: (zoom: number) => set((state) => ({ ...state, zoom })),
   decrementZoom: (zoom: number) =>

@@ -49,6 +49,8 @@ type PointerOrTouchEvent = PointerEvent<HTMLElement> | TouchEvent<HTMLElement>;
 
 const CanvasBox = () => {
   const zoom = useZoom((state) => state.zoom);
+  const posY = useZoom((state) => state.posY);
+
   const { camera } = useThree();
   const [position, setPostion] = useState([0, 0, 0]);
   const [positionIndex, setPostionIndex] = useState([0, 0, 0]);
@@ -65,6 +67,8 @@ const CanvasBox = () => {
   const activeObject = activeObjectGroup?.boxGroup?.find(object => object.id == activeBoxCubeId);
   const userMode = useUserMode((state) => state.userMode);
 
+  const posXIndex = activeObjectLayer?.position[0] || 0;
+  const posYIndex = activeObjectLayer?.position[1] || 0;
   const posZIndex = activeObjectLayer?.position[2] || 0;
   const show = userMode == "boxCube" && !activeObject;
   const distance = zoom / 4;
@@ -80,15 +84,14 @@ const CanvasBox = () => {
 
 
 
-    const newPos = [x - x * sc, y - y * sc, 0];
-    // console.log('mouse', position, newPos)
+    const newPos = [x - x * sc, y - y * sc - posY, + posZIndex];
     if ((position[0] != newPos[0]) || (position[1] != newPos[1]) || (position[2] != newPos[2])) {
-      setPostion(newPos);
       const pos = [Math.round(newPos[0]), Math.round(newPos[1]), Math.round(newPos[2])]
+      setPostion(newPos);
       setPostionIndex(pos)
       setDefaultParams({
         ...defaultParams,
-        positionBoxCube: pos
+        positionBoxCube: [pos[0] - posXIndex, pos[1] - posYIndex, pos[2] - posZIndex]
       })
     }
   });
@@ -97,8 +100,8 @@ const CanvasBox = () => {
 
   return (
     <group>
-      <BoxDraw position={[position[0], position[1], position[2] + posZIndex]} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
-      <BoxDraw position={[positionIndex[0], positionIndex[1], positionIndex[2] + posZIndex]} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
+      <BoxDraw position={position} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
+      <BoxDraw position={positionIndex} show={show && activeObjectLayer ? true : false} doc={parseInt(defaultParams.docBoxCube)} count={parseInt(defaultParams.countBoxCube)} color={defaultParams.colorBoxCube} />
     </group>
   )
 }
