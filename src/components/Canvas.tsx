@@ -173,7 +173,7 @@ export default function Canvas() {
         orbitControlRef.current.reset(0);
       }
     }
-  }, [userMode]);
+  }, [userMode, orbitControlRef]);
   // On pointer down
 
   const onPointerDown = (event: PointerOrTouchEvent) => {

@@ -60,11 +60,6 @@ export default function BoxCubeControl() {
   const activeObject = activeObjectGroup?.boxGroup?.find(object => object.id == activeBoxCubeId);
   const boxGroup = activeObjectGroup?.boxGroup || [];
 
-
-  if (!activeObjectLayer || !activeObjectGroup) {
-    return null;
-  }
-
   useEffect(() => {
     if (activeObjectGroup) {
       if (activeObject) {
@@ -77,7 +72,16 @@ export default function BoxCubeControl() {
         });
       }
     }
-  }, [activeObjectGroup, activeObject]);
+  }, [activeObjectGroup, activeObject, setDefaultParams]);
+
+  if (!activeObjectLayer || !activeObjectGroup) {
+    return null;
+  }
+
+  const fontFamily = boxGroup?.map((fontFamily) => ({
+    value: '',
+    label: '',
+  })) || [];
 
   return (
     <>
@@ -88,10 +92,7 @@ export default function BoxCubeControl() {
         size="xs"
         data={[
           { value: '', label: '(New)' },
-          ...boxGroup?.map((fontFamily) => ({
-            value: fontFamily.id,
-            label: fontFamily.name,
-          })),
+          ...fontFamily,
         ]}
         value={activeObject?.id}
         onChange={(event) => {

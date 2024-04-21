@@ -50,7 +50,7 @@ export default function BoxLayerControl() {
         descriptionBoxLayer: activeObject.description
       });
     }
-  }, [activeObject]);
+  }, [activeObject, setDefaultParams]);
 
   return (
     <>

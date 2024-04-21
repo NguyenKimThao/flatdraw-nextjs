@@ -268,12 +268,12 @@ interface BoxCubeProps {
 
 
 export const BoxDraw = ({ id, position, show, choose, count, color, doc }: BoxDrawProps) => {
-  if (show === false) {
-    return (<></>)
-  }
   const userMode = useUserMode((state) => state.userMode);
   const activeBoxCubeId = useActiveBoxCubeId((state) => state.activeBoxCubeId);
   const chooseNew = (choose || (userMode == 'boxCube' && id == activeBoxCubeId)) ? true : false;
+  if (show === false) {
+    return (<></>)
+  }
   switch (count) {
     case 1:
       return BoxOne({ color, choose: chooseNew, position });
@@ -288,16 +288,18 @@ export const BoxDraw = ({ id, position, show, choose, count, color, doc }: BoxDr
       }
       return BoxThree({ color, choose: chooseNew, position });
   }
+  return (<></>)
 }
 
 const BoxGroup = ({ id, position, boxGroup, show }: BoxGroupProps) => {
 
-  if (show === false || !boxGroup) {
-    return (<></>)
-  }
   const userMode = useUserMode((state) => state.userMode);
   const activeBoxGroupId = useActiveBoxGroupId((state) => state.activeBoxGroupId);
   const choose = (userMode == 'boxGroup' && id == activeBoxGroupId) ? true : false;
+
+  if (show === false || !boxGroup) {
+    return (<></>)
+  }
 
   return (
     <group>

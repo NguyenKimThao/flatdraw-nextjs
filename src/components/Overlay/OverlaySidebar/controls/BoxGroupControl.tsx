@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Input, Button, ActionIcon, Tooltip, Textarea } from '@mantine/core';
 import { NumberInput } from '@mantine/core';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MdOutlineCreateNewFolder, MdControlPointDuplicate } from 'react-icons/md';
 
 import useActiveBoxGroupId from '~/store/useBoxGroupId';
@@ -30,6 +30,8 @@ const ActionsUl = styled('ul')`
 
 export default function BoxGroupControl() {
   const defaultParams = useDefaultParams((state) => state.defaultParams);
+
+
   const setDefaultParams = useDefaultParams((state) => state.setDefaultParams);
   const setActiveBoxGroupId = useActiveBoxGroupId((state) => state.setActiveBoxGroupId);
   const setUserMode = useUserMode((state) => state.setUserMode);
@@ -41,12 +43,9 @@ export default function BoxGroupControl() {
   const activeBoxGroupId = useActiveBoxGroupId((state) => state.activeBoxGroupId);
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
 
+
   const activeObjectLayer = boxLayerObjects?.find((object) => object.id === activeBoxLayerId);
   const activeObject = activeObjectLayer?.boxGroup?.find((object) => object.id === activeBoxGroupId);
-
-  if (!activeObjectLayer) {
-    return null;
-  }
 
   useEffect(() => {
     if (activeObject) {
@@ -56,7 +55,12 @@ export default function BoxGroupControl() {
         descriptionBoxGroup: activeObject.description,
       });
     }
-  }, [activeObject]);
+    return () => { }
+  }, [activeObject, setDefaultParams]);
+
+  if (!activeObjectLayer) {
+    return null;
+  }
 
   return (
     <>
