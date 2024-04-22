@@ -1,5 +1,5 @@
-const sqlite3 = require('sqlite3').verbose();
 const bcrypt = require('bcryptjs');
+const sqlite3 = require('sqlite3').verbose();
 const DBSOURCE = 'usersdb.sqlite';
 let db = new sqlite3.Database(DBSOURCE, (err) => {
   if (err) {
@@ -13,10 +13,10 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
       `CREATE TABLE Users (
           Id INTEGER PRIMARY KEY AUTOINCREMENT,
           Name text,
-          Username text, 
-          Email text, 
-          Password text,             
-          Salt text,    
+          Username text,
+          Email text,
+          Password text,
+          Salt text,
           Token text,
           DateLoggedIn DATE,
           DateCreated DATE
@@ -38,7 +38,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           Name TEXT,
           Info TEXT,
           Desc TEXT,
-          UserId INTEGER, 
+          UserId INTEGER,
           VersionId INTEGER DEFAULT 0,
           DateCreated DATE,
           DateUpdated DATE
@@ -57,7 +57,7 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           Desc text,
           VersionId INTEGER NOT NULL,
           CollectionId INTEGER,
-          UserId INTEGER, 
+          UserId INTEGER,
           DateCreated DATE,
           DateUpdated DATE,
           PRIMARY KEY (Id, VersionId)

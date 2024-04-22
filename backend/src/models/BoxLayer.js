@@ -1,5 +1,5 @@
 const db = require('../lib/db');
-let utils = require('../lib/utils');
+const utils = require('../lib/utils');
 
 function convert_layer(row) {
   try {
@@ -21,7 +21,7 @@ function convert_layer(row) {
 }
 class BoxLayer {
   static getBoxLayer(collectionId, versionId, userId) {
-    return new Promise((resolve, c) => {
+    return new Promise((resolve, reject) => {
       const sql = 'SELECT * FROM BoxLayers WHERE CollectionId = ? and VersionId = ? and UserId = ?';
       const params = [collectionId, versionId, userId];
       db.all(sql, params, (err, result) => {

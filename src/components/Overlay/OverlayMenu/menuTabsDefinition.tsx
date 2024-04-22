@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
+import { AiOutlineBgColors } from 'react-icons/ai';
 import { BsImageFill, BsLayersFill } from 'react-icons/bs';
 import { FaInfoCircle, FaCloudDownloadAlt, FaUser, FaCog, FaFolderOpen, FaFolderPlus } from 'react-icons/fa';
 
-export type MenuTabId = 'myaccount' | 'collections' | 'createcollection' | 'canvas' | 'layers' | 'download' | 'settings' | 'about' | 'boxLayers' | 'boxGroups';
+export type MenuTabId = 'colors' | 'myaccount' | 'collections' | 'createcollection' | 'canvas' | 'layers' | 'download' | 'settings' | 'about' | 'boxLayers' | 'boxGroups';
 
 export const menuTabsDefinition: {
   id: MenuTabId;
@@ -48,6 +49,11 @@ export const menuTabsDefinition: {
       id: 'boxLayers',
       label: 'Box Layers',
       icon: <BsLayersFill />,
+    },
+    {
+      id: 'colors',
+      label: 'Colors',
+      icon: <AiOutlineBgColors />,
     },
     {
       id: 'settings',

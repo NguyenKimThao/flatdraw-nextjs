@@ -1,20 +1,19 @@
-const express = require('express');
 const http = require('http');
-const sqlite3 = require('sqlite3').verbose();
-const cors = require('cors');
-const jwt = require('jsonwebtoken');
+
 const bcrypt = require('bcryptjs');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const express = require('express');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const server = http.createServer(app);
 const TOKEN_KEY = 'TokenCheckAll';
-let db = require('./lib/db');
-let utils = require('./lib/utils');
-let boxLayer = require('./models/BoxLayer');
-let Collections = require('./models/Collections');
+const db = require('./lib/db');
+const utils = require('./lib/utils');
+const boxLayer = require('./models/BoxLayer');
 const BoxLayer = require('./models/BoxLayer');
+const Collections = require('./models/Collections');
 
 function convertJsonString(val) {
   try {

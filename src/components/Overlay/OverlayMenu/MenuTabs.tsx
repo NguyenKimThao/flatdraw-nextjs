@@ -13,6 +13,7 @@ import MenuTabBoxGroups from './tabs/MenuTabBoxGroups';
 import MenuTabBoxLayers from './tabs/MenuTabBoxLayers';
 import MenuTabCanvas from './tabs/MenuTabCanvas';
 import MenuTabCollections from './tabs/MenuTabCollections';
+import MenuTabColors from './tabs/MenuTabColors';
 import MenuTabCreateCollection from './tabs/MenuTabCreateCollection';
 import MenuTabDownload from './tabs/MenuTabDownload';
 import MenuTabLayers from './tabs/MenuTabLayers';
@@ -109,6 +110,11 @@ export default function MenuTabs({ closeModal, initialTab = menuTabsDefinition[0
         <Tabs.Panel value="download">
           <PanelContentDiv>
             <MenuTabDownload />
+          </PanelContentDiv>
+        </Tabs.Panel>
+        <Tabs.Panel value="colors">
+          <PanelContentDiv>
+            <MenuTabColors />
           </PanelContentDiv>
         </Tabs.Panel>
         <Tabs.Panel value="settings">
