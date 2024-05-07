@@ -46,6 +46,7 @@ export default function BoxLayerControl() {
   const setActiveBoxGroupId = useActiveBoxGroupId((state) => state.setActiveBoxGroupId);
   const toggleShowCanvasBoxLayer = useCanvasObjects((state) => state.toggleShowCanvasBoxLayer);
   const rotateBoxLayer = useCanvasObjects((state) => state.rotateBoxLayer);
+  const rotateYBoxLayer = useCanvasObjects((state) => state.rotateYBoxLayer);
 
 
 
@@ -269,6 +270,18 @@ export default function BoxLayerControl() {
                 }}
               >
                 Rotate
+              </Button>
+            </li>
+            <li>
+              <Button
+                leftIcon={<MdControlPointDuplicate />}
+                variant="default"
+                size="xs"
+                onClick={() => {
+                  rotateYBoxLayer(activeObject.id);
+                }}
+              >
+                Rotate Y
               </Button>
             </li>
             <li>

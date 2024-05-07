@@ -43,6 +43,7 @@ export default function BoxGroupControl() {
   const appendBoxGroupObject = useCanvasObjects((state) => state.appendBoxGroupObject);
   const updateBoxGroupObject = useCanvasObjects((state) => state.updateBoxGroupObject);
   const rotateBoxGroup = useCanvasObjects((state) => state.rotateBoxGroup);
+  const rotateYBoxGroup = useCanvasObjects((state) => state.rotateYBoxGroup);
 
 
   const activeBoxLayerId = useActiveBoxLayerId((state) => state.activeBoxLayerId);
@@ -265,6 +266,18 @@ export default function BoxGroupControl() {
               }}
             >
               Rotate
+            </Button>
+          </li>
+          <li>
+            <Button
+              leftIcon={<MdControlPointDuplicate />}
+              variant="default"
+              size="xs"
+              onClick={() => {
+                rotateYBoxGroup(activeObjectLayer?.id, activeObject.id);
+              }}
+            >
+              Rotate Y
             </Button>
           </li>
           <li>

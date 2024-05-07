@@ -98,6 +98,8 @@ const useCanvasObjects = create<{
   setCanvasObjectLayerIndex: (id: string, layerIndex: number) => void;
   rotateBoxLayer: (id: string) => void;
   rotateBoxGroup: (id: string, groupId: string) => void;
+  rotateYBoxLayer: (id: string) => void;
+  rotateYBoxGroup: (id: string, groupId: string) => void;
   resetCanvasObjects: () => void;
 }>((set) => ({
   canvasObjects: [],
@@ -600,6 +602,70 @@ const useCanvasObjects = create<{
 
     return {
       ...state,
+      boxLayerObjects: [...state.boxLayerObjects]
+
+    };
+  }),
+  rotateYBoxLayer: (boxLayerId: string) => set((state) => {
+    const boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
+    if (!boxLayer || !boxLayer?.boxGroup) {
+      return state;
+    }
+    const pmin = boxLayer?.boxGroup?.reduce<number | null>(function (prev, curr) {
+      if (!curr.boxGroup) {
+        return prev;
+      }
+      const xmin = curr.boxGroup.reduce(function (prev, curr) {
+        return prev.position[1] < curr.position[1] ? prev : curr;
+      });
+      const pmin = xmin.position[1] + curr.position[1]; // 0
+
+
+      if (prev == null) {
+        return pmin;
+      }
+
+      return prev < pmin ? prev : pmin;
+    }, null);
+
+    const pmax = boxLayer?.boxGroup?.reduce<number | null>(function (prev, curr) {
+      if (!curr.boxGroup) {
+        return prev;
+      }
+      const xmax = curr.boxGroup.reduce(function (prev, curr) {
+        const mprev = prev.doc == 1 ? prev.position[1] + (prev.count - 1) : prev.position[1];
+        const ncurr = curr.doc == 1 ? curr.position[1] + (curr.count - 1) : curr.position[1];
+
+        return mprev > ncurr ? prev : curr;
+      });
+      const pmax = (xmax.doc == 1 ? xmax.position[1] + (xmax.count - 1) : xmax.position[1]) + curr.position[1];
+
+
+      if (prev == null) {
+        return pmax;
+      }
+
+      return prev > pmax ? prev : pmax;
+    }, null);
+
+    if (pmin === null || pmax === null) {
+      return state;
+    }
+
+
+    boxLayer?.boxGroup?.forEach(function (boxGroup) {
+      if (!boxGroup.boxGroup) {
+        return;
+      }
+      boxGroup.boxGroup.forEach(boxCube => {
+        boxCube.position[1] = pmin + pmax - (boxCube.doc == 1 ? boxCube.position[1] + (boxCube.count - 1) : boxCube.position[1]) + boxGroup.position[1];
+      });
+    });
+
+
+    return {
+      ...state,
+      boxLayerObjects: [...state.boxLayerObjects]
 
     };
   }),
@@ -630,6 +696,40 @@ const useCanvasObjects = create<{
 
     boxGroup.boxGroup.forEach(boxCube => {
       boxCube.position[0] = pmin + pmax - (boxCube.doc == 0 ? boxCube.position[0] + (boxCube.count - 1) : boxCube.position[0]);
+    });
+
+    return {
+      ...state,
+      boxLayerObjects: [...state.boxLayerObjects]
+    };
+  }),
+  rotateYBoxGroup: (boxLayerId: string, boxGroupId: string) => set((state) => {
+    const boxLayer = state.boxLayerObjects.find((existing) => existing.id === boxLayerId);
+    if (!boxLayer) {
+      return state;
+    }
+    const boxGroup = boxLayer.boxGroup?.find((boxGroup) => boxGroup.id === boxGroupId);
+    if (!boxGroup) {
+      return state;
+    }
+    if (!boxGroup.boxGroup) {
+      return state;
+    }
+
+    const xmin = boxGroup.boxGroup.reduce(function (prev, curr) {
+      return prev.position[1] < curr.position[1] ? prev : curr;
+    });
+    const xmax = boxGroup.boxGroup.reduce(function (prev, curr) {
+      const mprev = prev.doc == 1 ? prev.position[1] + (prev.count - 1) : prev.position[1];
+      const ncurr = curr.doc == 1 ? curr.position[1] + (curr.count - 1) : curr.position[1];
+
+      return mprev > ncurr ? prev : curr;
+    });
+    const pmin = xmin.position[1]; // 0
+    const pmax = (xmax.doc == 1 ? xmax.position[0] + (xmax.count - 1) : xmax.position[1]); // 5
+
+    boxGroup.boxGroup.forEach(boxCube => {
+      boxCube.position[1] = pmin + pmax - (boxCube.doc == 1 ? boxCube.position[1] + (boxCube.count - 1) : boxCube.position[1]);
     });
 
     return {
