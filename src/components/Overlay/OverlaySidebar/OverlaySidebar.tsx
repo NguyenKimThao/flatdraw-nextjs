@@ -14,6 +14,7 @@ import BorderRadiusControl from './controls/BorderRadiusControl';
 import BoxCubeControl from './controls/BoxCubeControl';
 import BoxGroupControl from './controls/BoxGroupControl';
 import BoxLayerControl from './controls/BoxLayerControl';
+import ColorsControl from './controls/ColorsControl';
 import FrameControl from './controls/FrameControl';
 import IconControl from './controls/IconControl';
 import ImageControl from './controls/ImageControl';
@@ -54,6 +55,7 @@ export default function OverlaySidebar() {
     boxLayer: userMode === 'boxLayer',
     boxGroup: userMode === 'boxGroup',
     boxCube: userMode === 'boxCube',
+    colors: userMode === 'colors',
     frame: !!activeObject,
     align: !!activeObject,
     backgroundColor: activeObject?.type === 'rectangle' || activeObject?.type === 'ellipse' || activeObject?.type === 'icon',
@@ -95,6 +97,7 @@ export default function OverlaySidebar() {
         {activeNodes.align && <AlignControl />}
         {activeNodes.layer && <LayerControl />}
         {activeNodes.actions && <ActionsControl />}
+        {activeNodes.colors && <ColorsControl />}
       </div>
     </Aside>
   );

@@ -25,6 +25,7 @@ type CanvasObjectType =
   | 'text'
   | 'icon'
   | 'image'
+  | 'colors'
   | 'boxCube'
   | 'boxGroup'
   | 'boxLayer';

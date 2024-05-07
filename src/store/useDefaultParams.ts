@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import type { ColorPickerType } from '~/config/types';
+import type { ColorBoxType, MapColorBoxType, ColorPickerType } from '~/config/types';
 
 interface DefaultParams {
   canvasBackgroundColor: string;
@@ -26,6 +26,7 @@ interface DefaultParams {
   positionBoxCube: number[];
   descriptionBoxCube: string;
   sizePreset: string | null;
+  color: ColorBoxType | null;
 }
 
 const useDefaultParams = create<{
@@ -56,6 +57,7 @@ const useDefaultParams = create<{
     descriptionBoxCube: '',
     searchQueryImages: '',
     sizePreset: null,
+    color: null,
   },
   setDefaultParams: (params: Partial<DefaultParams>) =>
     set((state) => ({

@@ -64,6 +64,87 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
           )`,
       (err) => {}
     );
+
+    db.run(
+      `CREATE TABLE ServerConfigs (
+          Key TEXT,
+          Value TEXT
+          )`,
+      (err) => {
+        if (err) {
+          // Table already created
+        } else {
+          // Table just created, creating some rows
+          const color_default = {
+            color: 'hotpink',
+            wireframe: 'yellow',
+            choose: 'red',
+            review: 'rgb(51, 51, 204)',
+            label: 'Default',
+          };
+          const insert_default = 'INSERT INTO ServerConfigs (Key, Value) VALUES (?,?)';
+          db.run(insert_default, ['color_default', JSON.stringify(color_default)]);
+          const color = {
+            default: {
+              color: 'hotpink',
+              wireframe: 'yellow',
+              choose: 'red',
+              review: 'rgb(51, 51, 204)',
+              label: 'Default',
+            },
+            hotpink: {
+              color: 'hotpink',
+              wireframe: 'yellow',
+              choose: 'red',
+              review: 'rgb(51, 51, 204)',
+              label: 'HotPink',
+            },
+            black: {
+              color: 'black',
+              wireframe: 'yellow',
+              choose: 'red',
+              review: 'rgb(51, 51, 204)',
+              label: 'BLack',
+            },
+            grey: {
+              color: 'rgb(153, 153, 102)',
+              wireframe: 'yellow',
+              choose: 'red',
+              review: 'rgb(51, 51, 204)',
+              label: 'Grey',
+            },
+            white: {
+              color: 'rgb(255,255,255)',
+              wireframe: 'yellow',
+              choose: 'red',
+              review: 'rgb(51, 51, 204)',
+              label: 'White',
+            },
+          };
+          const insert_color = 'INSERT INTO ServerConfigs (Key, Value) VALUES (?,?)';
+          db.run(insert_color, ['color', JSON.stringify(color)]);
+        }
+      }
+    );
+
+    db.run(
+      `CREATE TABLE UserConfigs (
+          UserId INTEGER,
+          Key TEXT,
+          Value TEXT,
+          PRIMARY KEY (UserId, Key)
+          )`,
+      (err) => {}
+    );
+    db.run(
+      `CREATE TABLE UserClors (
+          Id INTEGER PRIMARY KEY AUTOINCREMENT,
+          UserId INTEGER,
+          Key TEXT,
+          Value TEXT,
+          )`,
+      (err) => {}
+    );
   }
 });
 

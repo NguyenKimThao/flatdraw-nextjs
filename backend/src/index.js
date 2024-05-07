@@ -14,6 +14,8 @@ const utils = require('./lib/utils');
 const boxLayer = require('./models/BoxLayer');
 const BoxLayer = require('./models/BoxLayer');
 const Collections = require('./models/Collections');
+const ServerConfigs = require('./models/ServerConfigs');
+const UserConfig = require('./models/UserConfig');
 
 function convertJsonString(val) {
   try {
@@ -165,8 +167,8 @@ app.post('/api/login', async (req, res) => {
 
 app.post('/api/logout', async (req, res) => {
   try {
-    res.cookie('x-access-token', token, { expires: 0, httpOnly: true, secure: true, sameSite: 'none' });
-    return res.send_success(user);
+    res.cookie('x-access-token', '', { expires: 0, httpOnly: true, secure: true, sameSite: 'none' });
+    return res.send_success({});
   } catch (err) {
     return res.send_exec(-100, err);
   }
@@ -502,6 +504,35 @@ app.post('/api/update_version_layer', auth, async (req, res) => {
 
     return res.send_success({
       versionLayer: collection.VersionId,
+    });
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+});
+
+app.get('/api/get_colors', auth, async (req, res) => {
+  try {
+    let color = await UserConfig.getColors(req.user.userId);
+    if (!color) {
+      color = await ServerConfigs.getColors();
+    }
+    res.send_success(color);
+  } catch (err) {
+    res.send_exec(-100, err);
+  }
+});
+
+app.get('/api/update_colors', auth, async (req, res) => {
+  try {
+    const { colors } = req.body;
+
+    if (!colors) {
+      return res.send_error(-101, 'Miss field');
+    }
+
+    let res = await UserConfig.updateColor(colors, req.user.userId);
+    res.send_success({
+      id: res,
     });
   } catch (err) {
     res.send_exec(-100, err);

@@ -1,3 +1,4 @@
+import type { MapColorBoxType } from '~/config/types';
 import { CollectionItem, DataResponse, ListCollectionResponse, ListLayerResponse, UserInfoResponse, BoxLayerObject } from '~/config/types';
 import { fetchData, postData } from '~/service/http';
 
@@ -30,6 +31,12 @@ const ApiService = {
   },
   updatVersionLayers: (collectionId: number, layers: BoxLayerObject[]): Promise<DataResponse<ListLayerResponse>> => {
     return postData(`${API_URL}/api/update_version_layer`, { collectionId }, { layers });
+  },
+  getColors: (): Promise<DataResponse<MapColorBoxType>> => {
+    return fetchData(`${API_URL}/api/get_colors`, {});
+  },
+  updateColor: (color: MapColorBoxType): Promise<DataResponse<MapColorBoxType>> => {
+    return postData(`${API_URL}/api/get_colors`, { color }, {});
   },
 }
 export default ApiService;
