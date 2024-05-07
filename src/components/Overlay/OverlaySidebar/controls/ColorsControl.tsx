@@ -4,6 +4,7 @@ import { NumberInput } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 import { MdOutlineCreateNewFolder } from 'react-icons/md';
 
+import useColorApi from '~/hooks/useColorApi';
 import useActiveBoxCubeId from '~/store/useBoxCubeId';
 import useActiveBoxGroupId from '~/store/useBoxGroupId';
 import useActiveBoxLayerId from '~/store/useBoxLayerId';
@@ -14,7 +15,7 @@ import theme from '~/theme';
 import generateUniqueId from '~/utils/generateUniqueId';
 
 import ControlHeader from '../components/ControlHeader';
-import useColorApi from '~/hooks/useColorApi';
+
 
 const FrameGridDiv = styled('div')`
   display: grid;

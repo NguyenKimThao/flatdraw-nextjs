@@ -17,14 +17,14 @@ import { CanvasContextProvider } from '~/context/useCanvasContext/useCanvasConte
 import { ColorSchemeContextProvider } from '~/context/useColorSchemeContext';
 import { ModalContextProvider } from '~/context/useModalContext';
 import useCookies from '~/hooks/useCookies';
+import useUserStore, { StatusAuthen } from '~/hooks/useUserStore';
+import useAvailableColors from '~/store/useAvailableColors';
 import useAvailableFonts from '~/store/useAvailableFonts';
 import theme from '~/theme';
 import colors from '~/theme/colors';
 import globalStyles from '~/theme/styles/global';
-import getAvailableFonts from '~/utils/getAvailableFonts';
 import getAvailableColor from '~/utils/getAvailableColor';
-import useAvailableColors from '~/store/useAvailableColors';
-import useUserStore, { StatusAuthen } from '~/hooks/useUserStore';
+import getAvailableFonts from '~/utils/getAvailableFonts';
 
 function RouterTransition() {
   const router = useRouter();
