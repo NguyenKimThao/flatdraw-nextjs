@@ -296,7 +296,7 @@ export const BoxDraw = ({ id, position, show, choose, review, count, color, doc,
 
   return (
     <group>
-      <BoxCubeBash id={id} wireframe={wireframe} color={color} position={position} count={count} doc={doc} />
+      <BoxCubeBash id={id} wireframe={wireframe} color={colorBox.color} position={position} count={count} doc={doc} />
     </group>
   )
 }

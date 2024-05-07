@@ -17,7 +17,7 @@ const colors: MapColorBoxType =
     "label": "BLack"
   },
   "grey": {
-    "color": "rgb(153, 153, 102)",
+    "color": "rgb(180, 150, 102)",
     "wireframe": "yellow",
     "choose": "red",
     "review": "rgb(51, 51, 204)",
