@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
 import { Input, Button, ActionIcon, Tooltip, Textarea, NativeSelect } from '@mantine/core';
 import { NumberInput } from '@mantine/core';
+import _ from 'lodash';
 import React, { useEffect, useRef, useState } from 'react';
 import { MdOutlineCreateNewFolder, MdControlPointDuplicate } from 'react-icons/md';
 
+import { BoxCubeObject } from '~/config/types';
 import useActiveBoxCubeId from '~/store/useBoxCubeId';
 import useActiveBoxGroupId from '~/store/useBoxGroupId';
 import useActiveBoxLayerId from '~/store/useBoxLayerId';
@@ -14,6 +16,7 @@ import theme from '~/theme';
 import generateUniqueId from '~/utils/generateUniqueId';
 
 import ControlHeader from '../components/ControlHeader';
+
 
 const FrameGridDiv = styled('div')`
   display: grid;
@@ -39,6 +42,7 @@ export default function BoxGroupControl() {
   const setUserMode = useUserMode((state) => state.setUserMode);
   const appendBoxGroupObject = useCanvasObjects((state) => state.appendBoxGroupObject);
   const updateBoxGroupObject = useCanvasObjects((state) => state.updateBoxGroupObject);
+  const rotateBoxGroup = useCanvasObjects((state) => state.rotateBoxGroup);
 
 
   const activeBoxLayerId = useActiveBoxLayerId((state) => state.activeBoxLayerId);
@@ -227,19 +231,40 @@ export default function BoxGroupControl() {
               size="xs"
               onClick={() => {
                 const createdBoxGroupId = generateUniqueId();
+                const boxGroup: BoxCubeObject[] = [];
+                activeObject?.boxGroup?.forEach(boxCube => {
+                  boxGroup.push({
+                    ..._.cloneDeep(boxCube),
+                    id: generateUniqueId()
+                  })
+                });
                 appendBoxGroupObject(activeObjectLayer?.id, {
+                  ..._.cloneDeep(activeObject),
                   id: createdBoxGroupId,
-                  position: [activeObject.position[0] + 5, activeObject.position[1] + 5, activeObject.position[2]],
-                  name: activeObject.name,
-                  description: defaultParams.descriptionBoxGroup,
-                  show: defaultParams.showBoxGroup != 'false',
-                  type: 'boxGroup',
+                  position: [activeObject.position[0] + 2, activeObject.position[1] + 2, activeObject.position[2]],
+                  name: activeObject.name + " Copy",
+                  description: activeObject.description,
+                  show: activeObject.show,
+                  boxGroup: boxGroup
                 });
                 setActiveBoxGroupId(createdBoxGroupId);
                 setUserMode('select');
+
               }}
             >
               Duplicate
+            </Button>
+          </li>
+          <li>
+            <Button
+              leftIcon={<MdControlPointDuplicate />}
+              variant="default"
+              size="xs"
+              onClick={() => {
+                rotateBoxGroup(activeObjectLayer?.id, activeObject.id);
+              }}
+            >
+              Rotate
             </Button>
           </li>
           <li>

@@ -1,9 +1,11 @@
 import styled from '@emotion/styled';
 import { Input, Button, ActionIcon, Tooltip, Textarea, NativeSelect } from '@mantine/core';
 import { NumberInput } from '@mantine/core';
+import _ from 'lodash';
 import React, { useEffect, useState } from 'react';
-import { MdOutlineCreateNewFolder } from 'react-icons/md';
+import { MdControlPointDuplicate, MdOutlineCreateNewFolder } from 'react-icons/md';
 
+import { BoxCubeObject, BoxGroupObject } from '~/config/types';
 import useActiveBoxCubeId from '~/store/useBoxCubeId';
 import useActiveBoxGroupId from '~/store/useBoxGroupId';
 import useActiveBoxLayerId from '~/store/useBoxLayerId';
@@ -14,6 +16,7 @@ import theme from '~/theme';
 import generateUniqueId from '~/utils/generateUniqueId';
 
 import ControlHeader from '../components/ControlHeader';
+
 
 
 
@@ -42,6 +45,9 @@ export default function BoxLayerControl() {
   const updateBoxLayerObject = useCanvasObjects((state) => state.updateBoxLayerObject);
   const setActiveBoxGroupId = useActiveBoxGroupId((state) => state.setActiveBoxGroupId);
   const toggleShowCanvasBoxLayer = useCanvasObjects((state) => state.toggleShowCanvasBoxLayer);
+  const rotateBoxLayer = useCanvasObjects((state) => state.rotateBoxLayer);
+
+
 
   const activeBoxLayerId = useActiveBoxLayerId((state) => state.activeBoxLayerId);
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
@@ -200,7 +206,7 @@ export default function BoxLayerControl() {
                 onClick={() => {
                   updateBoxLayerObject(activeObject.id, {
                     ...activeObject,
-                    position: defaultParams.positionBoxLayer,
+                    position: [...defaultParams.positionBoxLayer],
                     name: defaultParams.nameBoxLayer,
                     description: defaultParams.descriptionBoxLayer,
                     show: defaultParams.showBoxLayer != 'false'
@@ -209,6 +215,60 @@ export default function BoxLayerControl() {
                 }}
               >
                 Edit
+              </Button>
+            </li>
+            <li>
+              <Button
+                leftIcon={<MdControlPointDuplicate />}
+                variant="default"
+                size="xs"
+                onClick={() => {
+                  const createdBoxLayerId = generateUniqueId();
+                  const boxGroupLayer: BoxGroupObject[] = [];
+                  activeObject?.boxGroup?.forEach(boxGroup => {
+
+                    const boxGroupCube: BoxCubeObject[] = [];
+                    boxGroup?.boxGroup?.forEach(boxCube => {
+                      boxGroupCube.push({
+                        ..._.cloneDeep(boxCube),
+                        id: generateUniqueId()
+                      })
+                    });
+
+                    boxGroupLayer.push({
+                      ..._.cloneDeep(boxGroup),
+                      id: generateUniqueId(),
+                      boxGroup: boxGroupCube
+                    })
+                  });
+
+
+                  appendBoxLayerObject({
+                    id: createdBoxLayerId,
+                    position: [activeObject.position[0] + 2, activeObject.position[1] + 2, activeObject.position[2]],
+                    name: activeObject.name + " Copy",
+                    description: activeObject.description,
+                    show: activeObject.show,
+                    boxGroup: boxGroupLayer
+                  });
+                  setActiveBoxLayerId(createdBoxLayerId);
+                  setDefaultParams({ positionBoxLayer: [0, 0, 0], nameBoxLayer: '', descriptionBoxLayer: '', showBoxLayer: 'true' });
+                  setUserMode('select');
+                }}
+              >
+                Duplicate
+              </Button>
+            </li>
+            <li>
+              <Button
+                leftIcon={<MdControlPointDuplicate />}
+                variant="default"
+                size="xs"
+                onClick={() => {
+                  rotateBoxLayer(activeObject.id);
+                }}
+              >
+                Rotate
               </Button>
             </li>
             <li>

@@ -71,6 +71,9 @@ const CanvasBox = () => {
   const posXIndex = activeObjectLayer?.position[0] || 0;
   const posYIndex = activeObjectLayer?.position[1] || 0;
   const posZIndex = activeObjectLayer?.position[2] || 0;
+  const posXGroupIndex = activeObjectGroup?.position[0] || 0;
+  const posYGroupIndex = activeObjectGroup?.position[1] || 0;
+  const posZGroupIndex = activeObjectGroup?.position[2] || 0;
   const show = (actionMode?.type == 'isMoving' && activeObjectLayer) || (userMode == "boxCube" && !activeObject && activeObjectLayer && activeObjectGroup);
   const distance = zoom / 4;
 
@@ -85,14 +88,14 @@ const CanvasBox = () => {
 
 
 
-    const newPos = [x - x * sc, y - y * sc - posY, + posZIndex];
+    const newPos = [x - x * sc, y - y * sc - posY, + posZIndex + posZGroupIndex];
     if ((position[0] != newPos[0]) || (position[1] != newPos[1]) || (position[2] != newPos[2])) {
       const pos = [Math.round(newPos[0]), Math.round(newPos[1]), Math.round(newPos[2])]
       setPostion(newPos);
       setPostionIndex(pos)
       setDefaultParams({
         ...defaultParams,
-        positionBoxCube: [pos[0] - posXIndex, pos[1] - posYIndex, pos[2] - posZIndex]
+        positionBoxCube: [pos[0] - posXIndex - posXGroupIndex, pos[1] - posYIndex - posYGroupIndex, pos[2] - posZIndex - posZGroupIndex]
       })
     }
   });
