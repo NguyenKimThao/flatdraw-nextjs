@@ -15,11 +15,13 @@ import React, {
 interface CanvasCubeContextType {
   canvasCubeRef: MutableRefObject<HTMLCanvasElement | null>;
   orbitControlRef: MutableRefObject<any | null>;
+  sceneRef: MutableRefObject<any | null>;
 }
 
 const initialState: CanvasCubeContextType = {
   canvasCubeRef: createRef(),
   orbitControlRef: createRef(),
+  sceneRef: createRef(),
 };
 
 const CanvasCubeContext = createContext<CanvasCubeContextType>(initialState);
@@ -27,11 +29,13 @@ const CanvasCubeContext = createContext<CanvasCubeContextType>(initialState);
 export function CanvasCubeContextProvider({ children }: { children: ReactNode }) {
   const canvasCubeRef = useRef<HTMLCanvasElement | null>(null);
   const orbitControlRef = useRef<any | null>(null);
+  const sceneRef = useRef<any | null>(null);
 
   const value = useMemo(
     () => ({
       canvasCubeRef,
       orbitControlRef,
+      sceneRef,
     }),
     []
   );

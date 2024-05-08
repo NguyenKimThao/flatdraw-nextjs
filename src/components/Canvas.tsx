@@ -112,7 +112,7 @@ const CanvasBox = () => {
 
 export default function Canvas() {
   const { canvasRef, contextRef, drawEverything } = useCanvasContext();
-  const { canvasCubeRef, orbitControlRef } = useCanvasCubeContext();
+  const { canvasCubeRef, orbitControlRef, sceneRef } = useCanvasCubeContext();
 
   const activeObjectId = useActiveObjectId((state) => state.activeObjectId);
   const setActiveObjectId = useActiveObjectId((state) => state.setActiveObjectId);
@@ -322,10 +322,11 @@ export default function Canvas() {
       onTouchMove={onPointerMove}
       onTouchEnd={onPointerUp}
     >
-      <CanvasThree ref={canvasCubeRef} scene={{ position: [0, posY, 0] }} onKeyUp={onKeyUp} style={{ width: "100%", height: "100vh", background: "rgb(172,173,165)" }}>
-        <OrbitControls minDistance={zoom / 4}
-          maxDistance={zoom / 4} ref={orbitControlRef}
+      <CanvasThree ref={canvasCubeRef} onKeyUp={onKeyUp} style={{ width: "100%", height: "100vh", background: "rgb(172,173,165)" }}>
+        <OrbitControls minDistance={zoom}
+          maxDistance={zoom} ref={orbitControlRef}
           enableRotate={userMode == 'select'} />
+        <scene ref={sceneRef} position={[0, posY, 0]} />
         <ambientLight intensity={0.5} />
         <spotLight position={[0, 20, 0]} angle={0.3} />
         <CanvasBox></CanvasBox>

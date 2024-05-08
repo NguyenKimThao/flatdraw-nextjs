@@ -46,7 +46,7 @@ export default function OverlayZoom() {
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
   const setBoxLayerObjects = useCanvasObjects((state) => state.setBoxLayerObjects);
   const collectionId = useCollectionApi((state) => state.collectionId);
-  const { canvasCubeRef, orbitControlRef } = useCanvasCubeContext();
+  const { canvasCubeRef, sceneRef, orbitControlRef } = useCanvasCubeContext();
 
   return (
     <Ul>
@@ -56,6 +56,9 @@ export default function OverlayZoom() {
             size="xl"
             variant="default"
             onClick={() => {
+              if (sceneRef.current && sceneRef.current.parent) {
+                sceneRef.current.parent.position.y = posY - 1;
+              }
               decrementPosY(1);
             }}
           >
@@ -71,6 +74,9 @@ export default function OverlayZoom() {
             variant="default"
             onClick={() => {
               setPosY(0);
+              if (sceneRef.current && sceneRef.current.parent) {
+                sceneRef.current.parent.position.y = 0;
+              }
             }}
           >
             {`Y: ${posY}`}
@@ -83,6 +89,9 @@ export default function OverlayZoom() {
             size="xl"
             variant="default"
             onClick={() => {
+              if (sceneRef.current && sceneRef.current.parent) {
+                sceneRef.current.parent.position.y = posY + 1;
+              }
               incrementPosY(1);
             }}
           >
@@ -133,6 +142,9 @@ export default function OverlayZoom() {
               console.log('orbitControlRef.current', orbitControlRef.current);
               if (orbitControlRef.current) {
                 orbitControlRef.current.reset();
+              }
+              if (sceneRef.current && sceneRef.current.parent) {
+                sceneRef.current.parent.position.y = 0;
               }
             }}
           >
