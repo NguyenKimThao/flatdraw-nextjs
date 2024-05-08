@@ -1,0 +1,5339 @@
+[
+  {
+    "id": "abe17bcc-041b-4acd-8731-c1b00c1537e1",
+    "name": "Step3 - layer 7 phai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "85db92d8-246a-4624-931f-54a0154c45f2",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "step3 - layer 7 , group 7 trai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "3207686f-088c-4bca-8778-a1969599dee3",
+            "position": [
+              1,
+              1,
+              0
+            ],
+            "name": "",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "eb6fa034-11d9-4ea8-84e5-9fb6b0b32db2",
+            "position": [
+              0,
+              2,
+              0
+            ],
+            "name": "",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "564cd195-3060-4e13-9e0d-34a4d3bca2fd",
+            "position": [
+              0,
+              5,
+              0
+            ],
+            "name": "",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "04140c28-099d-40e2-9e94-65497e2a6f84",
+            "position": [
+              0,
+              8,
+              0
+            ],
+            "name": "",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "721150cd-7ba1-43d0-8656-08138df76741",
+            "position": [
+              1,
+              10,
+              0
+            ],
+            "name": "",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "0b11ba1b-8424-433b-8830-f553a43f0ad2",
+            "position": [
+              2,
+              12,
+              0
+            ],
+            "name": "",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "6152806f-2c5a-4b04-b7b2-19d92d1fdd62",
+            "position": [
+              3,
+              13,
+              0
+            ],
+            "name": "",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "2423c7e1-9669-493f-abc5-f70fbe7de52d",
+            "position": [
+              3,
+              14,
+              0
+            ],
+            "name": "",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "9762a3ba-f5ac-4b08-a4f0-728f64132eb7",
+            "position": [
+              2,
+              1,
+              0
+            ],
+            "name": "9762a3ba-f5ac-4b08-a4f0-728f64132eb7",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "0b5cc039-1d99-40c0-b873-b0b23575f5d5",
+            "position": [
+              5,
+              1,
+              0
+            ],
+            "name": "0b5cc039-1d99-40c0-b873-b0b23575f5d5",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "eb1cce0f-6800-460a-9838-337c0a44fb8d",
+            "position": [
+              2,
+              2,
+              0
+            ],
+            "name": "eb1cce0f-6800-460a-9838-337c0a44fb8d",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "b0e3a0c6-502e-4275-8f43-152addf47791",
+            "position": [
+              3,
+              0,
+              0
+            ],
+            "name": "b0e3a0c6-502e-4275-8f43-152addf47791",
+            "boxGroupId": "85db92d8-246a-4624-931f-54a0154c45f2",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "step3 - layer 7 - group 7 phai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "ea0301e7-579c-4adc-966e-14948bbc1a96",
+            "position": [
+              6,
+              0,
+              0
+            ],
+            "name": "ea0301e7-579c-4adc-966e-14948bbc1a96",
+            "boxGroupId": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+            "color": "white",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "8f9d64f9-79ea-42c8-a96d-e0952d8470ae",
+            "position": [
+              8,
+              1,
+              0
+            ],
+            "name": "8f9d64f9-79ea-42c8-a96d-e0952d8470ae",
+            "boxGroupId": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "d9f9427b-3e1d-4960-9b35-80a0489d3f90",
+            "position": [
+              9,
+              2,
+              0
+            ],
+            "name": "d9f9427b-3e1d-4960-9b35-80a0489d3f90",
+            "boxGroupId": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "a1fdd0be-8500-4284-af7e-7a3a5b47388c",
+            "position": [
+              11,
+              3,
+              0
+            ],
+            "name": "a1fdd0be-8500-4284-af7e-7a3a5b47388c",
+            "boxGroupId": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "1da0dd02-b3b6-403b-adcc-f45070306b88",
+            "position": [
+              11,
+              6,
+              0
+            ],
+            "name": "1da0dd02-b3b6-403b-adcc-f45070306b88",
+            "boxGroupId": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "31cf6cb6-e04d-49d6-9c86-9a56001eb5bb",
+            "position": [
+              10,
+              8,
+              0
+            ],
+            "name": "31cf6cb6-e04d-49d6-9c86-9a56001eb5bb",
+            "boxGroupId": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "f6769725-c7ab-4344-bd08-fc0f7106d018",
+            "position": [
+              10,
+              3,
+              0
+            ],
+            "name": "f6769725-c7ab-4344-bd08-fc0f7106d018",
+            "boxGroupId": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+            "color": "white",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "2a510c24-31a7-4b09-a630-b11592b12fd8",
+            "position": [
+              10,
+              11,
+              0
+            ],
+            "name": "2a510c24-31a7-4b09-a630-b11592b12fd8",
+            "boxGroupId": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+            "color": "white",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "92b965ff-b699-45ea-9c75-ba72da064d41",
+            "position": [
+              9,
+              12,
+              0
+            ],
+            "name": "92b965ff-b699-45ea-9c75-ba72da064d41",
+            "boxGroupId": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "29c218c4-ceb9-4919-aad3-9231b6e18cc3",
+            "position": [
+              6,
+              14,
+              0
+            ],
+            "name": "29c218c4-ceb9-4919-aad3-9231b6e18cc3",
+            "boxGroupId": "efe880f2-a3a0-4cbe-bf08-26ab87742bf6",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      0,
+      0,
+      7
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": "",
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "ef64ea47-b3f5-4076-b1b1-2488bf87011c",
+    "name": "Step 3 - layer 7 trai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "step3 - layer 7 group trai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "97f968bd-92b7-49fb-abe3-3a617f7cf906",
+            "position": [
+              -18,
+              0,
+              0
+            ],
+            "name": "97f968bd-92b7-49fb-abe3-3a617f7cf906",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "03be64a5-9b1a-40cc-b885-25740b96465b",
+            "position": [
+              -15,
+              0,
+              0
+            ],
+            "name": "03be64a5-9b1a-40cc-b885-25740b96465b",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "834e89d1-6526-421a-b09e-9e2e69140bfe",
+            "position": [
+              -15,
+              -1,
+              0
+            ],
+            "name": "834e89d1-6526-421a-b09e-9e2e69140bfe",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "fb54a955-2166-42ef-b912-52eb968feb3c",
+            "position": [
+              -19,
+              1,
+              0
+            ],
+            "name": "fb54a955-2166-42ef-b912-52eb968feb3c",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f7ceb7de-aebe-4116-b98f-f6b78ce015c4",
+            "position": [
+              -18,
+              2,
+              0
+            ],
+            "name": "f7ceb7de-aebe-4116-b98f-f6b78ce015c4",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f05b8078-4e9c-4fc4-a007-e59f2aa95788",
+            "position": [
+              -19,
+              2,
+              0
+            ],
+            "name": "f05b8078-4e9c-4fc4-a007-e59f2aa95788",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "a7bec92e-dbb4-48cf-ad6d-5df2203db547",
+            "position": [
+              -19,
+              5,
+              0
+            ],
+            "name": "a7bec92e-dbb4-48cf-ad6d-5df2203db547",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "ba6788c4-63a9-4149-966a-0e71d8941815",
+            "position": [
+              -18,
+              7,
+              0
+            ],
+            "name": "ba6788c4-63a9-4149-966a-0e71d8941815",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "7ff95f9e-85df-4a39-8b1a-3283d7c8de97",
+            "position": [
+              -18,
+              10,
+              0
+            ],
+            "name": "7ff95f9e-85df-4a39-8b1a-3283d7c8de97",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "34bd1db2-d499-4491-a1d8-78df2488ff47",
+            "position": [
+              -17,
+              11,
+              0
+            ],
+            "name": "34bd1db2-d499-4491-a1d8-78df2488ff47",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "1c3403ab-c0ef-44db-a7ee-f1f2569805a9",
+            "position": [
+              -16,
+              13,
+              0
+            ],
+            "name": "1c3403ab-c0ef-44db-a7ee-f1f2569805a9",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "fd986e1c-403a-4224-bd54-ecab65b425b4",
+            "position": [
+              -9,
+              9,
+              0
+            ],
+            "name": "fd986e1c-403a-4224-bd54-ecab65b425b4",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "91d9ab0b-ec73-4669-887b-ba65b71104b7",
+            "position": [
+              -10,
+              11,
+              0
+            ],
+            "name": "91d9ab0b-ec73-4669-887b-ba65b71104b7",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "6a4b0e8e-087b-4866-8179-94283d1a3a67",
+            "position": [
+              -13,
+              13,
+              0
+            ],
+            "name": "6a4b0e8e-087b-4866-8179-94283d1a3a67",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "9cce7bb2-7225-4a4d-ab0e-a4f10559159e",
+            "position": [
+              -11,
+              12,
+              0
+            ],
+            "name": "9cce7bb2-7225-4a4d-ab0e-a4f10559159e",
+            "boxGroupId": "b276fd50-a71b-4894-99c6-c0952c828a2e",
+            "color": "white",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "6f5d51d7-9d2a-4338-a03e-3cbcfebbcd9f",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "step 3 - layer 7 trai - group phai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "4a08f8ac-e48c-43bb-8a45-5088722f2324",
+            "position": [
+              -12,
+              0,
+              0
+            ],
+            "name": "4a08f8ac-e48c-43bb-8a45-5088722f2324",
+            "boxGroupId": "6f5d51d7-9d2a-4338-a03e-3cbcfebbcd9f",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "cdceae10-8b98-46be-9496-f9834d721a01",
+            "position": [
+              -9,
+              0,
+              0
+            ],
+            "name": "cdceae10-8b98-46be-9496-f9834d721a01",
+            "boxGroupId": "6f5d51d7-9d2a-4338-a03e-3cbcfebbcd9f",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "700cfc6f-7f54-498c-8f73-609b1d581a11",
+            "position": [
+              -10,
+              1,
+              0
+            ],
+            "name": "700cfc6f-7f54-498c-8f73-609b1d581a11",
+            "boxGroupId": "6f5d51d7-9d2a-4338-a03e-3cbcfebbcd9f",
+            "color": "white",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "e6ee87e9-55b8-40be-a6f1-7e12d28a8ba1",
+            "position": [
+              -8,
+              1,
+              0
+            ],
+            "name": "e6ee87e9-55b8-40be-a6f1-7e12d28a8ba1",
+            "boxGroupId": "6f5d51d7-9d2a-4338-a03e-3cbcfebbcd9f",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "faf6a6f7-9fe6-4bf1-85b3-4f238ef57233",
+            "position": [
+              -8,
+              4,
+              0
+            ],
+            "name": "faf6a6f7-9fe6-4bf1-85b3-4f238ef57233",
+            "boxGroupId": "6f5d51d7-9d2a-4338-a03e-3cbcfebbcd9f",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "ba870a92-9581-4ba2-afec-4dd50f448926",
+            "position": [
+              -8,
+              7,
+              0
+            ],
+            "name": "ba870a92-9581-4ba2-afec-4dd50f448926",
+            "boxGroupId": "6f5d51d7-9d2a-4338-a03e-3cbcfebbcd9f",
+            "color": "white",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "06390a65-ebda-4b28-9024-f38b08232331",
+            "position": [
+              -13,
+              -1,
+              0
+            ],
+            "name": "06390a65-ebda-4b28-9024-f38b08232331",
+            "boxGroupId": "6f5d51d7-9d2a-4338-a03e-3cbcfebbcd9f",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      3,
+      1,
+      7
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": "",
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "62415ff3-04bb-43d7-bf4e-e4234b9f74f9",
+    "name": " Step 3 - layer 8 - phai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "97d8a5c8-6e75-41f1-9341-93c1c0cc92ed",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 3 - layer 8 - phai - duoi",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "aeb34e9e-543e-49bb-93ef-c33e41f8eb6a",
+            "position": [
+              0,
+              1,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "97d8a5c8-6e75-41f1-9341-93c1c0cc92ed",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "9b526ed8-45be-4737-b1bc-9e1246bbd4ac",
+            "position": [
+              3,
+              1,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "97d8a5c8-6e75-41f1-9341-93c1c0cc92ed",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "386fa2ee-d9ab-4bc8-9630-0e3f651ce43b",
+            "position": [
+              6,
+              1,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "97d8a5c8-6e75-41f1-9341-93c1c0cc92ed",
+            "color": "white",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "cb9f3ebc-6825-434d-a569-3610cab9c702",
+            "position": [
+              8,
+              2,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "97d8a5c8-6e75-41f1-9341-93c1c0cc92ed",
+            "color": "white",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "c1a0944d-ad51-42f8-abe9-0458ce1779c2",
+            "position": [
+              -1,
+              2,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "97d8a5c8-6e75-41f1-9341-93c1c0cc92ed",
+            "color": "white",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "9bff02f2-d036-4baa-9973-2024fa64887e",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 3 - layer 8 - phai - phai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "b5011965-f55c-4247-a48e-d73351d45e3d",
+            "position": [
+              6,
+              2,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "6cc84416-b2f8-4aee-ae2b-2627e6498dd5",
+            "position": [
+              3,
+              2,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "36ff06cd-c563-45f8-8d3b-c9b458474c10",
+            "position": [
+              6,
+              3,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "4ae29886-e5b9-4489-ac86-be7727c3fa6d",
+            "position": [
+              7,
+              4,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "d907ce56-3209-41de-9527-88b8c1b27a8b",
+            "position": [
+              8,
+              4,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8aa86350-9938-4558-aebd-b7d697ce0107",
+            "position": [
+              9,
+              6,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "ac402f31-381f-49e0-a8d6-abbf56722ba3",
+            "position": [
+              9,
+              9,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8f120769-8e1c-41e7-903b-fe79b3cbda24",
+            "position": [
+              8,
+              10,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "a2d5df79-cbb6-4964-9ac6-97e5c94c06dc",
+            "position": [
+              7,
+              11,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "dab4ffe5-faf9-4bf1-a071-f44d2c6d5e3f",
+            "position": [
+              6,
+              12,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "879a7d63-ecf5-4899-8c31-1bb92fb3d7f6",
+            "position": [
+              4,
+              13,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "e1c7dd28-5d38-4d7d-9eb8-95353db808f4",
+            "position": [
+              2,
+              14,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "9bff02f2-d036-4baa-9973-2024fa64887e",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "c8ab980a-255b-454e-bc16-cfd498e309f0",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 3 - layer 8 - phai - trai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "e4dbe54d-cb8a-4291-aa92-bfc2e3624423",
+            "position": [
+              0,
+              2,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "c8ab980a-255b-454e-bc16-cfd498e309f0",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "c0f226da-20e8-49a5-8d0d-c4e5a7af0242",
+            "position": [
+              -1,
+              3,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "c8ab980a-255b-454e-bc16-cfd498e309f0",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "33522d36-2e9c-4b2c-ad6c-a825a1154eb4",
+            "position": [
+              0,
+              4,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "c8ab980a-255b-454e-bc16-cfd498e309f0",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "53a05e2f-8915-491b-8bc8-ffc4f92e8944",
+            "position": [
+              -1,
+              4,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "c8ab980a-255b-454e-bc16-cfd498e309f0",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "7b1f7c8f-45b8-4563-b9f3-6cdff45e2627",
+            "position": [
+              -1,
+              8,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "c8ab980a-255b-454e-bc16-cfd498e309f0",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "c186bb83-880c-461e-bed3-3fe0611213d0",
+            "position": [
+              -1,
+              7,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "c8ab980a-255b-454e-bc16-cfd498e309f0",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "39968538-bc4c-4d9b-a1e8-22c9071fe300",
+            "position": [
+              -1,
+              11,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "c8ab980a-255b-454e-bc16-cfd498e309f0",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "38ec136e-2657-4b71-8032-4afb267a2666",
+            "position": [
+              0,
+              12,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "c8ab980a-255b-454e-bc16-cfd498e309f0",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "97e97720-b651-46a4-87e4-39b198343cde",
+            "position": [
+              0,
+              13,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "c8ab980a-255b-454e-bc16-cfd498e309f0",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      3,
+      1,
+      8
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": "",
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "4d9dd562-07b4-4ca3-bfa2-f36c32af0b9f",
+    "name": "Step 3 - layer 9 phai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "step 3 - layer 9 - phai - phai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "e9a6918a-50e5-4987-91eb-e639d8f35626",
+            "position": [
+              5,
+              0,
+              0
+            ],
+            "name": "e9a6918a-50e5-4987-91eb-e639d8f35626",
+            "boxGroupId": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "dc3c3f7b-8f5a-486b-a08b-edccb7630108",
+            "position": [
+              7,
+              1,
+              0
+            ],
+            "name": "dc3c3f7b-8f5a-486b-a08b-edccb7630108",
+            "boxGroupId": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "4107139c-8693-4321-a953-93e5a1eba581",
+            "position": [
+              8,
+              2,
+              0
+            ],
+            "name": "4107139c-8693-4321-a953-93e5a1eba581",
+            "boxGroupId": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "032b8c7b-31af-4d0c-adab-bac6b4e7f422",
+            "position": [
+              10,
+              4,
+              0
+            ],
+            "name": "032b8c7b-31af-4d0c-adab-bac6b4e7f422",
+            "boxGroupId": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "3ada1d87-c318-40de-80d4-74763ddd4750",
+            "position": [
+              10,
+              7,
+              0
+            ],
+            "name": "3ada1d87-c318-40de-80d4-74763ddd4750",
+            "boxGroupId": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "094a8593-af2f-4fbb-b354-63049b477696",
+            "position": [
+              9,
+              7,
+              0
+            ],
+            "name": "094a8593-af2f-4fbb-b354-63049b477696",
+            "boxGroupId": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "1cc3991a-2303-4285-8d8a-824721f59377",
+            "position": [
+              8,
+              9,
+              0
+            ],
+            "name": "1cc3991a-2303-4285-8d8a-824721f59377",
+            "boxGroupId": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "e3087b89-99d8-4132-a88b-6d1607a6bcb7",
+            "position": [
+              6,
+              10,
+              0
+            ],
+            "name": "e3087b89-99d8-4132-a88b-6d1607a6bcb7",
+            "boxGroupId": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "position": [
+              4,
+              11,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "0cff5343-a9ff-4308-8e53-9ad619315bce",
+            "position": [
+              9,
+              3,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "e52e1c40-f8e7-423b-aa4d-6889a770f640",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "c6a80571-d538-42d5-b9bd-3770c63e9be7",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "step 3 - layer 9 - phai - trai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "c46fb4ee-b4fa-4096-96d7-a7dfc1815540",
+            "position": [
+              2,
+              0,
+              0
+            ],
+            "name": "c46fb4ee-b4fa-4096-96d7-a7dfc1815540",
+            "boxGroupId": "c6a80571-d538-42d5-b9bd-3770c63e9be7",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "aacc4791-f837-49c7-8b6a-f86e0c58999b",
+            "position": [
+              2,
+              1,
+              0
+            ],
+            "name": "aacc4791-f837-49c7-8b6a-f86e0c58999b",
+            "boxGroupId": "c6a80571-d538-42d5-b9bd-3770c63e9be7",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "7bdc2b86-5efd-426e-afba-9bd0fe36ce50",
+            "position": [
+              1,
+              1,
+              0
+            ],
+            "name": "7bdc2b86-5efd-426e-afba-9bd0fe36ce50",
+            "boxGroupId": "c6a80571-d538-42d5-b9bd-3770c63e9be7",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "4c23580b-13ce-4d60-ad2d-a30c352ee3bb",
+            "position": [
+              0,
+              3,
+              0
+            ],
+            "name": "4c23580b-13ce-4d60-ad2d-a30c352ee3bb",
+            "boxGroupId": "c6a80571-d538-42d5-b9bd-3770c63e9be7",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "a7942fdf-d0b4-4935-ac61-fdb54a316091",
+            "position": [
+              0,
+              6,
+              0
+            ],
+            "name": "a7942fdf-d0b4-4935-ac61-fdb54a316091",
+            "boxGroupId": "c6a80571-d538-42d5-b9bd-3770c63e9be7",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "14dbbb5a-2283-43ed-8c4a-351233f74085",
+            "position": [
+              0,
+              9,
+              0
+            ],
+            "name": "14dbbb5a-2283-43ed-8c4a-351233f74085",
+            "boxGroupId": "c6a80571-d538-42d5-b9bd-3770c63e9be7",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "9f7bdb90-81d5-4e11-983c-a8dc023f77b0",
+            "position": [
+              1,
+              10,
+              0
+            ],
+            "name": "9f7bdb90-81d5-4e11-983c-a8dc023f77b0",
+            "boxGroupId": "c6a80571-d538-42d5-b9bd-3770c63e9be7",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "9cb9c1d8-774d-4cfd-8c9a-732b3b3d6a58",
+            "position": [
+              3,
+              11,
+              0
+            ],
+            "name": "9cb9c1d8-774d-4cfd-8c9a-732b3b3d6a58",
+            "boxGroupId": "c6a80571-d538-42d5-b9bd-3770c63e9be7",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      2,
+      4,
+      9
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": "",
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "519c6ddd-7f8d-4d61-bcec-3caabfde1ee2",
+    "name": "Step 3 - layer 9 trai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "step 3 - layer 9 - trai - trai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "546ab32d-bf83-45d6-9c17-a704bef7bda9",
+            "position": [
+              -13,
+              -1,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "79ccd734-af9a-4db7-92d7-a3561809e68a",
+            "position": [
+              -14,
+              0,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "85a7c318-0269-4e22-9131-c56c1abdbf29",
+            "position": [
+              -15,
+              1,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f7935156-d268-4f9d-b7d4-bfe73e4da2e4",
+            "position": [
+              -16,
+              2,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "c2897061-1c6f-464e-b77a-26c98187f8c7",
+            "position": [
+              -16,
+              3,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8563b6b5-ee53-4997-ab90-e27e6f0cc6e5",
+            "position": [
+              -16,
+              6,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "60ce5ec0-6cc4-4b6e-88cc-be59fb4bb26a",
+            "position": [
+              -15,
+              6,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "644a0194-bb6e-472e-a608-32768148a4ce",
+            "position": [
+              -14,
+              9,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "76c99b38-5eba-4fdb-94ef-caba6054e0e6",
+            "position": [
+              -14,
+              8,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "5da161ef-d378-41a4-b024-ac6176c4bc41",
+            "position": [
+              -12,
+              10,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "cff638d4-7b9e-4462-a756-f1e97909a5ce",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "6593b66a-8317-4291-a409-37e11b64bc58",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "step 3 - layer 9 - trai - phai",
+        "type": "boxGroup"
+      },
+      {
+        "id": "4dded552-0203-4db0-8d8e-e63fa477ca15",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "step 3 - layer 9 - trai - phai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "046e2758-b92e-4376-813a-0dfa2fe2a445",
+            "position": [
+              -10,
+              -1,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "4dded552-0203-4db0-8d8e-e63fa477ca15",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "05ff0995-2da6-47ed-886d-7639d524add7",
+            "position": [
+              -7,
+              0,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "4dded552-0203-4db0-8d8e-e63fa477ca15",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "e358c66b-bbec-43fc-bd5b-5dd82ef31374",
+            "position": [
+              -6,
+              2,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "4dded552-0203-4db0-8d8e-e63fa477ca15",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "6469807d-7551-41a4-b270-3367613704b3",
+            "position": [
+              -6,
+              5,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "4dded552-0203-4db0-8d8e-e63fa477ca15",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "9ce4ea11-f331-47bc-a618-cafc5cff88d0",
+            "position": [
+              -9,
+              9,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "4dded552-0203-4db0-8d8e-e63fa477ca15",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "7088e766-3fc2-4709-8b3c-9e4b858e2927",
+            "position": [
+              -9,
+              10,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "4dded552-0203-4db0-8d8e-e63fa477ca15",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "7aba79e3-8c3b-4df6-9d2d-0e3ea8e2fda7",
+            "position": [
+              -8,
+              0,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "4dded552-0203-4db0-8d8e-e63fa477ca15",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "1fa1ba2d-5690-4483-b00a-455b6476a94c",
+            "position": [
+              -7,
+              8,
+              0
+            ],
+            "name": "176a5957-57bf-40c5-8ca1-8ace90437e4e",
+            "boxGroupId": "4dded552-0203-4db0-8d8e-e63fa477ca15",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      -1,
+      5,
+      9
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": "",
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "920926ad-4f4b-4229-88fd-7ace9bad8296",
+    "name": " Step 3 - layer 8 - trai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "f184955a-e9a8-459c-9d0b-7c7e887cb10f",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "Step 3 - layer 8 - trai -duoi",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "f8bf59c1-36bf-444d-8448-bc3d6a28cd76",
+            "position": [
+              -7,
+              2,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f184955a-e9a8-459c-9d0b-7c7e887cb10f",
+            "color": "white",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "16bc885f-8984-4d4f-8271-899a536fe7ad",
+            "position": [
+              -10,
+              1,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f184955a-e9a8-459c-9d0b-7c7e887cb10f",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "0a180c88-d9c8-4efd-a3cf-6032980358bc",
+            "position": [
+              -13,
+              1,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f184955a-e9a8-459c-9d0b-7c7e887cb10f",
+            "color": "white",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "c44c2e5f-f313-49e3-a425-d191b2d96018",
+            "position": [
+              -15,
+              1,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f184955a-e9a8-459c-9d0b-7c7e887cb10f",
+            "color": "white",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "4e196b6a-0e4c-43d7-bfcd-4e0c994666dd",
+            "position": [
+              -16,
+              2,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f184955a-e9a8-459c-9d0b-7c7e887cb10f",
+            "color": "white",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "Step 3 - layer 8 - trai -phai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "b4f7f3ec-22e1-4df9-b0c2-d6b812699d40",
+            "position": [
+              -10,
+              2,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "8757e0d8-fada-4264-a1c4-8fb4f3698451",
+            "position": [
+              -9,
+              3,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "063aa87d-acb2-4d0d-a477-98a794673b4a",
+            "position": [
+              -8,
+              4,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "76c5f20d-7896-48ae-9203-8e6139e2a675",
+            "position": [
+              -7,
+              7,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "19aa2a4a-1748-43f3-8031-51d59c49fc1d",
+            "position": [
+              -7,
+              4,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "9465dc27-3797-4ade-a60e-68bbf7dcda67",
+            "position": [
+              -7,
+              8,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "37024fb2-1d05-4120-98c0-f84cf8404da7",
+            "position": [
+              -7,
+              11,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "61659db5-2f04-468d-9b5d-4b3fee6a543e",
+            "position": [
+              -8,
+              12,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "012311ed-6007-4798-89d9-81885b37f0c6",
+            "position": [
+              -10,
+              13,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "2d1115f8-d119-49ec-9ca5-b719b36cc3f7",
+            "position": [
+              -12,
+              14,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "f10b4a16-d05c-4463-80da-3f6e9a240bad",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "471e700d-f3cb-4f12-8765-207313adaadd",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "Step 3 - layer 8 - trai -trai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "1813a282-71c4-40b9-b119-826bcc235366",
+            "position": [
+              -13,
+              2,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "69967e84-79a7-4d0f-a382-1469cf1fcd31",
+            "position": [
+              -15,
+              2,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "64697c99-d7ad-452c-97a7-cedf994dcfde",
+            "position": [
+              -16,
+              3,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "9b881ea0-047d-45c4-a615-4b765ccdefa3",
+            "position": [
+              -15,
+              4,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "fac845d3-2ef5-4c7c-ae6f-a90747423a11",
+            "position": [
+              -16,
+              4,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "0fdb597b-c937-44c5-85e6-c01f82a14ab8",
+            "position": [
+              -17,
+              6,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "cf9a5603-2ca9-4bc6-bca3-1ce86f139b32",
+            "position": [
+              -17,
+              9,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "9981b425-c532-4273-ad9a-80bfb8d6f1dd",
+            "position": [
+              -17,
+              10,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "086ff6ff-dfc6-4592-8b0f-610de434be98",
+            "position": [
+              -16,
+              11,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "9a462909-c2a1-4af5-bdaf-26eb5a423c4a",
+            "position": [
+              -15,
+              12,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f3726904-97c7-439e-8e3e-896116b943cc",
+            "position": [
+              -14,
+              13,
+              0
+            ],
+            "name": "aeb34e9e",
+            "boxGroupId": "471e700d-f3cb-4f12-8765-207313adaadd",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      0,
+      1,
+      8
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": "",
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "f2942670-ffab-11ee-9c6e-ebc0daac3b50",
+    "name": " Step 4 Layer 10 Trai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 4 Layer 10 Trai Trai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "b38c05a0-ffac-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              -1,
+              0,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "edbb31b0-ffac-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              -3,
+              1,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "07829ed0-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              -3,
+              2,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "180a7e30-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              -4,
+              2,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "199e3d90-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              -4,
+              5,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "1f540850-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              -4,
+              8,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "2017f490-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              -3,
+              9,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "21e73650-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              -2,
+              10,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "247c8730-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              0,
+              11,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "fa2715a0-ffab-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 4 Layer 10 Trai Phai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "45203db0-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              3,
+              0,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "4691a800-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              3,
+              1,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "4752fc30-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              5,
+              2,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "49f0ffa0-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              6,
+              2,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "4b3a6f90-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              6,
+              5,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "52e63df0-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              7,
+              5,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "54a5ef50-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              6,
+              8,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "5de3f670-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              5,
+              9,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "5e9c22e0-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              4,
+              10,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "6b62db90-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              4,
+              11,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "6c2b0d90-ffad-11ee-9c6e-ebc0daac3b50",
+            "position": [
+              1,
+              11,
+              0
+            ],
+            "name": "293326e0-ffac-11ee-9c6e-ebc0daac3b50",
+            "boxGroupId": "3c16b410-ffad-11ee-9c6e-ebc0daac3b50",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      0,
+      6,
+      10
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": null,
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "b370ae10-ffaf-11ee-bd0b-5f76d6a187c9",
+    "name": "Step 4 Layer 10 Phai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "Step 4 Layer 10 Phai Trai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "cbda8700-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "name": "cbda8700-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "cf5778c0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              -2,
+              1,
+              0
+            ],
+            "name": "cf5778c0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "d16c9d20-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              -2,
+              2,
+              0
+            ],
+            "name": "d16c9d20-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "d41268c0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              -3,
+              2,
+              0
+            ],
+            "name": "d41268c0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d4be8740-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              -3,
+              5,
+              0
+            ],
+            "name": "d4be8740-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d636cf60-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              -3,
+              8,
+              0
+            ],
+            "name": "d636cf60-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d76d5390-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              -2,
+              9,
+              0
+            ],
+            "name": "d76d5390-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "dd1fc2f0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              -4,
+              5,
+              0
+            ],
+            "name": "dd1fc2f0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "de4c5c10-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              -1,
+              10,
+              0
+            ],
+            "name": "de4c5c10-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "e10ab8c0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              -1,
+              11,
+              0
+            ],
+            "name": "e10ab8c0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "c1c16220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "eec4d220-ffaf-11ee-bd0b-5f76d6a187c9",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "Step 4 Layer 10 Phai Phai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "f24d3590-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              3,
+              0,
+              0
+            ],
+            "name": "f24d3590-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "eec4d220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f40ff430-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              4,
+              1,
+              0
+            ],
+            "name": "f40ff430-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "eec4d220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f4c672f0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              6,
+              2,
+              0
+            ],
+            "name": "f4c672f0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "eec4d220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f70391b0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              7,
+              2,
+              0
+            ],
+            "name": "f70391b0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "eec4d220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "f7d95840-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              7,
+              5,
+              0
+            ],
+            "name": "f7d95840-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "eec4d220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "f9ea36e0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              6,
+              8,
+              0
+            ],
+            "name": "f9ea36e0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "eec4d220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "fb1a5270-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              5,
+              9,
+              0
+            ],
+            "name": "fb1a5270-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "eec4d220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "ff26b2f0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              3,
+              10,
+              0
+            ],
+            "name": "ff26b2f0-ffaf-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "eec4d220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "007504e0-ffb0-11ee-bd0b-5f76d6a187c9",
+            "position": [
+              2,
+              11,
+              0
+            ],
+            "name": "007504e0-ffb0-11ee-bd0b-5f76d6a187c9",
+            "boxGroupId": "eec4d220-ffaf-11ee-bd0b-5f76d6a187c9",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      0,
+      6,
+      10
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": null,
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "6fec05d0-ffb0-11ee-8acf-a15c9d540811",
+    "name": "Step 4 Layer 11 Trai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "Step 4 Layer 11 Trai Trai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "81913c10-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "name": "81913c10-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "83803ad0-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              -1,
+              1,
+              0
+            ],
+            "name": "83803ad0-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "870fa320-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              -2,
+              1,
+              0
+            ],
+            "name": "870fa320-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8a07fb90-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              -3,
+              3,
+              0
+            ],
+            "name": "8a07fb90-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8c375eb0-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              -2,
+              6,
+              0
+            ],
+            "name": "8c375eb0-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8d989c60-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              -3,
+              6,
+              0
+            ],
+            "name": "8d989c60-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8ee95f50-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              -1,
+              8,
+              0
+            ],
+            "name": "8ee95f50-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "91f40740-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              0,
+              9,
+              0
+            ],
+            "name": "91f40740-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "99eb3680-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              0,
+              10,
+              0
+            ],
+            "name": "99eb3680-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "9e9a1890-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              2,
+              11,
+              0
+            ],
+            "name": "9e9a1890-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "747b51f0-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": "Step 4 Layer 11 Trai Phai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "b60f0a30-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              3,
+              0,
+              0
+            ],
+            "name": "b60f0a30-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "b7b5b550-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              6,
+              0,
+              0
+            ],
+            "name": "b7b5b550-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "b8858870-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              7,
+              1,
+              0
+            ],
+            "name": "b8858870-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "b95386d0-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              8,
+              2,
+              0
+            ],
+            "name": "b95386d0-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "baa24df0-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              9,
+              3,
+              0
+            ],
+            "name": "baa24df0-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "c182dd10-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              9,
+              6,
+              0
+            ],
+            "name": "c182dd10-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "c2ee7b00-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              8,
+              7,
+              0
+            ],
+            "name": "c2ee7b00-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "c3bd3cb0-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              7,
+              9,
+              0
+            ],
+            "name": "c3bd3cb0-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "df78b1a0-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              6,
+              10,
+              0
+            ],
+            "name": "df78b1a0-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "e5c257f0-ffb0-11ee-8acf-a15c9d540811",
+            "position": [
+              5,
+              11,
+              0
+            ],
+            "name": "e5c257f0-ffb0-11ee-8acf-a15c9d540811",
+            "boxGroupId": "aba81370-ffb0-11ee-8acf-a15c9d540811",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      -4,
+      7,
+      11
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": null,
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "f2e78ee0-ffb1-11ee-af37-d556cdf2292b",
+    "name": " Step 4 Layer 11 Phai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 4 Layer 11 Phai Trai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "4df00060-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "name": "4df00060-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "4f923eb0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              0,
+              1,
+              0
+            ],
+            "name": "4f923eb0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "531bb390-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              -1,
+              1,
+              0
+            ],
+            "name": "531bb390-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "53b9c850-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              -2,
+              2,
+              0
+            ],
+            "name": "53b9c850-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "565051b0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              -3,
+              3,
+              0
+            ],
+            "name": "565051b0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "5788aaa0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              -3,
+              6,
+              0
+            ],
+            "name": "5788aaa0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "5b1071d0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              -2,
+              7,
+              0
+            ],
+            "name": "5b1071d0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "5c942ba0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              -1,
+              9,
+              0
+            ],
+            "name": "5c942ba0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "74b2a3b0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              -1,
+              10,
+              0
+            ],
+            "name": "74b2a3b0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "76a069f0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              0,
+              11,
+              0
+            ],
+            "name": "76a069f0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "780ccb30-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              1,
+              11,
+              0
+            ],
+            "name": "780ccb30-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "f5a35380-ffb1-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 4 Layer 11 Phai Phai",
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "a04d5bf0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              3,
+              0,
+              0
+            ],
+            "name": "a04d5bf0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "a1452970-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              6,
+              0,
+              0
+            ],
+            "name": "a1452970-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "a1f40710-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              6,
+              1,
+              0
+            ],
+            "name": "a1f40710-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "a3977de0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              8,
+              2,
+              0
+            ],
+            "name": "a3977de0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "a45eec90-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              9,
+              3,
+              0
+            ],
+            "name": "a45eec90-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "a5c09f70-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              9,
+              6,
+              0
+            ],
+            "name": "a5c09f70-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "a6dfcb10-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              8,
+              6,
+              0
+            ],
+            "name": "a6dfcb10-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "a79167d0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              7,
+              8,
+              0
+            ],
+            "name": "a79167d0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "f3bd38f0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              6,
+              9,
+              0
+            ],
+            "name": "f3bd38f0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f61a62d0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              4,
+              10,
+              0
+            ],
+            "name": "f61a62d0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f6f384c0-ffb2-11ee-af37-d556cdf2292b",
+            "position": [
+              4,
+              11,
+              0
+            ],
+            "name": "f6f384c0-ffb2-11ee-af37-d556cdf2292b",
+            "boxGroupId": "8e44a8f0-ffb2-11ee-af37-d556cdf2292b",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      4,
+      8,
+      10
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": null,
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "56c69880-ffc5-11ee-ab2e-c98b853ed966",
+    "name": " Step 4 Layer 12 Trai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 4 Layer 12 Trai Trai",
+        "description": "",
+        "show": true,
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "819722f0-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "name": "819722f0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "84971c80-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              -1,
+              1,
+              0
+            ],
+            "name": "84971c80-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              -2,
+              1,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "black",
+            "count": 1,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "925fdbe0-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              -3,
+              2,
+              0
+            ],
+            "name": "925fdbe0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "94cdcea0-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              -3,
+              3,
+              0
+            ],
+            "name": "94cdcea0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "black",
+            "count": 1,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "97e63230-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              -4,
+              3,
+              0
+            ],
+            "name": "97e63230-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "black",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "99dafd50-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              -4,
+              6,
+              0
+            ],
+            "name": "99dafd50-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "black",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "9bf3cb30-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              -3,
+              8,
+              0
+            ],
+            "name": "9bf3cb30-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "a04dd680-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              -2,
+              9,
+              0
+            ],
+            "name": "a04dd680-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "a1f0ff30-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              -1,
+              10,
+              0
+            ],
+            "name": "a1f0ff30-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "black",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "a906cf20-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              -1,
+              11,
+              0
+            ],
+            "name": "a906cf20-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "ab657fa0-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              1,
+              12,
+              0
+            ],
+            "name": "ab657fa0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "5b4c47b0-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 4 Layer 12 Trai Phai",
+        "description": "",
+        "show": true,
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "eaffd8e0-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              3,
+              0,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "ebe270b0-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              3,
+              1,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "eee417f0-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              6,
+              1,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "f22f4b50-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              7,
+              2,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "f31c6a70-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              8,
+              4,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "f4fd1150-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              8,
+              5,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "f7003450-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              8,
+              8,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "f9936250-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              7,
+              9,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "fc95f3f0-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              7,
+              10,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "fdd13310-ffc5-11ee-ab2e-c98b853ed966",
+            "position": [
+              5,
+              11,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "04286df0-ffc6-11ee-ab2e-c98b853ed966",
+            "position": [
+              5,
+              12,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "11ce14f0-ffc6-11ee-ab2e-c98b853ed966",
+            "position": [
+              2,
+              12,
+              0
+            ],
+            "name": "8d9d4ac0-ffc5-11ee-ab2e-c98b853ed966",
+            "boxGroupId": "e59a9f20-ffc5-11ee-ab2e-c98b853ed966",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      -4,
+      9,
+      12
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": null,
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "877826f0-ffc6-11ee-8d6d-633148dd6560",
+    "name": " Step 4 Layer 12 Phai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 4 Layer 12 Phai Trai",
+        "description": "",
+        "show": true,
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "c07e3c50-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "name": "c07e3c50-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "c27af6b0-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              0,
+              1,
+              0
+            ],
+            "name": "c27af6b0-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "c3eb0170-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              -3,
+              1,
+              0
+            ],
+            "name": "c3eb0170-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "c5b11b70-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              -3,
+              2,
+              0
+            ],
+            "name": "c5b11b70-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "c7f9d2f0-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              -4,
+              2,
+              0
+            ],
+            "name": "c7f9d2f0-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d0141a90-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              -5,
+              5,
+              0
+            ],
+            "name": "d0141a90-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "d09d20b0-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              -5,
+              4,
+              0
+            ],
+            "name": "d09d20b0-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "d4229df0-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              -5,
+              8,
+              0
+            ],
+            "name": "d4229df0-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "d64fde30-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              -4,
+              9,
+              0
+            ],
+            "name": "d64fde30-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "e4756390-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              -3,
+              11,
+              0
+            ],
+            "name": "e4756390-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "e5573810-ffc6-11ee-8d6d-633148dd6560",
+            "position": [
+              -2,
+              12,
+              0
+            ],
+            "name": "e5573810-ffc6-11ee-8d6d-633148dd6560",
+            "boxGroupId": "8fcfc5b0-ffc6-11ee-8d6d-633148dd6560",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 4 Layer 12 Phai Phai",
+        "description": "",
+        "show": true,
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "710ad090-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              3,
+              0,
+              0
+            ],
+            "name": "710ad090-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "721c8eb0-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              4,
+              1,
+              0
+            ],
+            "name": "721c8eb0-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "76db7650-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              5,
+              1,
+              0
+            ],
+            "name": "76db7650-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "790952d0-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              6,
+              2,
+              0
+            ],
+            "name": "790952d0-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "79aeba90-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              7,
+              3,
+              0
+            ],
+            "name": "79aeba90-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "black",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "7c9315d0-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              7,
+              6,
+              0
+            ],
+            "name": "7c9315d0-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "black",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8091e1c0-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              6,
+              8,
+              0
+            ],
+            "name": "8091e1c0-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "black",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "833eb240-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              5,
+              9,
+              0
+            ],
+            "name": "833eb240-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "86121d90-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              4,
+              10,
+              0
+            ],
+            "name": "86121d90-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "879a4430-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              2,
+              11,
+              0
+            ],
+            "name": "879a4430-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "a3870250-ffe2-11ee-9d75-774c75176ba4",
+            "position": [
+              1,
+              12,
+              0
+            ],
+            "name": "a3870250-ffe2-11ee-9d75-774c75176ba4",
+            "boxGroupId": "5cd37dc0-ffe2-11ee-9d75-774c75176ba4",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      4,
+      9,
+      12
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": null,
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "873e89d0-0c7e-11ef-9043-9fb192ca108c",
+    "name": " Step 5 Layer 13 Trai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "90008320-0c7e-11ef-9043-9fb192ca108c",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 5 Layer 13 Trai Trai",
+        "description": "",
+        "show": true,
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "ba1118f0-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              0,
+              -3,
+              0
+            ],
+            "name": "ba1118f0-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "cbd10320-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              -1,
+              -2,
+              0
+            ],
+            "name": "cbd10320-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "cf79bfd0-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              -2,
+              -2,
+              0
+            ],
+            "name": "cf79bfd0-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d4568fb0-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              -3,
+              0,
+              0
+            ],
+            "name": "d4568fb0-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d51c9ed0-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              -3,
+              1,
+              0
+            ],
+            "name": "d51c9ed0-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d77b4f50-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              -3,
+              4,
+              0
+            ],
+            "name": "d77b4f50-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d99be560-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              -2,
+              5,
+              0
+            ],
+            "name": "d99be560-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "de55c3f0-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              -2,
+              6,
+              0
+            ],
+            "name": "de55c3f0-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "defb04a0-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              -1,
+              7,
+              0
+            ],
+            "name": "defb04a0-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "e25998f0-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              0,
+              7,
+              0
+            ],
+            "name": "e25998f0-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "e4ddf9e0-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              1,
+              8,
+              0
+            ],
+            "name": "e4ddf9e0-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "ea751910-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              2,
+              9,
+              0
+            ],
+            "name": "ea751910-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f2ad21e0-0c7e-11ef-9043-9fb192ca108c",
+            "position": [
+              2,
+              -3,
+              0
+            ],
+            "name": "f2ad21e0-0c7e-11ef-9043-9fb192ca108c",
+            "boxGroupId": "90008320-0c7e-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 5 Layer 13 Trai Phai",
+        "description": "",
+        "show": true,
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "0c09bf40-0c7f-11ef-9043-9fb192ca108c",
+            "position": [
+              5,
+              -3,
+              0
+            ],
+            "name": "0c09bf40-0c7f-11ef-9043-9fb192ca108c",
+            "boxGroupId": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "0da9dab0-0c7f-11ef-9043-9fb192ca108c",
+            "position": [
+              6,
+              -2,
+              0
+            ],
+            "name": "0da9dab0-0c7f-11ef-9043-9fb192ca108c",
+            "boxGroupId": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "description": "",
+            "type": "boxCube"
+          },
+          {
+            "id": "0f381bd0-0c7f-11ef-9043-9fb192ca108c",
+            "position": [
+              7,
+              -1,
+              0
+            ],
+            "name": "0f381bd0-0c7f-11ef-9043-9fb192ca108c",
+            "boxGroupId": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "17f7cb30-0c7f-11ef-9043-9fb192ca108c",
+            "position": [
+              8,
+              0,
+              0
+            ],
+            "name": "17f7cb30-0c7f-11ef-9043-9fb192ca108c",
+            "boxGroupId": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "19af6640-0c7f-11ef-9043-9fb192ca108c",
+            "position": [
+              9,
+              0,
+              0
+            ],
+            "name": "19af6640-0c7f-11ef-9043-9fb192ca108c",
+            "boxGroupId": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "1b332010-0c7f-11ef-9043-9fb192ca108c",
+            "position": [
+              9,
+              3,
+              0
+            ],
+            "name": "1b332010-0c7f-11ef-9043-9fb192ca108c",
+            "boxGroupId": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "28a0c720-0c7f-11ef-9043-9fb192ca108c",
+            "position": [
+              9,
+              6,
+              0
+            ],
+            "name": "28a0c720-0c7f-11ef-9043-9fb192ca108c",
+            "boxGroupId": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "2b8c2740-0c7f-11ef-9043-9fb192ca108c",
+            "position": [
+              8,
+              6,
+              0
+            ],
+            "name": "2b8c2740-0c7f-11ef-9043-9fb192ca108c",
+            "boxGroupId": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "2e228990-0c7f-11ef-9043-9fb192ca108c",
+            "position": [
+              6,
+              8,
+              0
+            ],
+            "name": "2e228990-0c7f-11ef-9043-9fb192ca108c",
+            "boxGroupId": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "304ce3a0-0c7f-11ef-9043-9fb192ca108c",
+            "position": [
+              5,
+              9,
+              0
+            ],
+            "name": "304ce3a0-0c7f-11ef-9043-9fb192ca108c",
+            "boxGroupId": "04a77d00-0c7f-11ef-9043-9fb192ca108c",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      4,
+      9,
+      13
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": null,
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "af51de20-0c80-11ef-a215-3b9c51ec0a5a",
+    "name": " Step 5 Layer 13 Phai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 5 Layer 13 Phai Trai",
+        "description": "",
+        "show": true,
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "801a2c30-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -3,
+              1,
+              0
+            ],
+            "name": "801a2c30-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "84407d50-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -6,
+              1,
+              0
+            ],
+            "name": "84407d50-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "86acc260-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -6,
+              2,
+              0
+            ],
+            "name": "86acc260-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "8a3af230-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -7,
+              2,
+              0
+            ],
+            "name": "8a3af230-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8c9e0f80-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -8,
+              3,
+              0
+            ],
+            "name": "8c9e0f80-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8e3fb190-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -9,
+              4,
+              0
+            ],
+            "name": "8e3fb190-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "8fc3b980-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -9,
+              7,
+              0
+            ],
+            "name": "8fc3b980-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "91901510-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -9,
+              10,
+              0
+            ],
+            "name": "91901510-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "9ccbc0f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -8,
+              11,
+              0
+            ],
+            "name": "9ccbc0f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "9f33e750-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -8,
+              12,
+              0
+            ],
+            "name": "9f33e750-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "a60f1f40-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -6,
+              13,
+              0
+            ],
+            "name": "a60f1f40-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "a7dfe7a0-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -5,
+              13,
+              0
+            ],
+            "name": "a7dfe7a0-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "c9030420-0c80-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 5 Layer 13 Phai Phai",
+        "description": "",
+        "show": true,
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "cbb11050-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -1,
+              1,
+              0
+            ],
+            "name": "cbb11050-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "ccaf4670-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              0,
+              2,
+              0
+            ],
+            "name": "ccaf4670-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "black",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "ce6274b0-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              2,
+              3,
+              0
+            ],
+            "name": "ce6274b0-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "black",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "cf6c6aa0-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              2,
+              4,
+              0
+            ],
+            "name": "cf6c6aa0-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "d4e1f810-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              3,
+              5,
+              0
+            ],
+            "name": "d4e1f810-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "black",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d5fa45e0-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              3,
+              8,
+              0
+            ],
+            "name": "d5fa45e0-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d79976f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              2,
+              9,
+              0
+            ],
+            "name": "d79976f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "d9baf760-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              1,
+              10,
+              0
+            ],
+            "name": "d9baf760-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "dbe59f90-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              0,
+              11,
+              0
+            ],
+            "name": "dbe59f90-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "dfa1e440-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -1,
+              12,
+              0
+            ],
+            "name": "dfa1e440-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "e27b1bf0-0c84-11ef-a215-3b9c51ec0a5a",
+            "position": [
+              -2,
+              13,
+              0
+            ],
+            "name": "e27b1bf0-0c84-11ef-a215-3b9c51ec0a5a",
+            "boxGroupId": "b47752f0-0c84-11ef-a215-3b9c51ec0a5a",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      4,
+      9,
+      13
+    ],
+    "show": false,
+    "type": "boxLayer",
+    "desc": null,
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  },
+  {
+    "id": "a1799c20-0c85-11ef-a1fb-7366e08b081e",
+    "name": "Step 5 Layer 14 Trai",
+    "info": {},
+    "boxGroup": [
+      {
+        "id": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 5 Layer 14 Trai Trai",
+        "description": "",
+        "show": true,
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "ce898f40-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              1,
+              -4,
+              0
+            ],
+            "name": "ce898f40-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "d3454290-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -2,
+              -4,
+              0
+            ],
+            "name": "d3454290-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "df24cf90-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -3,
+              -3,
+              0
+            ],
+            "name": "df24cf90-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "dfd38620-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -4,
+              -2,
+              0
+            ],
+            "name": "dfd38620-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "e1fccec0-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -4,
+              -1,
+              0
+            ],
+            "name": "e1fccec0-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "e843b5f0-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -4,
+              0,
+              0
+            ],
+            "name": "e843b5f0-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "ea29db10-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -4,
+              2,
+              0
+            ],
+            "name": "ea29db10-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "ed579b60-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -5,
+              0,
+              0
+            ],
+            "name": "ed579b60-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "f07751f0-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -4,
+              3,
+              0
+            ],
+            "name": "f07751f0-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f380e870-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -4,
+              4,
+              0
+            ],
+            "name": "f380e870-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f56ed5c0-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -3,
+              5,
+              0
+            ],
+            "name": "f56ed5c0-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "f85c58c0-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -2,
+              5,
+              0
+            ],
+            "name": "f85c58c0-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 2,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "fb8d4d60-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -1,
+              6,
+              0
+            ],
+            "name": "fb8d4d60-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "fee1f6a0-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              -1,
+              7,
+              0
+            ],
+            "name": "fee1f6a0-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "ffc0e4f0-0c85-11ef-a1fb-7366e08b081e",
+            "position": [
+              0,
+              8,
+              0
+            ],
+            "name": "ffc0e4f0-0c85-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "b2a00570-0c85-11ef-a1fb-7366e08b081e",
+            "color": "black",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      },
+      {
+        "id": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "name": " Step 5 Layer 14 Trai Phai",
+        "description": "",
+        "show": true,
+        "type": "boxGroup",
+        "boxGroup": [
+          {
+            "id": "38ba2910-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              3,
+              -4,
+              0
+            ],
+            "name": "38ba2910-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "3b440840-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              5,
+              -3,
+              0
+            ],
+            "name": "3b440840-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "3cce03a0-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              7,
+              -2,
+              0
+            ],
+            "name": "3cce03a0-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "3e5fa020-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              8,
+              -2,
+              0
+            ],
+            "name": "3e5fa020-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "40599b60-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              8,
+              1,
+              0
+            ],
+            "name": "40599b60-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 1,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "41e0b090-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              9,
+              1,
+              0
+            ],
+            "name": "41e0b090-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "42effdb0-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              8,
+              3,
+              0
+            ],
+            "name": "42effdb0-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 3,
+            "doc": 1,
+            "type": "boxCube"
+          },
+          {
+            "id": "45539030-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              7,
+              6,
+              0
+            ],
+            "name": "45539030-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "47677c10-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              6,
+              7,
+              0
+            ],
+            "name": "47677c10-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 2,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "493ab570-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              6,
+              8,
+              0
+            ],
+            "name": "493ab570-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 1,
+            "doc": 0,
+            "type": "boxCube"
+          },
+          {
+            "id": "4a2e1620-0c86-11ef-a1fb-7366e08b081e",
+            "position": [
+              3,
+              8,
+              0
+            ],
+            "name": "4a2e1620-0c86-11ef-a1fb-7366e08b081e",
+            "boxGroupId": "0c11f870-0c86-11ef-a1fb-7366e08b081e",
+            "color": "grey",
+            "count": 3,
+            "doc": 0,
+            "type": "boxCube"
+          }
+        ]
+      }
+    ],
+    "position": [
+      -4,
+      9,
+      14
+    ],
+    "show": true,
+    "type": "boxLayer",
+    "desc": null,
+    "dateCreated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)",
+    "dateUpdated": "Tue May 07 2024 22:27:21 GMT+0700 (Giờ Đông Dương)"
+  }
+]

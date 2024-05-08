@@ -75,7 +75,7 @@ const CanvasBox = () => {
   const posYGroupIndex = activeObjectGroup?.position[1] || 0;
   const posZGroupIndex = activeObjectGroup?.position[2] || 0;
   const show = (actionMode?.type == 'isMoving' && activeObjectLayer) || (userMode == "boxCube" && !activeObject && activeObjectLayer && activeObjectGroup);
-  const distance = zoom / 4;
+  const distance = zoom;
 
   useFrame(({ mouse, viewport }) => {
     if (!show || !activeObjectLayer || !activeObjectLayer.position) {
