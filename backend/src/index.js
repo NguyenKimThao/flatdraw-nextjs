@@ -73,8 +73,9 @@ const auth = (req, res, next) => {
   return next();
 };
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false, limit: '50mb' }));
+app.use(bodyParser.json({ limit: '50mb' }));
+
 app.use(cookieParser());
 // app.use(cors({ maxAge: 864000 }));
 app.use(express.static('public'));
