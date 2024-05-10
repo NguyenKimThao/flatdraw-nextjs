@@ -50,6 +50,7 @@ type PointerOrTouchEvent = PointerEvent<HTMLElement> | TouchEvent<HTMLElement>;
 const CanvasBox = () => {
   const zoom = useZoom((state) => state.zoom);
   const posY = useZoom((state) => state.posY);
+  const posX = useZoom((state) => state.posX);
 
   const { camera } = useThree();
   const [position, setPostion] = useState([0, 0, 0]);
@@ -88,7 +89,7 @@ const CanvasBox = () => {
 
 
 
-    const newPos = [x - x * sc, y - y * sc - posY, + posZIndex + posZGroupIndex];
+    const newPos = [x - x * sc - posX, y - y * sc - posY, + posZIndex + posZGroupIndex];
     if ((position[0] != newPos[0]) || (position[1] != newPos[1]) || (position[2] != newPos[2])) {
       const pos = [Math.round(newPos[0]), Math.round(newPos[1]), Math.round(newPos[2])]
       setPostion(newPos);
@@ -137,6 +138,7 @@ export default function Canvas() {
 
   const zoom = useZoom((state) => state.zoom);
   const posY = useZoom((state) => state.posY);
+  const posX = useZoom((state) => state.posX);
 
   const initialDrawingPositionRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 
@@ -322,11 +324,11 @@ export default function Canvas() {
       onTouchMove={onPointerMove}
       onTouchEnd={onPointerUp}
     >
-      <CanvasThree ref={canvasCubeRef} onKeyUp={onKeyUp} style={{ width: "100%", height: "100vh", background: "rgb(172,173,165)" }}>
+      <CanvasThree ref={canvasCubeRef} onKeyUp={onKeyUp} scene={{ position: [posX, posY, 0] }} style={{ width: "100%", height: "100vh", background: "rgb(172,173,165)" }}>
         <OrbitControls minDistance={zoom}
           maxDistance={zoom} ref={orbitControlRef}
           enableRotate={userMode == 'select'} />
-        <scene ref={sceneRef} position={[0, posY, 0]} />
+        <scene ref={sceneRef} position={[posX, posY, 0]} />
         <ambientLight intensity={0.5} />
         <spotLight position={[0, 20, 0]} angle={0.3} />
         <CanvasBox></CanvasBox>

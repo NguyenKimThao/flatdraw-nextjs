@@ -38,9 +38,13 @@ export default function OverlayZoom() {
   const incrementZoom = useZoom((state) => state.incrementZoom);
   const decrementZoom = useZoom((state) => state.decrementZoom);
   const posY = useZoom((state) => state.posY);
+  const posX = useZoom((state) => state.posX);
   const incrementPosY = useZoom((state) => state.incrementPosY);
   const decrementPosY = useZoom((state) => state.decrementPosY);
   const setPosY = useZoom((state) => state.setPosY);
+  const setPosX = useZoom((state) => state.setPosX);
+  const incrementPosX = useZoom((state) => state.incrementPosX);
+  const decrementPosX = useZoom((state) => state.decrementPosX);
   const setZoom = useZoom((state) => state.setZoom);
   const { getBoxLayerObject, setBoxLayerObject } = useLocalstogare();
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
@@ -93,6 +97,55 @@ export default function OverlayZoom() {
                 sceneRef.current.parent.position.y = posY + 1;
               }
               incrementPosY(1);
+            }}
+          >
+            <FaPlus />
+          </ActionIcon>
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip position="top" label="Decrement posX" offset={8}>
+          <ActionIcon
+            size="xl"
+            variant="default"
+            onClick={() => {
+              if (sceneRef.current && sceneRef.current.parent) {
+                sceneRef.current.parent.position.x = posX - 1;
+              }
+              decrementPosX(1);
+            }}
+          >
+            <FaMinus />
+          </ActionIcon>
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip position="top" label="Set default posX" offset={8}>
+          <ActionIcon
+            sx={{ width: '70px' }}
+            size="xl"
+            variant="default"
+            onClick={() => {
+              setPosX(0);
+              if (sceneRef.current && sceneRef.current.parent) {
+                sceneRef.current.parent.position.x = 0;
+              }
+            }}
+          >
+            {`X: ${posX}`}
+          </ActionIcon>
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip position="top" label="Increment posX" offset={8}>
+          <ActionIcon
+            size="xl"
+            variant="default"
+            onClick={() => {
+              if (sceneRef.current && sceneRef.current.parent) {
+                sceneRef.current.parent.position.x = posX + 1;
+              }
+              incrementPosX(1);
             }}
           >
             <FaPlus />
