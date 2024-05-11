@@ -12,8 +12,57 @@ import useUserMode from "~/store/useUserMode";
 interface BoxProps {
   id?: string;
   color: string;
-  wireframe: string;
+  wireframe?: string;
   position: number[];
+}
+
+interface MeshBoxProps {
+  boxid?: string;
+  color: string;
+  wireframe?: string;
+  position: number[];
+  scale?: number[];
+}
+
+interface MeshWireFrameProps {
+  boxid?: string;
+  wireframe?: string;
+  position: number[];
+  scale?: number[];
+}
+
+
+function MeshBox({ boxid, color, wireframe, position }: MeshBoxProps) {
+  return (
+    <>
+      {wireframe &&
+        <mesh position={[position[0], position[1], position[2] + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
+          <boxGeometry attach="geometry" />
+          <meshBasicMaterial attach="material" color={wireframe} wireframe />
+        </mesh>
+      }
+      <mesh position={[position[0], position[1], position[2] + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
+        <boxGeometry attach="geometry" />
+        <meshLambertMaterial attach="material" color={color} />
+      </mesh>
+      <mesh position={position} boxid={boxid}>
+        <boxGeometry attach="geometry" />
+        <meshLambertMaterial attach="material" color={color} />
+      </mesh>
+    </>
+  )
+}
+
+function MeshWireFrame({ boxid, wireframe, position, scale }: MeshWireFrameProps) {
+  if (!wireframe) {
+    return <></>;
+  }
+  return (
+    <mesh position={position} scale={scale ? scale : [1, 1, 1]} boxid={boxid}>
+      <boxGeometry attach="geometry" />
+      <meshBasicMaterial attach="material" color={wireframe} wireframe />
+    </mesh>
+  )
 }
 
 function BoxOne({ id, color, wireframe, position }: BoxProps) {
@@ -23,22 +72,8 @@ function BoxOne({ id, color, wireframe, position }: BoxProps) {
 
   return (
     <group>
-      <mesh position={[x, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y, z]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y, z]} boxid={id} >
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
+      <MeshWireFrame position={[x, y, z]} wireframe={wireframe} />
+      <MeshBox position={[x, y, z]} color={color} wireframe={wireframe} boxid={id} />
     </group>
   )
 }
@@ -51,34 +86,9 @@ function BoxTwo({ id, color, wireframe, position }: BoxProps) {
 
   return (
     <group>
-      <mesh position={[x + 0.5, y, z]} scale={[2, 1, 1]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y, z]} boxid={id}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x + 1, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x + 1, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x + 1, y, z]} boxid={id}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
+      <MeshWireFrame position={[x + 1 / 2, y, z]} scale={[2, 1, 1]} wireframe={wireframe} />
+      <MeshBox position={[x, y, z]} color={color} wireframe={wireframe} boxid={id} />
+      <MeshBox position={[x + 1, y, z]} color={color} wireframe={wireframe} boxid={id} />
     </group>
   )
 }
@@ -90,34 +100,9 @@ function BoxTwoDoc({ id, color, wireframe, position }: BoxProps) {
 
   return (
     <group>
-      <mesh position={[x, y + 0.5, z]} scale={[1, 2, 1]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y, z]} boxid={id} >
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y + 1, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y + 1, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y + 1, z]} boxid={id} >
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
+      <MeshWireFrame position={[x, y + 1 / 2, z]} scale={[1, 2, 1]} wireframe={wireframe} />
+      <MeshBox position={[x, y, z]} color={color} wireframe={wireframe} boxid={id} />
+      <MeshBox position={[x, y + 1, z]} color={color} wireframe={wireframe} boxid={id} />
     </group>
   )
 }
@@ -130,46 +115,10 @@ function BoxThree({ id, color, wireframe, position }: BoxProps) {
 
   return (
     <group>
-      <mesh position={[x + 1, y, z]} scale={[3, 1, 1]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y, z]} rotateX={90} boxid={id} >
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x + 1, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x + 1, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x + 1, y, z]} boxid={id} >
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x + 2, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x + 2, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x + 2, y, z]} boxid={id}  >
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
+      <MeshWireFrame position={[x + 1, y, z]} scale={[3, 1, 1]} wireframe={wireframe} />
+      <MeshBox position={[x, y, z]} color={color} wireframe={wireframe} boxid={id} />
+      <MeshBox position={[x + 1, y, z]} color={color} wireframe={wireframe} boxid={id} />
+      <MeshBox position={[x + 2, y, z]} color={color} wireframe={wireframe} boxid={id} />
     </group>
   )
 }
@@ -183,46 +132,10 @@ function BoxThreeDoc({ id, color, wireframe, position }: BoxProps) {
 
   return (
     <group>
-      <mesh position={[x, y + 1, z]} scale={[1, 3, 1]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y, z]} boxid={id} >
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y + 1, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y + 1, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y + 1, z]} boxid={id} >
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y + 2, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshBasicMaterial attach="material" color={wireframe} wireframe />
-      </mesh>
-      <mesh position={[x, y + 2, z + 2 / 3]} scale={[1 / 3, 1 / 3, 1 / 3]}>
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
-      <mesh position={[x, y + 2, z]} boxid={id} >
-        <boxGeometry attach="geometry" />
-        <meshLambertMaterial attach="material" color={color} />
-      </mesh>
+      <MeshWireFrame position={[x, y + 1, z]} scale={[1, 3, 1]} wireframe={wireframe} />
+      <MeshBox position={[x, y, z]} color={color} wireframe={wireframe} boxid={id} />
+      <MeshBox position={[x, y + 1, z]} color={color} wireframe={wireframe} boxid={id} />
+      <MeshBox position={[x, y + 2, z]} color={color} wireframe={wireframe} boxid={id} />
     </group>
   )
 }
@@ -230,7 +143,7 @@ function BoxThreeDoc({ id, color, wireframe, position }: BoxProps) {
 interface BoxCubeBashProps {
   id?: string;
   color: string;
-  wireframe: string;
+  wireframe?: string;
   position: number[];
   count: number;
   doc: number;
@@ -292,7 +205,8 @@ export const BoxDraw = ({ id, position, show, choose, review, count, color, doc,
   }
   const chooseNew = (choose || (userMode == 'boxCube' && id == activeBoxCubeId)) ? true : false;
   const colorBox = availableColors[color];
-  const wireframe = review ? colorBox.review : chooseNew ? colorBox.choose : colorBox.wireframe;
+  // const wireframe = review ? colorBox.review : chooseNew ? colorBox.choose : colorBox.wireframe;
+  const wireframe = '';
 
   return (
     <group>

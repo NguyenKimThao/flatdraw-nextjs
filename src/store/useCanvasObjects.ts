@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { create } from 'zustand';
 
 import type {
@@ -187,7 +188,7 @@ const useCanvasObjects = create<{
       boxLayerObjects: [
         ...state.boxLayerObjects,
         {
-          ...DEFAULT_BOX_LAYER_OBJECT,
+          ..._.cloneDeep(DEFAULT_BOX_LAYER_OBJECT),
           type: 'boxLayer',
           ...boxLayer,
         },
@@ -255,7 +256,7 @@ const useCanvasObjects = create<{
       }
 
       if (!cubeLayer.name) {
-        cubeLayer.name = cubeLayer.id;
+        cubeLayer.name = boxGroup.boxGroup ? boxGroup.boxGroup?.length + "" : cubeLayer.id;
       }
 
       if (!boxGroup.boxGroup) {
