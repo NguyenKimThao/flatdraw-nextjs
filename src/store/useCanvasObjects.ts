@@ -85,6 +85,8 @@ const useCanvasObjects = create<{
   toggleShowCanvasBoxLayer: (id: string) => void;
   deleteCanvasBoxLayer: (id: string) => void;
   deleteCanvasBoxGroup: (id: string, boxLayerId: string) => void;
+  allShowCanvasBoxLayer: () => void;
+  allHiddenCanvasBoxLayer: () => void;
   moveCanvasObject: (params: {
     id: string;
     deltaPosition: { deltaX: number; deltaY: number };
@@ -370,9 +372,28 @@ const useCanvasObjects = create<{
       boxLayer.boxGroup = boxLayer.boxGroup?.filter((boxGroup) => boxGroup.id !== id);
       return {
         ...state,
-        boxLayerObjects: { ...state.boxLayerObjects }
+        boxLayerObjects: [...state.boxLayerObjects]
       };
     }),
+  allShowCanvasBoxLayer: () => set((state) => {
+    state.boxLayerObjects.forEach((layer) => {
+      layer.show = true;
+    })
+
+    return {
+      ...state,
+      boxLayerObjects: [...state.boxLayerObjects]
+    };
+  }),
+  allHiddenCanvasBoxLayer: () => set((state) => {
+    state.boxLayerObjects.forEach((layer) => {
+      layer.show = false;
+    })
+    return {
+      ...state,
+      boxLayerObjects: [...state.boxLayerObjects]
+    };
+  }),
   moveCanvasObject: ({ id, deltaPosition }) =>
     set((state) => ({
       ...state,

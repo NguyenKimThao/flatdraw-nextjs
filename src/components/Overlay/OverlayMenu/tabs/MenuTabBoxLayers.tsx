@@ -61,10 +61,28 @@ export default function MenuTabBoxLayers() {
   const toggleShowCanvasBoxLayer = useCanvasObjects((state) => state.toggleShowCanvasBoxLayer);
   const activeObject = boxLayerObjects.find((object) => object.id === activeBoxLayerId);
   const setActiveBoxLayerId = useActiveBoxLayerId((state) => state.setActiveBoxLayerId);
+  const allHiddenCanvasBoxLayer = useCanvasObjects((state) => state.allHiddenCanvasBoxLayer);
+  const allShowCanvasBoxLayer = useCanvasObjects((state) => state.allShowCanvasBoxLayer);
+
+  const allShow = !boxLayerObjects?.find(e => e.show == false);
 
   return (
     <>
       <H4>Box Layers</H4>
+      <Tooltip label={allShow ? "Show All Box Layer" : "Hidden All Box"}>
+        <ActionIcon
+          onClick={() => {
+            if (allShow) {
+              allHiddenCanvasBoxLayer();
+            } else {
+              allShowCanvasBoxLayer();
+            }
+
+          }}
+        >
+          {allShow ? <BiShow /> : <BiHide />}
+        </ActionIcon>
+      </Tooltip>
       {boxLayerObjects.length === 0 ? (
         <TextP>No objects found.</TextP>
       ) : (
