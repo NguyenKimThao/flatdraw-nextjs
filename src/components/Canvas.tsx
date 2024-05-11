@@ -175,7 +175,6 @@ export default function Canvas() {
 
   const onPointerUp = (event: PointerOrTouchEvent) => {
     event.preventDefault();
-    console.log('opint up', event);
     if (userMode != "boxCube") {
       return;
     }
@@ -185,7 +184,6 @@ export default function Canvas() {
     }
 
     if (actionMode?.type == 'isMoving') {
-      console.log('actionMode:', actionMode)
       if (!actionMode?.boxGroupId || !actionMode?.boxCubeObject) {
         setActionMode(null);
         return;
@@ -277,6 +275,9 @@ export default function Canvas() {
   }
   const handleBoxPointerDown = (e: any) => {
     if (!e || !e.object || !e.object.boxid || !activeObjectLayer) {
+      return;
+    }
+    if (userMode != 'boxCube') {
       return;
     }
 
