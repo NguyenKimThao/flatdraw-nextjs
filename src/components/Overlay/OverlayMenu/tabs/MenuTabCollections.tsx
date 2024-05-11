@@ -131,22 +131,22 @@ export default function MenuTabCollections({ closeModal }: Props) {
                   <div style={{ display: 'flex' }}></div>
                 )}
                 <div style={{ display: "flex" }}>
-                  {(!activeObject || activeObject.id != object.id) && (
-                    <Tooltip label="Open Collection">
-                      <ActionIcon
-                        loading={loading}
-                        onClick={() => {
-                          setLoading(true);
-                          setCollectionId(object.id);
-                          loadingBoxLayerObject(object.id);
-                          closeModal();
-                          setLoading(false);
-                        }}
-                      >
-                        <BiArchiveIn />
-                      </ActionIcon>
-                    </Tooltip>
-                  )}
+                  {/* {(!activeObject || activeObject.id != object.id) && ( */}
+                  <Tooltip label="Open Collection">
+                    <ActionIcon
+                      loading={loading}
+                      onClick={() => {
+                        setLoading(true);
+                        setCollectionId(object.id);
+                        loadingBoxLayerObject(object.id);
+                        closeModal();
+                        setLoading(false);
+                      }}
+                    >
+                      <BiArchiveIn />
+                    </ActionIcon>
+                  </Tooltip>
+                  {/* )} */}
                 </div>
               </LayerLi>
             </Tooltip>

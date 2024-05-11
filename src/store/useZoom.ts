@@ -7,6 +7,7 @@ const MAX_ZOOM = 300;
 
 const DEFAULT_POSY = 0;
 const DEFAULT_POSX = 0;
+const DEFAULT_POSZ = 0;
 
 const MIN_POSY = -200;
 const MAX_POSY = 200;
@@ -14,10 +15,14 @@ const MAX_POSY = 200;
 const MIN_POSX = -200;
 const MAX_POSX = 200;
 
+const MIN_POSZ = -200;
+const MAX_POSZ = 200;
+
 const useZoom = create<{
   zoom: number;
   posX: number;
   posY: number;
+  posZ: number;
   resetZoom: () => void;
   setZoom: (zoom: number) => void;
   decrementZoom: (zoom: number) => void;
@@ -28,10 +33,14 @@ const useZoom = create<{
   setPosX: (zoom: number) => void;
   incrementPosX: (zoom: number) => void;
   decrementPosX: (zoom: number) => void;
+  setPosZ: (zoom: number) => void;
+  incrementPosZ: (zoom: number) => void;
+  decrementPosZ: (zoom: number) => void;
 }>((set) => ({
   zoom: DEFAULT_ZOOM,
   posY: DEFAULT_POSY,
   posX: DEFAULT_POSX,
+  posZ: DEFAULT_POSZ,
   resetZoom: () => set(() => ({ zoom: DEFAULT_ZOOM })),
   setZoom: (zoom: number) => set((state) => ({ ...state, zoom })),
   decrementZoom: (zoom: number) =>
@@ -83,6 +92,23 @@ const useZoom = create<{
         return { ...state, posX: MAX_POSX };
       }
       return { ...state, posX: newZoom };
+    }),
+  setPosZ: (posZ: number) => set((state) => ({ ...state, posZ })),
+  decrementPosZ: (posZ: number) =>
+    set((state) => {
+      const newZoom = state.posZ - posZ;
+      if (newZoom < MIN_POSZ) {
+        return { ...state, posZ: MIN_POSZ };
+      }
+      return { ...state, posZ: newZoom };
+    }),
+  incrementPosZ: (posZ: number) =>
+    set((state) => {
+      const newZoom = state.posZ + posZ
+      if (newZoom > MAX_POSZ) {
+        return { ...state, posZ: MAX_POSZ };
+      }
+      return { ...state, posZ: newZoom };
     }),
 }));
 

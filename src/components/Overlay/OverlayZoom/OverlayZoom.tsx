@@ -19,7 +19,7 @@ const Ul = styled('ul')`
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(8, minmax(0, auto));
+  grid-template-columns: repeat(9, 45px);
   align-items: center;
   grid-gap: ${theme.variables.overlayItemsGutter};
 
@@ -39,12 +39,16 @@ export default function OverlayZoom() {
   const decrementZoom = useZoom((state) => state.decrementZoom);
   const posY = useZoom((state) => state.posY);
   const posX = useZoom((state) => state.posX);
+  const posZ = useZoom((state) => state.posZ);
   const incrementPosY = useZoom((state) => state.incrementPosY);
   const decrementPosY = useZoom((state) => state.decrementPosY);
   const setPosY = useZoom((state) => state.setPosY);
   const setPosX = useZoom((state) => state.setPosX);
   const incrementPosX = useZoom((state) => state.incrementPosX);
   const decrementPosX = useZoom((state) => state.decrementPosX);
+  const setPosZ = useZoom((state) => state.setPosZ);
+  const incrementPosZ = useZoom((state) => state.incrementPosZ);
+  const decrementPosZ = useZoom((state) => state.decrementPosZ);
   const setZoom = useZoom((state) => state.setZoom);
   const { getBoxLayerObject, setBoxLayerObject } = useLocalstogare();
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
@@ -146,6 +150,55 @@ export default function OverlayZoom() {
                 sceneRef.current.parent.position.x = posX + 1;
               }
               incrementPosX(1);
+            }}
+          >
+            <FaPlus />
+          </ActionIcon>
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip position="top" label="Decrement posZ" offset={8}>
+          <ActionIcon
+            size="xl"
+            variant="default"
+            onClick={() => {
+              if (sceneRef.current && sceneRef.current.parent) {
+                sceneRef.current.parent.position.z = posZ - 1;
+              }
+              decrementPosZ(1);
+            }}
+          >
+            <FaMinus />
+          </ActionIcon>
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip position="top" label="Set default posZ" offset={8}>
+          <ActionIcon
+            sx={{ width: '70px' }}
+            size="xl"
+            variant="default"
+            onClick={() => {
+              setPosZ(0);
+              if (sceneRef.current && sceneRef.current.parent) {
+                sceneRef.current.parent.position.z = 0;
+              }
+            }}
+          >
+            {`Z: ${posZ}`}
+          </ActionIcon>
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip position="top" label="Increment posZ" offset={8}>
+          <ActionIcon
+            size="xl"
+            variant="default"
+            onClick={() => {
+              if (sceneRef.current && sceneRef.current.parent) {
+                sceneRef.current.parent.position.z = posZ + 1;
+              }
+              incrementPosZ(1);
             }}
           >
             <FaPlus />

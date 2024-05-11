@@ -205,8 +205,7 @@ export const BoxDraw = ({ id, position, show, choose, review, count, color, doc,
   }
   const chooseNew = (choose || (userMode == 'boxCube' && id == activeBoxCubeId)) ? true : false;
   const colorBox = availableColors[color];
-  // const wireframe = review ? colorBox.review : chooseNew ? colorBox.choose : colorBox.wireframe;
-  const wireframe = '';
+  const wireframe = review ? colorBox.review : chooseNew ? colorBox.choose : colorBox.wireframe;
 
   return (
     <group>

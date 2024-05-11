@@ -324,13 +324,13 @@ export default function Canvas() {
       onTouchMove={onPointerMove}
       onTouchEnd={onPointerUp}
     >
-      <CanvasThree ref={canvasCubeRef} onKeyUp={onKeyUp} scene={{ position: [posX, posY, 0] }} style={{ width: "100%", height: "100vh", background: "rgb(172,173,165)" }}>
+      <CanvasThree ref={canvasCubeRef} onKeyUp={onKeyUp} scene={{ position: [posX, posY, 0] }} style={{ width: "100%", height: "100vh", background: "rgb(239,76,210)" }}>
         <OrbitControls minDistance={zoom}
           maxDistance={zoom} ref={orbitControlRef}
           enableRotate={userMode == 'select'} />
         <scene ref={sceneRef} position={[posX, posY, 0]} />
-        <ambientLight intensity={0.5} />
-        <spotLight position={[0, 20, 0]} angle={0.3} />
+        <ambientLight intensity={1.0} />
+        {/* <spotLight position={[0, 20, 0]} angle={0.3} /> */}
         <CanvasBox></CanvasBox>
         <group
           onPointerDown={handleBoxPointerDown}

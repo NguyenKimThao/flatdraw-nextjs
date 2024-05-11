@@ -4,35 +4,35 @@ const colors: MapColorBoxType =
 {
   "hotpink": {
     "color": "hotpink",
-    "wireframe": "yellow",
+    "wireframe": "rgb(236,244,98)",
     "choose": "red",
     "review": "rgb(51, 51, 204)",
     "label": "HotPink"
   },
   "black": {
-    "color": "black",
-    "wireframe": "yellow",
+    "color": "rgb(115, 39, 30)",
+    "wireframe": "rgb(236,244,98)",
     "choose": "red",
     "review": "rgb(51, 51, 204)",
     "label": "BLack"
   },
   "grey": {
-    "color": "rgb(180, 150, 102)",
-    "wireframe": "yellow",
+    "color": "rgb(119,115,104)",
+    "wireframe": "rgb(236,244,98)",
     "choose": "red",
     "review": "rgb(51, 51, 204)",
     "label": "Grey"
   },
   "dark": {
-    "color": "rgb(180, 150, 102)",
-    "wireframe": "yellow",
+    "color": "rgb(115, 39, 30)",
+    "wireframe": "rgb(236,244,98)",
     "choose": "red",
     "review": "rgb(51, 51, 204)",
     "label": "Dark"
   },
   "white": {
     "color": "rgb(255,255,255)",
-    "wireframe": "yellow",
+    "wireframe": "rgb(236,244,98)",
     "choose": "red",
     "review": "rgb(51, 51, 204)",
     "label": "White"
