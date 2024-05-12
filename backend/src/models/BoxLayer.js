@@ -54,7 +54,7 @@ class BoxLayer {
   }
   static deleteBoxLayer(collectionId, userId, versionId) {
     return new Promise((resolve, reject) => {
-      const params = [collectionId, userId, versionId - 10];
+      const params = [collectionId, userId, versionId - 50];
       const sql = 'DELETE FROM BoxLayers WHERE CollectionId = ? and UserId = ? and VersionId <= ?';
       db.run(sql, params, function (err, innerResult) {
         if (err) {

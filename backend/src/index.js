@@ -17,64 +17,8 @@ const Collections = require('./models/Collections');
 const ServerConfigs = require('./models/ServerConfigs');
 const UserConfig = require('./models/UserConfig');
 
-function convertJsonString(val) {
-  try {
-    if (val == null) {
-      return '{}';
-    }
-    return JSON.stringify(val);
-  } catch (ex) {
-    return '{}';
-  }
-}
-
-function converJson(val) {
-  try {
-    if (val == null) {
-      return {};
-    }
-    return JSON.parse(val);
-  } catch (ex) {
-    return {};
-  }
-}
-
-function convertIntToBool(val) {
-  try {
-    if (val == null) {
-      return false;
-    }
-    return Boolean(val);
-  } catch (ex) {
-    return false;
-  }
-}
-
-function convertBoolToInt(val) {
-  try {
-    return val ? 1 : 0;
-  } catch (ex) {
-    return 0;
-  }
-}
-
-const auth = (req, res, next) => {
-  const token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies['x-access-token'];
-
-  if (!token) {
-    return res.send_error(-401, 'A token is required for authentication');
-  }
-  try {
-    const decoded = jwt.verify(token, TOKEN_KEY);
-    req.user = decoded;
-  } catch (err) {
-    return res.send_error(-401, 'Invalid token');
-  }
-  return next();
-};
-
-app.use(bodyParser.urlencoded({ extended: false, limit: '50mb' }));
-app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ extended: false, limit: '500mb' }));
+app.use(bodyParser.json({ limit: '500mb' }));
 
 app.use(cookieParser());
 // app.use(cors({ maxAge: 864000 }));
@@ -90,6 +34,21 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   next();
 });
+
+const auth = (req, res, next) => {
+  const token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies['x-access-token'];
+
+  if (!token) {
+    return res.send_error(-401, 'A token is required for authentication');
+  }
+  try {
+    const decoded = jwt.verify(token, TOKEN_KEY);
+    req.user = decoded;
+  } catch (err) {
+    return res.send_error(-401, 'Invalid token');
+  }
+  return next();
+};
 
 app.use(function (req, res, next) {
   res.fullUrl = req.method + ' ' + req.protocol + '://' + req.get('host') + req.originalUrl;
@@ -154,7 +113,7 @@ app.post('/api/login', async (req, res) => {
       // * CREATE JWT TOKEN
       const user = { userId: users[0].Id, name: users[0].Name, username: users[0].Username, email: users[0].Email };
       const token = jwt.sign(user, TOKEN_KEY, {
-        expiresIn: '2d', // 60s = 60 seconds - (60m = 60 minutes, 2h = 2 hours, 2d = 2 days)
+        expiresIn: '30d', // 60s = 60 seconds - (60m = 60 minutes, 2h = 2 hours, 2d = 2 days)
       });
 
       user.token = token;
@@ -370,47 +329,6 @@ app.post('/api/delete_collection', auth, async (req, res) => {
 });
 
 //////////////////////
-function convert_layer(row) {
-  try {
-    return {
-      id: row.Id,
-      name: row.Name,
-      info: converJson(row.Info),
-      boxGroup: converJson(row.BoxGroup),
-      position: converJson(row.Position),
-      show: convertIntToBool(row.Show),
-      type: row.Type,
-      desc: row.Desc,
-      dateCreated: row.DateCreated,
-      dateUpdated: row.DateUpdated,
-    };
-  } catch (ex) {
-    return null;
-  }
-}
-async function send_layer(req, res, id, versionId, collectionId) {
-  try {
-    const sql = 'SELECT * FROM Layers WHERE Id = ? and collectionId = ? and VerisonId = ? and UserId = ?';
-    const params = [id, collectionId, versionId, req.user.userId];
-    db.all(sql, params, (err, result) => {
-      if (err) {
-        return res.send_exec(-102, err);
-      }
-      console.log('result', result);
-      if (result.length != 1) {
-        return res.send_error(-103, 'Has error in sql');
-      }
-      const collection = convert_layer(result[0]);
-      if (!collection) {
-        return res.send_error(-103, 'Has error in convert data');
-      }
-      res.send_success(collection);
-    });
-  } catch (err) {
-    res.send_exec(-100, err);
-  }
-}
-
 app.get('/api/get_layers', auth, async (req, res) => {
   try {
     const collectionId = req.query.collectionId;
@@ -479,10 +397,10 @@ app.post('/api/update_version_layer', auth, async (req, res) => {
       const params = [
         id,
         name,
-        convertJsonString(info),
-        convertJsonString(boxGroup),
-        convertJsonString(position),
-        convertBoolToInt(show),
+        utils.convertJsonString(info),
+        utils.convertJsonString(boxGroup),
+        utils.convertJsonString(position),
+        utils.convertBoolToInt(show),
         type,
         desc,
         collectionId,
