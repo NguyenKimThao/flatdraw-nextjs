@@ -330,8 +330,8 @@ export default function Canvas() {
           maxDistance={zoom} ref={orbitControlRef}
           enableRotate={userMode == 'select'} />
         <scene ref={sceneRef} position={[posX, posY, 0]} />
-        <ambientLight intensity={1.0} />
-        {/* <spotLight position={[0, 20, 0]} angle={0.3} /> */}
+        <ambientLight intensity={2} />
+        <spotLight position={[0, 2, 0]} angle={1} />
         <CanvasBox></CanvasBox>
         <group
           onPointerDown={handleBoxPointerDown}

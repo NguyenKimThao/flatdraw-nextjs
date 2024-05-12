@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { TRANSPARENT_BACKGROUND_IMAGE } from '~/config/constants';
 import { CANVAS_PREVIEW_UNIQUE_ID } from '~/config/globalElementIds';
+import useCanvasCubeContext from '~/context/useCanvasContext/useCanvasCubeContext';
 import canvasDrawEverything from '~/context/useCanvasContext/utils/canvasDrawEverything';
 import canvasInit from '~/context/useCanvasContext/utils/canvasInit';
 import useColorSchemeContext from '~/context/useColorSchemeContext';
@@ -24,6 +25,7 @@ export default function CanvasPreview() {
   const [canvasImageSrc, setCanvasImageSrc] = useState<string | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const contextRef = useRef<CanvasRenderingContext2D | null>(null);
+  const { canvasCubeRef, sceneRef } = useCanvasCubeContext();
 
   const { colorScheme } = useColorSchemeContext();
 
@@ -42,34 +44,14 @@ export default function CanvasPreview() {
   const canvasBackgroundColor = useCanvasBackgroundColor((state) => state.canvasBackgroundColor);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const canvas = canvasCubeRef.current;
     if (!canvas) return;
-    const context = canvas.getContext('2d', { willReadFrequently: true });
-    if (!context) return;
-    contextRef.current = context;
-
-    canvasInit({
-      canvas,
-      context,
-      canvasWidth: canvasWorkingSize.width,
-      canvasHeight: canvasWorkingSize.height,
-    });
-
-    canvasDrawEverything({
-      canvas,
-      context,
-      canvasWorkingSize,
-      canvasBackgroundColor,
-      canvasObjects,
-      activeObjectId,
-      actionMode,
-      zoom: 100,
-      scrollPosition,
-      windowSize,
-    });
-
-    setCanvasImageSrc(canvas.toDataURL());
+    const context = canvas.getContext('2d');
+    const url = canvas.toDataURL()
+    if (!url) return;
+    setCanvasImageSrc(url);
   }, [
+    canvasCubeRef,
     actionMode,
     activeObjectId,
     canvasObjects,
