@@ -258,7 +258,7 @@ const useCanvasObjects = create<{
       }
 
       if (!cubeLayer.name) {
-        cubeLayer.name = boxGroup.boxGroup ? boxGroup.boxGroup?.length + "" : cubeLayer.id;
+        cubeLayer.name = boxGroup.boxGroup ? (boxGroup.boxGroup?.length + 1) + "" : cubeLayer.id;
       }
 
       if (!boxGroup.boxGroup) {
