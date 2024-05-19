@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { ActionIcon, Tooltip } from '@mantine/core';
 import React, { type ReactNode } from 'react';
 import { AiOutlineBgColors } from 'react-icons/ai';
-import { BsCCircle, BsImageFill } from 'react-icons/bs';
-import { FaMousePointer } from 'react-icons/fa';
+import { BsCCircle, BsImageFill, BsLayers } from 'react-icons/bs';
+import { FaDashcube, FaMousePointer, FaPaintBrush, FaRegObjectGroup } from 'react-icons/fa';
 // import { BsSquare, BsCircle, BsImageFill } from 'react-icons/bs';
 // import { HiPencil } from 'react-icons/hi';
 // import { RiImageLine } from 'react-icons/ri';
@@ -96,17 +96,17 @@ const userModeButtonsSecondary: UserModeButton[] = [
   {
     mode: 'boxLayer',
     label: 'BoxLayer',
-    icon: <BsImageFill />,
+    icon: <BsLayers />,
   },
   {
     mode: 'boxGroup',
     label: 'BoxGroup',
-    icon: <BsImageFill />,
+    icon: <FaRegObjectGroup />,
   },
   {
     mode: 'boxCube',
     label: 'BoxCube',
-    icon: <BsImageFill />,
+    icon: <FaDashcube />,
   },
   {
     mode: 'colors',
