@@ -37,6 +37,13 @@ const colors: MapColorBoxType =
     "review": "rgb(51, 51, 204)",
     "label": "Yellow"
   },
+  "orange": {
+    "color": "orange",
+    "wireframe": "rgb(0,0,0)",
+    "choose": "red",
+    "review": "rgb(51, 51, 204)",
+    "label": "Orange"
+  },
   "green": {
     "color": "green",
     "wireframe": "rgb(0,0,0)",
