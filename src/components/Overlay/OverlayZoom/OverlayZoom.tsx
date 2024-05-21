@@ -13,6 +13,7 @@ import useActionMode from '~/store/useActionMode';
 import useCanvasObjects from '~/store/useCanvasObjects';
 import useZoom from '~/store/useZoom';
 import theme from '~/theme';
+import notification from '~/utils/notification';
 
 const Ul = styled('ul')`
   pointer-events: auto;
@@ -52,6 +53,8 @@ export default function OverlayZoom() {
   const decrementPosZ = useZoom((state) => state.decrementPosZ);
   const setZoom = useZoom((state) => state.setZoom);
   const { getBoxLayerObject, setBoxLayerObject } = useLocalstogare();
+  const isSave = useCanvasObjects((state) => state.isSave);
+  const setSave = useCanvasObjects((state) => state.setSave);
   const boxLayerObjects = useCanvasObjects((state) => state.boxLayerObjects);
   const setBoxLayerObjects = useCanvasObjects((state) => state.setBoxLayerObjects);
   const collectionId = useCollectionApi((state) => state.collectionId);
@@ -213,10 +216,26 @@ export default function OverlayZoom() {
           <ActionIcon
             size="xl"
             variant="default"
+            disabled={isSave}
             onClick={() => {
               if (collectionId && boxLayerObjects.length != 0) {
-                ApiService.updatVersionLayers(collectionId, boxLayerObjects);
                 setBoxLayerObject(collectionId, JSON.stringify(boxLayerObjects))
+                setSave(true);
+                ApiService.updatVersionLayers(collectionId, boxLayerObjects).then((res) => {
+                  if (!res || res.error != 0) {
+                    notification.error({
+                      message: res?.message,
+                    });
+                    return;
+                  }
+                }).catch((error => {
+                  console.log("error:", error);
+                  notification.error({
+                    message: (error as Error)?.message,
+                  });
+                })).finally(() => {
+                  setSave(false);
+                });
               }
             }}
           >

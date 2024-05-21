@@ -64,6 +64,8 @@ const DEFAULT_BOX_LAYER_OBJECT: Omit<BoxLayerObject, 'id' | 'type'> = {
 const useCanvasObjects = create<{
   canvasObjects: CanvasObject[];
   boxLayerObjects: BoxLayerObject[];
+  isSave: boolean;
+  setSave: (isSave: boolean) => void;
   loadingBoxLayerObject: (collectionId: number) => void;
   appendRectangleObject: (rectangle: Omit<RectangleObject, 'type'>) => void;
   appendEllipseObject: (ellipse: Omit<EllipseObject, 'type'>) => void;
@@ -107,6 +109,11 @@ const useCanvasObjects = create<{
 }>((set) => ({
   canvasObjects: [],
   boxLayerObjects: [],
+  isSave: false,
+  setSave: (isSave: boolean) => set((state) => ({
+    ...state,
+    isSave
+  })),
   appendRectangleObject: (rectangle) =>
     set((state) => ({
       ...state,
