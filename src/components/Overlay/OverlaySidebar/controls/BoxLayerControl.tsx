@@ -83,9 +83,13 @@ export default function BoxLayerControl() {
         value={activeObject?.id}
         onChange={(event) => {
           if (event.target.value == '') {
+            setActiveBoxCubeId(null);
+            setActiveBoxGroupId(null);
             setActiveBoxLayerId(null)
             setDefaultParams({ positionBoxLayer: [0, 0, 0], nameBoxLayer: '', descriptionBoxLayer: '', showBoxLayer: 'true' });
           } else {
+            setActiveBoxCubeId(null);
+            setActiveBoxGroupId(null);
             setActiveBoxLayerId(event.target.value);
           }
         }}

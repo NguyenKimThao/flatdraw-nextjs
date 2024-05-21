@@ -75,7 +75,7 @@ const CanvasBox = () => {
   const posXGroupIndex = activeObjectGroup?.position[0] || 0;
   const posYGroupIndex = activeObjectGroup?.position[1] || 0;
   const posZGroupIndex = activeObjectGroup?.position[2] || 0;
-  const show = (actionMode?.type == 'isMoving' && activeObjectLayer) || (userMode == "boxCube" && !activeObject && activeObjectLayer && activeObjectGroup);
+  const show = (actionMode?.type == 'isMoving' && activeObjectLayer) || (actionMode?.type == "isPanning" && userMode == "boxCube" && !activeObject && activeObjectLayer && activeObjectGroup);
   const distance = zoom;
 
   useFrame(({ mouse, viewport }) => {
@@ -185,7 +185,9 @@ export default function Canvas() {
 
     if (actionMode?.type == 'isMoving') {
       if (!actionMode?.boxGroupId || !actionMode?.boxCubeObject) {
-        setActionMode(null);
+        setActionMode({
+          type: "isPanning"
+        });
         return;
       }
       updateBoxCubeObject(activeObjectLayer.id, actionMode?.boxGroupId, {
@@ -193,23 +195,27 @@ export default function Canvas() {
         position: defaultParams.positionBoxCube
       });
 
-      setActionMode(null);
+      setActionMode({
+        type: "isPanning"
+      });
       return;
     }
 
-    if (activeObjectGroup && !activeObjectCube) {
-      const createdBoxCubeId = generateUniqueId();
-      appendBoxCubeObject(activeObjectLayer.id, activeObjectGroup.id, {
-        id: createdBoxCubeId,
-        position: defaultParams.positionBoxCube,
-        name: defaultParams.nameBoxCube,
-        boxGroupId: activeObjectGroup.id,
-        color: defaultParams.colorBoxCube,
-        count: parseInt(defaultParams.countBoxCube) || 0,
-        doc: parseInt(defaultParams.docBoxCube) || 0,
-        type: 'boxCube',
-      });
-      return;
+    if (actionMode?.type == 'isPanning') {
+      if (activeObjectGroup && !activeObjectCube) {
+        const createdBoxCubeId = generateUniqueId();
+        appendBoxCubeObject(activeObjectLayer.id, activeObjectGroup.id, {
+          id: createdBoxCubeId,
+          position: defaultParams.positionBoxCube,
+          name: defaultParams.nameBoxCube,
+          boxGroupId: activeObjectGroup.id,
+          color: defaultParams.colorBoxCube,
+          count: parseInt(defaultParams.countBoxCube) || 0,
+          doc: parseInt(defaultParams.docBoxCube) || 0,
+          type: 'boxCube',
+        });
+        return;
+      }
     }
 
   };
@@ -269,15 +275,8 @@ export default function Canvas() {
     }
   }, [userMode, orbitControlRef]);
 
-  const handleBoxPointerUp = (e: any) => {
-    setActionMode(null);
-    // console.log('handleBoxPointerUp', e);
-  }
   const handleBoxPointerDown = (e: any) => {
     if (!e || !e.object || !e.object.boxid || !activeObjectLayer) {
-      return;
-    }
-    if (userMode != 'boxCube') {
       return;
     }
 
@@ -290,11 +289,16 @@ export default function Canvas() {
       if (cubeSelect == null) {
         return;
       }
+      isSet = true;
+
       if (boxGroup.id != activeBoxGroupId) {
         setActiveBoxGroupId(boxGroup.id);
       }
       setActiveBoxCubeId(cubeSelect.id);
       setUserMode('boxCube');
+      if (actionMode?.type != 'isPanning') {
+        return;
+      }
       setActionMode({ type: 'isMoving', boxGroupId: boxGroup.id, boxCubeObject: cubeSelect });
       setDefaultParams({
         ...defaultParams,
@@ -303,7 +307,6 @@ export default function Canvas() {
         countBoxCube: cubeSelect.count + "",
         docBoxCube: cubeSelect.doc + "",
       })
-      isSet = true;
 
     });
 

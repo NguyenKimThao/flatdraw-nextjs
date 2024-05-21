@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { ActionIcon, Tooltip } from '@mantine/core';
 import React from 'react';
-import { FaPlus, FaMinus } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaRegHandshake, FaHands, FaEdit, FaShower } from 'react-icons/fa';
 import { IoLocateSharp, IoSaveSharp, IoAddSharp } from 'react-icons/io5';
 
 import useCanvasContext from '~/context/useCanvasContext';
@@ -9,6 +9,7 @@ import useCanvasCubeContext from '~/context/useCanvasContext/useCanvasCubeContex
 import useCollectionApi from '~/hooks/useCollectionApi';
 import useLocalstogare from '~/hooks/useLocalstogare';
 import ApiService from '~/service';
+import useActionMode from '~/store/useActionMode';
 import useCanvasObjects from '~/store/useCanvasObjects';
 import useZoom from '~/store/useZoom';
 import theme from '~/theme';
@@ -55,6 +56,8 @@ export default function OverlayZoom() {
   const setBoxLayerObjects = useCanvasObjects((state) => state.setBoxLayerObjects);
   const collectionId = useCollectionApi((state) => state.collectionId);
   const { canvasCubeRef, sceneRef, orbitControlRef } = useCanvasCubeContext();
+  const actionMode = useActionMode((state) => state.actionMode);
+  const setActionMode = useActionMode((state) => state.setActionMode);
 
   return (
     <Ul>
@@ -295,6 +298,27 @@ export default function OverlayZoom() {
             }}
           >
             <FaPlus />
+          </ActionIcon>
+        </Tooltip>
+      </li>
+      <li>
+        <Tooltip position="top" label="Action Mode" offset={8}>
+          <ActionIcon
+            size="xl"
+            variant="default"
+            onClick={() => {
+              // incrementZoom(5);
+              if (actionMode?.type == 'isPanning') {
+                setActionMode(null);
+              } else {
+                setActionMode({
+                  type: 'isPanning'
+                });
+              }
+
+            }}
+          >
+            {actionMode?.type == 'isPanning' ? <FaShower /> : <FaEdit />}
           </ActionIcon>
         </Tooltip>
       </li>
