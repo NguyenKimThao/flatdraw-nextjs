@@ -4,6 +4,7 @@ import Overlay from '~/components/Overlay';
 import useCollectionApi from '~/hooks/useCollectionApi';
 import useColorApi from '~/hooks/useColorApi';
 import useUserStore, { StatusAuthen } from '~/hooks/useUserStore';
+import useCanvasObjects from '~/store/useCanvasObjects';
 
 import CanvasLayout from './CanvasLayout';
 
@@ -12,6 +13,7 @@ export default function PageLayout() {
   const loading = useCollectionApi((state) => state.loading);
   const fetchCollection = useCollectionApi((state) => state.fetchCollection);
   const colorLoading = useColorApi((state) => state.loading);
+  const loadingBoxLayerObject = useCanvasObjects((state) => state.loadingBoxLayerObject);
 
 
 
@@ -23,10 +25,10 @@ export default function PageLayout() {
       collectionId = parseInt(cid + '');
     } catch (error) { /* empty */ }
 
+    loading();
     if (!collectionId) {
-      loading();
     } else {
-      fetchCollection(collectionId);
+      loadingBoxLayerObject(collectionId);
     }
     colorLoading();
 

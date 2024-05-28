@@ -71,7 +71,7 @@ export default function MenuTabBoxGroups() {
         <TextP>No objects found.</TextP>
       ) : (
         <LayersUl>
-          {[...activeObjectLayer.boxGroup].reverse().map((object) => (
+          {activeObjectLayer.boxGroup?.reverse().map((object) => (
             <Tooltip
               key={object.id}
               position="bottom-start"

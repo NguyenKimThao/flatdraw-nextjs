@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-const DEFAULT_ZOOM = 40;
+const DEFAULT_ZOOM = 80;
 
 const MIN_ZOOM = 5;
 const MAX_ZOOM = 300;
