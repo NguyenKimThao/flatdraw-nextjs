@@ -1,19 +1,15 @@
-FROM node:10-alpine
-
-RUN apk add --no-cache ffmpeg
+FROM node:20-alpine
 
 WORKDIR /home/node/app
 
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
-COPY package*.json ./
+COPY package.json package.json
 
 USER node
 
-RUN npm install
-
-EXPOSE 8010
+RUN npm install --force
 
 COPY --chown=node:node . .
 
-ENTRYPOINT [ "npm", "start" ]
+ENTRYPOINT ["npm", "start"]

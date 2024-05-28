@@ -1,0 +1,70 @@
+#!/bin/bash
+TAG_APP="1.0.0"
+NAME_APP="thaonk-draw-3d"
+
+printUsage() {
+        echo " start: launch the program"
+        echo " build: launch the program with build"
+        echo " remove: remove docker container"
+        echo " stop: kill the program"
+        echo " restart: kill the program first, then launch again the program"
+        echo " status: show the program is running or stopped"
+}
+
+build_image() {
+        docker build . -t $NAME_APP:$TAG_APP
+}
+
+startApp() {
+    docker rm $NAME_APP
+    docker run --name $NAME_APP -p 8011:3000  -d $NAME_APP:$TAG_APP
+	echo "Start app $NAME_APP" 
+}
+
+debugApp() {
+    docker rm $NAME_APP
+	docker run --name $NAME_APP -v "src:/home/node/app/src" -p 8011:3000  -d $NAME_APP:$TAG_APP
+	echo "Start app $NAME_APP" 
+}
+
+stopApp() {
+        echo "Stoping app $NAME_APP" 
+        docker stop $NAME_APP
+}
+
+logApp() {
+        if [ "x$2" != "x" ]; then
+                docker logs $NAME_APP -f --tail $2
+        else
+                docker logs $NAME_APP -f
+        fi
+}
+
+case "$1" in
+        build)
+                build_image
+                ;;
+        debug)
+           debugApp
+           ;;
+        start)
+                startApp
+                ;;
+        stop)
+                stopApp
+                ;;
+        status)
+                docker ps -a | grep $NAME_APP
+                ;;
+        logs)
+                logApp
+                ;;
+        restart)
+                stopApp
+                startApp
+                ;;
+        *)
+                printUsage
+                echo
+                exit 1
+esac
