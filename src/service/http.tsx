@@ -1,7 +1,7 @@
 import { DataResponse, UserInfoResponse } from '~/config/types';
 
 function buildQueryString(params: any) {
-  let items = Object.keys(params).map((key) => {
+  const items = Object.keys(params).map((key) => {
     if (
       params[key] === "undefined" ||
       params[key] === "null" ||
@@ -15,12 +15,12 @@ function buildQueryString(params: any) {
     return `${key}=${encodeURIComponent(params[key])}`;
   });
 
-  let result = items.filter((t) => t !== void 0).join("&");
+  const result = items.filter((t) => t !== void 0).join("&");
 
   return result;
 }
 
-function buildURLWithParams(url: string, params?: {}) {
+function buildURLWithParams(url: string, params?: any) {
   if (!params) return url;
   const queryString = buildQueryString(params);
 
@@ -40,7 +40,7 @@ const convertError = (err: any) => {
 }
 
 export const fetchData = (url: string,
-  params?: {},
+  params?: any,
   options?: RequestInit
 ): Promise<DataResponse<any>> => {
   return new Promise<DataResponse<any>>((resolve, reject) => {
@@ -74,7 +74,7 @@ export const fetchData = (url: string,
 };
 
 export const postData = (url: string,
-  params?: {},
+  params?: any,
   data?: any | null,
   options?: any
 ): Promise<DataResponse<any>> => {

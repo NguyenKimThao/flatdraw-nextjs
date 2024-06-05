@@ -32,7 +32,7 @@ export default function PageLayout() {
     }
     colorLoading();
 
-  }, []);
+  }, [loading, loadingBoxLayerObject, colorLoading]);
 
   return (
     <>

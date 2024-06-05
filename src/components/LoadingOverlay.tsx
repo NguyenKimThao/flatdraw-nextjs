@@ -30,7 +30,7 @@ export default function LoadingOverlay() {
 
   useEffect(() => {
     loading()
-  }, []);
+  }, [loading,]);
   return (
     <Div>
       <LogoImg src="/images/logo/logo-dark.png" alt={`${metadata.website.name} logo`} />
