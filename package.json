@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npm run dev",
     "clean": "rm -rf dist && rm -rf out && rm -rf node_modules",
+    "postinstall": "node -r esm scripts/postinstall.ts",
     "next:dev": "next dev",
     "next:build": "next build",
     "next:export": "next export",
@@ -67,6 +68,7 @@
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-react": "7.33.1",
     "eslint-plugin-react-hooks": "4.6.0",
+    "esm": "3.2.25",
     "prettier": "3.0.1",
     "typescript": "5.1.6",
     "wrangler": "3.5.0"

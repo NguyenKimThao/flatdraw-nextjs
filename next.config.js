@@ -4,6 +4,9 @@ const nextConfig = {
   distDir: 'dist',
   output: 'export',
   trailingSlash: true,
+  eslint: {
+    // ignoreDuringBuilds: true,
+  },
   skipTrailingSlashRedirect: true,
 };
 

@@ -12,7 +12,7 @@ const useLocalstogare = (): {
   setBoxLayerObject: (collectionId: number, data: string) => any;
 } => ({
   getBoxLayerObject: (): any => {
-    let store = localStorage.getItem(CookieTypes.BoxLayerObject)
+    const store = localStorage.getItem(CookieTypes.BoxLayerObject)
     if (!store) {
       return [];
     }
@@ -21,7 +21,7 @@ const useLocalstogare = (): {
   setBoxLayerObject: (collectionId: number, data: string): any => {
     try {
       for (let i = 0; i < 3; i++) {
-        let store = localStorage.getItem(collectionId + "_" + CookieTypes.BoxLayerObject + "_" + i)
+        const store = localStorage.getItem(collectionId + "_" + CookieTypes.BoxLayerObject + "_" + i)
         if (store) {
           localStorage.setItem(collectionId + "_" + CookieTypes.BoxLayerObject + "_" + (i + 1), store)
         }

@@ -7,9 +7,9 @@ import { BiTrash, BiArchiveIn, BiArchiveOut } from 'react-icons/bi';
 import useCanvasObjects from '~/store/useCanvasObjects';
 import theme from '~/theme';
 
-import { H4, TextP } from '../commonTabComponents';
 import useActiveBoxLayerId from '~/store/useBoxLayerId';
 import useActiveBoxGroupId from '~/store/useBoxGroupId';
+import { H4, TextP } from '../commonTabComponents';
 
 const LayersUl = styled('ul')`
   list-style: none;
