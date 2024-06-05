@@ -16,15 +16,15 @@ build_image() {
 }
 
 startApp() {
-    docker rm $NAME_APP
-    docker run --name $NAME_APP -p 8011:3000  -d $NAME_APP:$TAG_APP
-	echo "Start app $NAME_APP" 
+        docker rm $NAME_APP
+        docker run --name $NAME_APP -p 8011:80  -d $NAME_APP:$TAG_APP
+        echo "Start app $NAME_APP" 
 }
 
 debugApp() {
-    docker rm $NAME_APP
-	docker run --name $NAME_APP -v "src:/home/node/app/src" -p 8011:3000  -d $NAME_APP:$TAG_APP
-	echo "Start app $NAME_APP" 
+        docker rm $NAME_APP
+        docker run --name $NAME_APP -v "src:/home/node/app/src" -p 8011:80  $NAME_APP:$TAG_APP
+        #echo "Start app $NAME_APP" 
 }
 
 stopApp() {
@@ -62,6 +62,12 @@ case "$1" in
         restart)
                 stopApp
                 startApp
+                ;;
+        wait)
+                while true
+                do
+                        sleep 1s;
+                done;
                 ;;
         *)
                 printUsage

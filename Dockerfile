@@ -6,6 +6,8 @@ RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
 COPY package.json package.json
 
+RUN npm install -g npm@10.8.1
+
 USER node
 
 RUN npm install --force
