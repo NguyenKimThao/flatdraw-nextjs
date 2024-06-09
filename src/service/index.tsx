@@ -2,7 +2,7 @@ import type { MapColorBoxType } from '~/config/types';
 import { CollectionItem, DataResponse, ListCollectionResponse, ListLayerResponse, UserInfoResponse, BoxLayerObject } from '~/config/types';
 import { fetchData, postData } from '~/service/http';
 
-const API_URL = process.env.API_URL || "http://localhost:8010";
+const API_URL = process.env.API_URL || "http://103.168.58.223:8010";
 
 const ApiService = {
   getUserInfo: (): Promise<DataResponse<UserInfoResponse>> => {

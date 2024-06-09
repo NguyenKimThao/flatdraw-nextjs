@@ -16,7 +16,7 @@ build_image() {
 }
 
 startApp() {
-    docker run --name $NAME_APP -p 8010:8010 -v "$PWD/usersdb.sqlite:/home/node/app/usersdb.sqlite" -d $NAME_APP:$TAG_APP
+    docker run --rm --name $NAME_APP -p 8010:8010 -v "$PWD/usersdb.sqlite:/home/node/app/usersdb.sqlite" -d $NAME_APP:$TAG_APP
 	echo "Start app $NAME_APP" 
 }
 
@@ -26,7 +26,7 @@ stopApp() {
 }
 
 logsApp() {
-	docker logs $NAME_APP
+	docker logs $NAME_APP --tail 10 -f
 }
 
 removeApp() {

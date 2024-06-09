@@ -17,13 +17,15 @@ build_image() {
 
 startApp() {
         docker rm $NAME_APP
-        docker run --name $NAME_APP -p 8011:80  -d $NAME_APP:$TAG_APP
+        # docker run --name $NAME_APP -p 8011:80  -d $NAME_APP:$TAG_APP
+        docker run --name $NAME_APP -it --rm -p 8011:80 -v $(pwd)/out:/usr/share/nginx/html -d  nginx
         echo "Start app $NAME_APP" 
 }
 
 debugApp() {
         docker rm $NAME_APP
-        docker run --name $NAME_APP -v "src:/home/node/app/src" -p 8011:80  $NAME_APP:$TAG_APP
+        # docker run --name $NAME_APP -p 8011:80  $NAME_APP:$TAG_APP
+        docker run --name $NAME_APP -it --rm -p 8011:80 -v $(pwd)/out:/usr/share/nginx/html nginx
         #echo "Start app $NAME_APP" 
 }
 

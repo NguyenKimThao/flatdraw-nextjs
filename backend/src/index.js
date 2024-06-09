@@ -28,7 +28,7 @@ app.use(express.static('public'));
 //   res.sendfile('./public/index.html');
 // });
 app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Thay 'http://example.com' bằng origin của ứng dụng của bạn
+  res.setHeader('Access-Control-Allow-Origin', 'http://103.168.58.223:8011'); // Thay 'http://example.com' bằng origin của ứng dụng của bạn
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, If-None-Match');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -117,7 +117,7 @@ app.post('/api/login', async (req, res) => {
       });
 
       user.token = token;
-      res.cookie('x-access-token', token, { maxAge: 86400000, httpOnly: true, secure: true, sameSite: 'none' });
+      res.cookie('x-access-token', token, { maxAge: 86400000, httpOnly: true, secure: false, sameSite: 'lax' });
       return res.send_success(user);
     });
   } catch (err) {
@@ -127,7 +127,7 @@ app.post('/api/login', async (req, res) => {
 
 app.post('/api/logout', async (req, res) => {
   try {
-    res.cookie('x-access-token', '', { expires: 0, httpOnly: true, secure: true, sameSite: 'none' });
+    res.cookie('x-access-token', '', { expires: 0, httpOnly: true,  secure: false, sameSite: 'lax' });
     return res.send_success({});
   } catch (err) {
     return res.send_exec(-100, err);
