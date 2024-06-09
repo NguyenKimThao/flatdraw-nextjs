@@ -16,7 +16,8 @@ build_image() {
 }
 
 startApp() {
-    docker run --rm --name $NAME_APP -p 8010:8010 -v "$PWD/usersdb.sqlite:/home/node/app/usersdb.sqlite" -d $NAME_APP:$TAG_APP
+	docker rm $NAME_APP
+    docker run --name $NAME_APP -p 8010:8010 -v "$PWD/usersdb.sqlite:/home/node/app/usersdb.sqlite" -d $NAME_APP:$TAG_APP
 	echo "Start app $NAME_APP" 
 }
 
